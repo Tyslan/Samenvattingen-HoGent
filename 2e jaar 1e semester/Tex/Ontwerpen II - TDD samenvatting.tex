@@ -1,0 +1,134 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{a4wide}
+\usepackage[dutch]{babel}
+\usepackage[small,bf,hang]{caption}
+\usepackage{listings}
+
+\begin{document}
+\title{\Huge Test Driven Development}
+\author{\LARGE Lorenz Verschingel}
+\date{16 november 2014}
+\maketitle
+\clearpage
+
+\tableofcontents
+\clearpage
+
+\section{JUnit}
+\subsection[Voordelen]{Voordelen van testen}
+De voordelen van testen zijn:
+	\begin{itemize}
+		\item Denken over wat de code moet doen.
+		\item Design kan makkelijk mee evoluëren.
+		\item Minder tijd in de debugger bezig zijn.
+		\item Korte feedback loop.
+		\item Toont of refactoring code, die voordien 				  werkte, gebroken heeft.
+		\item Versimpeling van code:
+		\begin{itemize}
+			\item Alleen code om de tests te doen slagen.
+			\item Kleine klasses met de focus op een ding.
+			\item Solide code.
+		\end{itemize}
+	\end{itemize}
+Het resultaat is:
+\begin{itemize}
+	\item De unit testen zijn simpel en dienen als documentatie.
+	\item De code is verbeterd en er zijn minder bugs:
+	\begin{itemize}
+		\item de code is simpel.
+		\item nieuwe code breekt de oude code niet.
+	\end{itemize}
+\end{itemize}
+
+\subsection{Workflow}
+\begin{enumerate}
+	\item Klassendiagram
+	\item Schrijf testen
+	\item Voer de testen uit
+	\item Schrijf code:
+	\begin{itemize}
+		\item Om tests te doen slagen.
+		\item Om code efficiënter te maken.
+	\end{itemize}
+\end{enumerate}
+Hier is het duidelijk dat men eerst de test schrijft en dan pas de code. Als dit niet gebeurt dan is er de neiging om de tests op de code te baseren en niet op de analyse.
+
+\subsection{JUnit}
+\begin{itemize}
+	\item Test Case wordt aangeduidt met \emph{@Test} 	voor de methode te schrijven.
+	\item Normale workflow:
+	\begin{enumerate}
+		\item Maak een object van de te testen klasse.
+		\item Roep de te testen methode op.
+		\item Controlleer of de code correct is uitgevoerd.
+	\end{enumerate}
+	\item Door de annotatie van @Before wordt het stuk code in de methode voor iedere unit test uitgevoerd.
+\end{itemize}
+Bij JUnit moeten de testen in willekeurige volgorde uitgevoerd kunnen worden.
+
+\noindent
+De te Testklasses kunnen allemaal samen uitgevoerd worden d.m.v. een Test Suite, deze kan m.b.v. JUnit aangemaakt worden.
+
+\noindent
+JUnit voorziet ook geparameteriseerde tests. Deze kunnen eenvoudig opgeroepen worden door \emph{@RunWith(Parameterized.class)}. Binnen de testklasse zelf moeten dan de methode getParameters voorzien worden met de annotatie \emph{@Parameters}.
+\begin{quote}
+\textit{"Keep the bar green, to keep your code clean."}
+\end{quote}
+\subsection{Wat testen?}
+De volgende zaken moeten altijd getest worden:
+\begin{itemize}
+	\item Grenswaarden uit de realiteit
+	\item Niet toegelaten waarden uit de realiteit
+	\item Niet toegelaten waarden door techniek (vb null)
+	\item Verzamelingen
+	\begin{itemize}
+		\item Normale verzameling
+		\item Verzameling met grenswaarden
+		\item Verzamelingen met 1 element
+		\item Lege verzamelingen
+		\item Null
+	\end{itemize}	
+	\item Strings
+	\begin{itemize}
+		\item Normale waarde
+		\item Lege String
+		\item Null
+		\item Te lange waarde/Te korte waarde
+		\item Strings met vreemde tekens
+	\end{itemize}	
+	\item Exceptions
+
+\end{itemize}
+\section{Mock}
+\subsection{Waarom mock-objecten?}
+Bij het testen vormen de depencencies tussen de te testen klassen een probleem:
+\begin{itemize}
+	\item Een van de klasses kan nog niet geschreven zijn.
+	\item Een van de klasses is een UI en daardoor zou er 			interactie met een gebruiker nodig zijn.
+	\item Moeilijk om te testen als een van de klasses excepties werpt.
+	\item Testen met databank zijn vaak te traag.
+\end{itemize}
+Voor al deze problemen biedt een mockobject een oplossing. Een mockobject is dus een testtool.
+\subsection{Het mock-object}
+Mock-objecten zijn nepobjecten die het gedrag van het echte object nabootsen. Het mock-object wordt doot \emph{dependency injection} in de echte code geplaatst.
+\subsection{Dependency Injection}
+Dependency injection is een geavanceerd ontwerppatroon uit de informatica. Dit ontwerppatroon maakt het mogelijk om objecten losjes te koppelen. Hiermee wordt bedoelt dat de klasses data kunnen uitwisselen zonder deze relatie hard te koppelen.
+\subsection{Workflow}
+In het volgende deel zal steeds naar het mock-object gerefereerd worden als dummy.
+\begin{enumerate}
+	\item De werkelijke implementatie, BImpl en de dummy, BDummy, implementeren eenzelfde interface I.
+	\item De dependeny wordt vastgelegd, in A, met een private variable van het I.
+	\item In A wordt:
+	\begin{itemize}
+		\item Een constructor met een parameter van het type I voorzien.
+		\item Een set methode met een parameter van het type I voorzien.
+	\end{itemize}
+	\item Bij het uitvoeren wordt BImpl meegegeven.
+	\item Bij het testen wordt BDummy meegegeven.
+\end{enumerate}
+\subsection*{Besluit}
+Mock-objecten zijn nep objecten. Ze worden gebruikt door echte code die getest wordt. Dit geeft tot gevolg dat er nooit business logic in de mock-objecten wordt geschreven.
+\section{Mockito}
+Mockito is een framework dat het testen met mock-objecten een stuk makkelijker maakt.
+\end{document}
