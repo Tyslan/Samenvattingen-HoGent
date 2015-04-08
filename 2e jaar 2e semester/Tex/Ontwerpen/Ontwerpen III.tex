@@ -199,4 +199,52 @@ Nadat alle atributen zijn gemaakt kan met met behulp van de static Builder de re
 
 Merk ook op dat de meeste "setters" van de klasse Builder ook een Builder retourneren. Dit is dan het eigenlijke Builder-object waarop iets werd toegevoegd.
 
+\section{Singleton}
+Een singleton is een uniek object waarvoor er slechts één instantie bestaat.
+Indien er meerdere instanties van dit object zouden zijn, resulteert dit gegarandeerd in problemen.
+Het singleton garandeert dan ook dat er maar één en niet meer dan één instatie van een bepaalde klasse bestaat.
+Verder levert de klasse één globaal toegangspunt.
+De instatie van de klasse wordt pas aangemaakt op het moment dat dit nodig is (=Lazy Loading).
+
+In het kort:
+
+Het Singleton Pattern garandeert dat een klasse slechts één
+instantie heeft, en biedt een globaal toegangspunt ernaartoe.
+
+\begin{figure}[H]
+\centering
+  	\includegraphics[width=.7\linewidth]{img/Singleton/Singleton.png}
+  	\caption{UML: Singleton}
+  	\label{fig:Singleton}
+\end{figure}
+
+In figuur~\ref{fig:Singleton} ziet men dat het Singleton een uniek object van het type Singleton bijhoudt. Omdat dit Singleton altijd hetzelfde object moet zijn is dit attribuut static. Om dezelfde reden is de methode getInstance() ook static.
+
+\subsection{Problemen bij multithreading}
+Als er niet ingegrepen wordt kunnen er toch meerdere instanties van het Singleton object bestaan.
+Dit kan tot ernstige problemen leiden.
+Toch kan dit probleem relatief makkelijk opgelost worden in Java.
+
+Een eerste oplossing is zonder lazy loading. Men zorgt dat het Singleton-object final is en er wordt ook meteen een instantie gemaakt. Hiervoor kan de code uit figuur~\ref{fig:SingletonEagerLoading} bekeken worden.
+
+Een tweede oplossing is om de static methode getInstance synchronised te maken. Zo kan men weer gebruik maken van lazy loading, maar men dient wel te besteffen dat synchronisatie duur is. Het kan de performatie met een factor 100 reduceren. Ook is de synchronisatie overbodig nadat de code voor de eerste maal is doorlopen. De code hiervoor kan in figuur~\ref{fig:SingletonLazyLoading} bezichtigd worden.
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{.49\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{img/Singleton/SingletonZonderLazyLoading.png}
+  \caption{Singleton met Eager Loading}
+  \label{fig:SingletonEagerLoading}
+\end{subfigure}
+\begin{subfigure}{.49\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{img/Singleton/SingletonMetLazyLoading.png}
+  \caption{Singleton met Lazy Loading}
+  \label{fig:SingletonLazyLoading}
+  \end{subfigure}
+\caption{Code: multithreading safe}
+\label{fig:SingletonMultithreadSafe}
+\end{figure}
+
 \end{document}
