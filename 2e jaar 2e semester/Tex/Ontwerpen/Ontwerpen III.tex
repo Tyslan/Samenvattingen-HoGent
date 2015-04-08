@@ -124,4 +124,27 @@ Bij het uitvoeren van het macro-commando voert deze dan alle commando's die in d
 \item ASP.NET MVC: Klasse ActionResult met methode ExecuteResult().
 \end{itemize}
 
+\section{Template Method Pattern}
+Het Template Method Pattern definieert het skelet van een algoritme in een methode, waarbij sommige stappen aan subklassen worden overgelaten.
+De Template method laat subklassen bepaalde stappen in een algoritme herdefiniëren zonder de structuur van het algoritme te veranderen.
+
+\begin{figure}[H]
+\centering
+  	\includegraphics[width=.5\linewidth]{img/Template/Template.png}
+  	\caption{UML Template Pattern}
+  	\label{fig:Template}
+\end{figure}
+
+\subsection{Inhaken in een Template Method}
+In de template method kan men een conditionele opdracht toevoegen. Deze methode heeft een (bijna) lege standaard implementatie. Deze methode noemt men dan de hook. Een subklasse kan deze methode overriden maar dit is niet verplicht.
+
+\begin{figure}[H]
+\centering
+  	\includegraphics[width=.5\linewidth]{img/Template/VoorbeeldHook.png}
+  	\caption{Code met hook}
+  	\label{fig:VoorbeeldHook}
+\end{figure}
+
+In figuur~\ref{fig:VoorbeeldHook} is de methode customerWantCondiments() de hook. Enkel als deze methode waar is dan wordt de methode addCondiments() opgeroepen.
+
 \end{document}
