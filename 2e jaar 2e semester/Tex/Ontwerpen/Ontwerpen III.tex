@@ -71,4 +71,30 @@ Figuur~\ref{fig:Iterator} heeft een redelijk uitgebreide verantwoordelijkheid aa
 
 Java voorziet het iterator pattern met de klasse Iterator.
 Hiervoor moet men zorgen dat de iterator-klasse de klasse Iterator van Java gebruikt en dat de methode createIterator() het type Iterator$<$teItererenType$>$ terug geeft.
+
+\section{Composite Pattern}
+Het Composite Pattern stelt je in staat om objecten in boomstructuren samen te stellen om partwhole hiërarchiën weer te geven.
+Composite laat clients de afzonderlijke objecten of samengestelde objecten op uniforme wijze behandelen.
+
+Beschouw figuur~\ref{fig:Composite}.
+De klasse Component is een interface voor alle objecten in de compositie.
+Een leaf definiëert het gedrag voor de elementen in de compositie.
+Dit gebeurt via implementatie van de operaties die de klasse Composite ondersteunt.
+De klasse Composite definiëert het gedrag van de component met kinderen. Deze klasse moet ook alle kinderen kunnen bijhouden.
+
+Zowel Composite als Leaf overriden enkel de methoden die zin hebben, en gebruiken de standaardimplementatie uit Component voor de methoden die niet zinnig zijn.
+
+\begin{figure}[H]
+\centering
+  	\includegraphics[width=.7\linewidth]{img/Composite.png}
+  	\caption{UML Composite Pattern}
+  	\label{fig:Composite}
+\end{figure}
+
+\subsection{De compositie-iterator}
+Om een Composite-iterator te implementeren voegen we de methode createIterator() toe aan iedere component.
+Voor de Composite klasse geeft deze methode een iterator over zijn kinderen terug, voor de klasse Leaf een NullIterator. Als over de hele boomstructuur geïtereerd moet worden dan moet de iterator van de root in een CompositeIterator klasse verpakt worden.
+
+De klasse CompositeIterator implementeert de interface Iterator.
+Verder bevat deze klasse een stack waarop alle afzonderlijke Iterators geplaatst kunnen worden.
 \end{document}
