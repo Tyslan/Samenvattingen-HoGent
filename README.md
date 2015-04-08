@@ -14,15 +14,15 @@ Hieronder volgt een lijstje met opsommingen van de vakken waarvoor reeds een sam
 - [x] Analyse II
 - [x] Bedrijfsmanagement
 - [x] Besturingssystemen
-- [] Internationale communicatie II
+- [ ] Internationale communicatie II
 - [x] OO Ontwerpen II
-- [] OO programmeren III
-- [] Webapplicaties III
+- [ ] OO programmeren III
+- [ ] Webapplicaties III
 
 ###2e Jaar 2e semester
-- [] Databanken II
-- [] IT2Business
-- [] Onderzoekstechnieken
+- [ ] Databanken II
+- [ ] IT2Business
+- [ ] Onderzoekstechnieken
 - [x] OO Ontwerpen III
-- [] Probleemoplossend denken II
-- [] Webapplicaties IV
+- [ ] Probleemoplossend denken II
+- [ ] Webapplicaties IV
