@@ -22,7 +22,7 @@ Dit object noemen we \textit{Factory}.
 \subsection{Simple Factory}
 \begin{figure}[H]
 \centering
-  	\includegraphics[width=.9\linewidth]{img/Ontwerpen/Factory/SimpleFactory.jpg}
+  	\includegraphics[width=.5\linewidth]{img/Factory/SimpleFactory.jpg}
   	\caption{UML Simple Factory}
   	\label{fig:SimpleFactory}
 \end{figure}
@@ -32,7 +32,7 @@ Volgens de UML in figuur~\ref{fig:SimpleFactory} kan de ProductFactory producten
 \subsection{Factory Methode}
 \begin{figure}[H]
 \centering
-  	\includegraphics[width=.9\linewidth]{img/Ontwerpen/Factory/FactoryMethod.png}
+  	\includegraphics[width=.5\linewidth]{img/Factory/FactoryMethod.png}
   	\caption{UML Factory Methode}
   	\label{fig:FactoryMethod}
 \end{figure}
@@ -50,13 +50,25 @@ Wees afhankelijk van abstracties, niet afhankelijk van concrete klassen.
 \subsection{Abstract Factory Pattern}
 \begin{figure}[H]
 \centering
-  	\includegraphics[width=.9\linewidth]{img/Ontwerpen/Factory/AbstractFactory.png}
+  	\includegraphics[width=.7\linewidth]{img/Factory/AbstractFactory.png}
   	\caption{UML Abstract Factory}
   	\label{fig:AbstractFactory}
 \end{figure}
 
 Het Abstract Factory Pattern levert een interface voor de vervaardiging van reeksen gerelateerde of afhankelijke objecten zonder hun concrete klassen te specificeren.
 
+\section{Iterator Pattern}
+\begin{figure}[H]
+\centering
+  	\includegraphics[width=.7\linewidth]{img/Iterator.png}
+  	\caption{UML Iterator Pattern}
+  	\label{fig:Iterator}
+\end{figure}
 
+Het Iterator Pattern voorziet ons van een manier voor sequentiële toegang tot de elementen van een aggregaatobject zonder de onderliggende representatie weer te geven.
 
+Figuur~\ref{fig:Iterator} heeft een redelijk uitgebreide verantwoordelijkheid aan de iterator. In de meeste gevallen volstaat het om een methode hasNext() en Next() in te voeren.
+
+Java voorziet het iterator pattern met de klasse Iterator.
+Hiervoor moet men zorgen dat de iterator-klasse de klasse Iterator van Java gebruikt en dat de methode createIterator() het type Iterator$<$teItererenType$>$ terug geeft.
 \end{document}
