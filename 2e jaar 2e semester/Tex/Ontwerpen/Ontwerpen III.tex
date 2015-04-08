@@ -23,7 +23,7 @@ Dit object noemen we \textit{Factory}.
 \begin{figure}[H]
 \centering
   	\includegraphics[width=.5\linewidth]{img/Factory/SimpleFactory.jpg}
-  	\caption{UML Simple Factory}
+  	\caption{UML: Simple Factory}
   	\label{fig:SimpleFactory}
 \end{figure}
 
@@ -33,7 +33,7 @@ Volgens de UML in figuur~\ref{fig:SimpleFactory} kan de ProductFactory producten
 \begin{figure}[H]
 \centering
   	\includegraphics[width=.5\linewidth]{img/Factory/FactoryMethod.png}
-  	\caption{UML Factory Methode}
+  	\caption{UML: Factory Methode}
   	\label{fig:FactoryMethod}
 \end{figure}
 
@@ -51,7 +51,7 @@ Wees afhankelijk van abstracties, niet afhankelijk van concrete klassen.
 \begin{figure}[H]
 \centering
   	\includegraphics[width=.7\linewidth]{img/Factory/AbstractFactory.png}
-  	\caption{UML Abstract Factory}
+  	\caption{UML: Abstract Factory}
   	\label{fig:AbstractFactory}
 \end{figure}
 
@@ -61,7 +61,7 @@ Het Abstract Factory Pattern levert een interface voor de vervaardiging van reek
 \begin{figure}[H]
 \centering
   	\includegraphics[width=.7\linewidth]{img/Iterator.png}
-  	\caption{UML Iterator Pattern}
+  	\caption{UML: Iterator Pattern}
   	\label{fig:Iterator}
 \end{figure}
 
@@ -87,7 +87,7 @@ Zowel Composite als Leaf overriden enkel de methoden die zin hebben, en gebruike
 \begin{figure}[H]
 \centering
   	\includegraphics[width=.7\linewidth]{img/Composite.png}
-  	\caption{UML Composite Pattern}
+  	\caption{UML: Composite Pattern}
   	\label{fig:Composite}
 \end{figure}
 
@@ -109,7 +109,7 @@ In figuur~\ref{fig:Command} zorgt de Client ervoor dat de Invoker het juiste com
 \begin{figure}[H]
 \centering
   	\includegraphics[width=.7\linewidth]{img/CommandPattern.png}
-  	\caption{UML Command Pattern}
+  	\caption{UML: Command Pattern}
   	\label{fig:Command}
 \end{figure}
 
@@ -131,7 +131,7 @@ De Template method laat subklassen bepaalde stappen in een algoritme herdefinië
 \begin{figure}[H]
 \centering
   	\includegraphics[width=.5\linewidth]{img/Template/Template.png}
-  	\caption{UML Template Pattern}
+  	\caption{UML: Template Pattern}
   	\label{fig:Template}
 \end{figure}
 
@@ -146,5 +146,57 @@ In de template method kan men een conditionele opdracht toevoegen. Deze methode 
 \end{figure}
 
 In figuur~\ref{fig:VoorbeeldHook} is de methode customerWantCondiments() de hook. Enkel als deze methode waar is dan wordt de methode addCondiments() opgeroepen.
+
+\section{Builder Pattern}
+Gebruik het Builder pattern om de constructie van een product af te schermen en zorg dat je het in stappen kan construeren.
+
+Mogelijke hints hiervoor zijn:
+\begin{itemize}
+\item Constructor met veel parameters
+\item Klasse met veel constructors
+\item Samengesteld object
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+  	\includegraphics[width=.7\linewidth]{img/Builder/Builder.png}
+  	\caption{UML: Builder pattern}
+  	\label{fig:Builder}
+\end{figure}
+
+In figuur~\ref{fig:Builder} is de klasse Builder een abstracte interface voor de creatie van de onderdelen van het Product object.
+De ConcreteBuilder bouwt de onderdelen van het complexe object en gooit deze samen door implementatie van de Builder interface.
+Het houdt een representatie van het object bij en biedt een interface voor het opvragen van het product.
+De Director klasse bouwt het complexe object gebruik makend van de interface van de Builder.
+
+De voordelen van het Builder Pattern zijn dat de manier waarop een complex object gebouwd wordt afgeschermt is.
+Het geeft ook de mogelijkheid om objecten in meerdere stappen en wisselende processen te maken.
+(Dit in tegenstelling tot Factory Pattern.)
+Het verbergt de interne representatie van het product voor de client.
+En tot slot kunnen Productimplementaties steeds wisselen, dit is zo omdat de client alleen een abstracte interface ziet.
+
+Een nadeel van het Builder Pattern is dat het maken van een object meer domeinkennis vereist van de client dan bij het Factory Pattern. Dit kan opgelost worden door een Director klasse toe te voegen.
+
+\subsection{Variant}
+Deze variant is bedoeld voor de constructie van klasses met
+\begin{itemize}
+\item veel opties.
+\item veel argumenten bij constructie.
+\item mogelijks ook al veel default waarden.
+\end{itemize}
+Men kan dan de Builder klasse als een interne klasse implementeren.
+
+\begin{figure}[H]
+\centering
+  	\includegraphics[width=.7\linewidth]{img/Builder/BuilderVariant.png}
+  	\caption{Voorbeeld: Variant van het Builder Pattern}
+  	\label{fig:BuilderVariant}
+\end{figure}
+
+Als de code bij figuur~\ref{fig:BuilderVariant} geïmplementeerd wordt dan wordt bij de constructie van de rechthoek alle attributen uit de builder opgehaald.
+Constructie van de rechthoek gebeurt daar de static Builder aan te spreken en zo alle attributen mee te geven.
+Nadat alle atributen zijn gemaakt kan met met behulp van de static Builder de rechthoek construeren.
+
+Merk ook op dat de meeste "setters" van de klasse Builder ook een Builder retourneren. Dit is dan het eigenlijke Builder-object waarop iets werd toegevoegd.
 
 \end{document}
