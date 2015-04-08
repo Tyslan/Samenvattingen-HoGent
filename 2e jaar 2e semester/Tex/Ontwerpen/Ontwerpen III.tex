@@ -97,4 +97,31 @@ Voor de Composite klasse geeft deze methode een iterator over zijn kinderen teru
 
 De klasse CompositeIterator implementeert de interface Iterator.
 Verder bevat deze klasse een stack waarop alle afzonderlijke Iterators geplaatst kunnen worden.
+
+\section{Command Pattern}
+Het Command Pattern schermt een aanroep af door middel van een object, waarbij je verschillende aanroepen in verschillende objecten kan opbergen, in een queue kan zetten of op schijf kan bewaren.
+Vaak worden ook undo-operaties ondersteund.
+
+Het command pattern wordt gebruikt om een actie voor te stellen als een object. De commands bevatten alle info die ze nodig hebben om de actie te kunnen uitvoeren. Nieuwe commando's kunnen eenvoudig worden toegevoegd.
+
+In figuur~\ref{fig:Command} zorgt de Client ervoor dat de Invoker het juiste commando kent. Later kan de Client dan ook aan de Invoker vragen om het commando uit te voeren.
+
+\begin{figure}[H]
+\centering
+  	\includegraphics[width=.7\linewidth]{img/CommandPattern.png}
+  	\caption{UML Command Pattern}
+  	\label{fig:Command}
+\end{figure}
+
+\subsection{Macro-Command}
+Een macro-command houdt een lijst bij met allerlei commando's.
+Bij het uitvoeren van het macro-commando voert deze dan alle commando's die in de lijst zitten één voor één uit.
+
+\subsection{Toepassingen}
+\begin{itemize}
+\item Aanvragen in een wachtrij
+\item Logging aanvragen
+\item ASP.NET MVC: Klasse ActionResult met methode ExecuteResult().
+\end{itemize}
+
 \end{document}
