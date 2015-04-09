@@ -9,10 +9,136 @@
 \usepackage{parskip}
 \usepackage{float}
 \usepackage{subcaption}
+\usepackage{listings}
 
 \title{Samenvatting Databanken II \\ \large TIN 2 - HoGent}
 \author{Lorenz Verschingel}
 
 \begin{document}
 \maketitle
+
+\section{SQL}
+
+\subsection{Inner join}
+Voorbeeld van een inner join:
+\begin{lstlisting}[language=sql]
+SELECT au_lastName, au_FirstName, title_id
+FROM authors
+JOIN titleAuthor ON authors.au_id = titleauthor.au_id
+\end{lstlisting}
+Hier worden alle records van authors en titleAuthor aan elkaar gekoppeld op basis van au\_id.
+
+\subsection{Aliassen}
+Het gebruik van tabel aliassen gebeurt via het keyword 'AS' of door een spatie.
+
+\begin{lstlisting}[language=sql]
+SELECT au_lname, au_fname, title_id
+FROM authors AS A
+JOIN titleauthor TA ON A.au_id = TA.au_id
+\end{lstlisting}
+
+\subsection{Inner join van meerdere tabellen}
+Gegevens kunnen ook over meerdere tabellen verspreid zitten. Hierbij moeten dan meerdere tabellen aan elkaar gekoppeld worden.
+\begin{lstlisting}[language=sql]
+SELECT au_lname, au_fname, title
+FROM authors A
+JOIN titleauthor TA ON A.au_id= TA.au_id
+JOIN titles T ON TA.title_id= T.title_id
+\end{lstlisting}
+Het kan zijn dat er enkel gegevens uit 2 tabellen worden getoond, maar dat er in werkelijkheid meerdere tabellen gekoppeld zijn omdat het geen directe koppeling is tussen de tabellen waaruit de gegevens komen.
+
+\subsection{Outer join}
+Een outer join retourneert alle records van 1 tabel, zelfs als er geen gerelateerd record bestaat in de andere tabel.
+
+Er zijn 3 types van outer join:
+\begin{enumerate}
+\item Left outer join retourneert alle rijen van de eerst genoemde tabel in de FROM clause.
+
+In sql is dit de LEFT JOIN
+\item Right outer join retourneert alle rijen van de tweede genoemde tabel in de FROM clause.
+
+In sql is dit de RIGHT JOIN
+\item Full outer join retourneert ook rijen uit de eerste en tweede tabel die geen corresponderende entry hebben in de andere tabel.
+
+In sql is dit de CROSS JOIN
+\end{enumerate}
+
+\subsection{Union}
+Via een UNION combineer je het resultaat van 2 of meerdere queriesin 1 resultaattabel.
+\begin{lstlisting}[language=sql]
+SELECT ... FROM ... WHERE ...
+UNION
+SELECT ... FROM ... WHERE ...
+ORDER BY ...
+\end{lstlisting}
+Regels:
+\begin{itemize}
+\item De resultaten van de 2 SELECT opdrachten moeten evenveel kolommen bevatten.
+\item Overeenkomstige kolommen uit beide SELECT’smoeten van hetzelfde data type zijn en beide NOT NULL toelaten of niet.
+\item Kolommen komen voor in dezelfde volgorde
+\item De kolomnamen/titels van de UNION zijn deze van de eerste SELECT
+\item Het resultaat bevat echter steeds alleen unieke rijen
+\item Aan het einde van de UNION kan je een ORDER BY toevoegen.
+In deze clausule mag geen kolomnaam of uitdrukking voorkomen indien kolomnamen van beide select’sverschillen.
+Gebruik in dat geval kolomnummers.
+\end{itemize}
+
+\subsection{Subqueries}
+Bij een subquerykomt een selectie voor als onderdeel van een andere selectie.
+
+\begin{lstlisting}[language=sql]
+SELECT ...
+FROM
+WHERE voorwaarde
+\end{lstlisting}
+
+De voorwaarde bevat in het rechterlid tussen ronde haakjes een nieuwe SELECT.
+
+De outer level query is de eerste select. Deze bevat de hoofdvraag.
+
+De inner level query is de tweede select deze staat in de WHERE of HAVING clause.
+
+We gebruiken subqueries om:
+\begin{itemize}
+\item een resultaat te retourneren waarbij de subquery een proces gegeven bevat.
+\item gegevens uit meerdere tabellen te halen. Dit kan vergeleken worden met een JOIN.
+Enkel worden bij subqueries de tabellen afzonderlijk gebruikt.
+\end{itemize}
+
+Er zijn drie vormen in de WHERE clause
+\begin{enumerate}
+\item Geneste subvragen
+\item Gecorreleerde subvragen
+\item Operator exists
+\end{enumerate}
+
+Subqueries kunnen ook voorkomen in de FROM en SELECT clause.
+
+\subsubsection{Geneste subvragen}
+De subvragen worden altijd eerst uitgevoerd en moeten steeds tussen haakjes staan. Subvragen kunnen in meerdere niveau's genest zijn.
+
+Bij een geneste subquery kan de één waarde geretourneerd worden of een ganse lijst met waarden.
+
+ANY en ALL keywords worden gebruikt in combinatie met de relationele operatoren en subqueriesdie een kolom van waarden retourneren.
+
+\begin{itemize}
+\item ALL retourneert TRUE als alle waarden geretourneerd in de subquer yvoldoenaande voorwaarde.
+\item ANY retourneert TRUE als minstens 1 waarde geretourneerd in de subquery voldoet aan de voorwaarde.
+\end{itemize}
+
+\subsubsection{Gecorreleerde subqueries}
+Bij een gecorreleerde subquery hangt de inner query af van informatie van de outer query. Voor elke rij uit de hoofdvraag wordt de subvraag opnieuw uitgevoerd. Bijgevolg gebruikt me beter JOIN als dit mogelijk is.
+
+\begin{lstlisting}[language=sql]
+SELECT ...
+FROM tabel a
+WHERE uitdrukking operator (
+	SELECT ...
+	FROM tabel
+	WHERE uitdrukking operator a.kolomnaam)
+\end{lstlisting}
+In de hoofdvraag mag je geen velden gebruiken uit de subvraag, maar wel omgekeerd.
+
+\subsubsection{Exists operator}
+Via de operator EXISTS wordt getest op het al dan niet leeg zijn van een resultaatset. Er bestaat ook NOT EXISTS.
 \end{document}
