@@ -157,8 +157,7 @@ Eén rij kan niet op meerdere pagina’s bewaard worden, een rij mag maximaal 80
 Een tabel, index wordt opgeslagen in een extend.
 Dit alles is te zien op figuur~\ref{fig:DatabaseCreatie}
 
-\begin{figure}
-[H]
+\begin{figure}[H]
 \centering
   	\includegraphics[width=.5\linewidth]{img/DatabaseCreatie.png}
   	\caption{Opbouw van een database}
@@ -334,4 +333,56 @@ AS select_statement
 \end{lstlisting}
 
 Views kunnen net als tabellen verwijders en gewijzigd worden.
+
+\subsection{Indexen en performatie}
+De heap is een ongeordende verzameling van data-pages zonder clustered index. Dit is de standaard opslag van een tabel.
+
+Een index is een geordende structuur die op de records uit een tabel wordt gelegd.
+Deze zijn snel toegankelijk dankzij een boomstructuur.
+Dankzij indices kan de toegang tot data versnelt worden en kan uniciteit van de rijen afgedwongen worden.
+Daarentegen nemen indexen veel opslagruimte in beslag en ze kunnen de performantie ook doen dalen.
+
+\subsubsection{Clustered Index}
+De fysische volgorde van de rijen in een tabel is deze van de clustered index.
+Elke tabel kan maar één clustered index hebben.
+
+De voordelen t.o.v. table scan zijn dat  een dubbel gelinkte lijst zorgt voor de volgorde bij het lezen van sequentiële records.
+Er zijn ook geen forward pointers.
+De clustered index legt unieke waarden op.
+
+\begin{figure}[H]
+\centering
+  	\includegraphics[width=.35\linewidth]{img/ClusteredIndex.png}
+  	\caption{Clustered index}
+  	\label{fig:ClusteredIndex}
+\end{figure}
+
+\subsubsection{Non-clustered Index}
+De non-clustered index is de default index, deze werkt trager dan de clustered index.
+Wel zijn er meerdere non clustered indexen mogelijk per tabel.
+Elke leaf bevat een sleutelwaarde en een row locator, deze wijst naar de positie in de clustered index als die bestaat, anders naar de heap.
+
+\begin{figure}[H]
+\centering
+  	\includegraphics[width=.35\linewidth]{img/NonClusteredIndex.png}
+  	\caption{Non-clustered index}
+  	\label{fig:NonClusteredIndex}
+\end{figure}
+
+\subsubsection{Covering index}
+Als een non-clustered indec een query niet volledig covert, dan moet de databank voor elke rij een lookup doen om de data op te halen.
+Een covering index is in wezen een non-clustered index die alle kolommen bevat die nodig zijn voor een bepaalde query.
+
+\subsubsection{Operaties op een index}
+Creatie:
+\begin{lstlisting}[language=sql, breaklines=true]
+CREATE [UNIQUE] [CLUSTERED | NONCLUSTERED]
+	INDEX index_naamON tabel(kolom[,...n])
+\end{lstlisting}
+
+Verwijderen:
+\begin{lstlisting}[language=sql, breaklines=true]
+DROP INDEX table_name.index_name[,...n]
+\end{lstlisting}
+
 \end{document}
