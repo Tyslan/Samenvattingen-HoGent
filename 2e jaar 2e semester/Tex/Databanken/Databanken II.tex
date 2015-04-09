@@ -483,4 +483,262 @@ In een programma kan je het verloop bepalen via o.a.:
 	\end{itemize}
 \end{itemize}
 
+\subsection{Cursors}
+SQL statements werken standaar met een complete resultaatset en niet met individuele rijen. Cursors laten toe om met individuele rijen te werken.
+Een cursor is dus een database object die wijst naar een resultaatset. Via de cursor kan men aangeven met wlke rij uit de resultaatset men wenst te werken.
+
+\subsubsection{Declaratie van een cursor}
+\begin{lstlisting}[language=sql, breaklines=true]
+DECLARE <cursor_name> [INSENSITIVE][SCROLL] CURSOR FOR
+<SELECT_statement>
+[FOR {READ ONLY | UPDATE[OF <column list>]}]
+\end{lstlisting}
+
+\begin{itemize}
+\item INSENSITIVE
+	\begin{itemize}
+	\item de cursor werkt met een tijdelijke kopie van de gegevens
+		\begin{itemize}
+		\item wijzigingen in onderliggende tabellen worden niet gereflecteerd in gegevens opgehaald via de cursor.
+		\item de cursor kan niet gebruikt worden om tabellen te wijzigen
+		\end{itemize}
+	\item wanneer INSENSITIVE weggelaten wordt dan worden deletes en updates wel degelijk gereflecteerd in de cursor. 
+	
+	Dit is wel minder performant aangezien elke fetch nu resulteert in en nieuwe select opdracht.
+	\end{itemize}
+\item SCROLL
+	\begin{itemize}
+	\item alle soorten fetch operaties zijn bruikbaar
+		\begin{itemize}
+		\item FIRST, LAST, PRIOR, NEXT, RELATIVE en ABSOLUTE
+		\end{itemize}
+	\item wanneer SCROLL weggelaten wordt dan kan je enkel via NEXT data ophalen.
+	\end{itemize}
+\item READ ONLY
+	\begin{itemize}
+	\item verhindert dat je via de cursor de onderliggende tabellen kan wijzigen
+	\item per default kan je via de cursor wel de onderliggende tabellen aanpassen
+	\end{itemize}
+\item UPDATE
+	\begin{itemize}
+	\item benoemen van specifieke kolommen die kunnen gewijzigd worden via de cursor.
+	
+	Enkel kolommen benoemd in deze clause kunnen gewijzigd worden.
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{Openen van een cursor}
+\begin{lstlisting}[language=sql, breaklines=true]
+OPEN <cursor name>
+\end{lstlisting}
+
+Hiermee wordt de cursor geopend en vervolgens opgevult met het SELECT statement dat in de declaratie was meegegeven.
+
+De cursors current row pointer wordt gepositioneerd net voor de eerste rij in de actieve set.
+
+\subsubsection{Data ophalen via een cursor}
+\begin{lstlisting}[language=sql, breaklines=true]
+FETCH[NEXT | PRIOR | FIRST | LAST | {ABSOLUTE|RELATIVE <rownumber>}]
+FROM <cursor name>
+[INTO <variable name> [,...<last variable name>]]
+\end{lstlisting}
+\begin{itemize}
+\item De cursor wordt gepositioneerd
+	\begin{itemize}
+	\item op de "volgende" (of vorige, eerste, laatste\dots) rij
+	\item per default wordt gepositioneerd via NEXT, voor andere manieren moet je een SCROLL-able cursor gebruiken.
+	\end{itemize}
+\item De gegevens worden opgehaald
+	\begin{itemize}
+	\item zonder INTO clause worden resulterende gegevens op het scherm getoond.
+	\item met INTO clause worden gegevens in de opgegeven variabelen gestopt. Hierbij moet men opletten dat de variabelen gedeclareerd zijn.
+	\end{itemize}
+\end{itemize}
+
+Een voorbeeld:
+\begin{lstlisting}[language=sql, breaklines=true]
+DECLARE @au_lname varchar(40), @au_fname varchar(20)
+FETCH NEXT FROM authors_cursor
+INTO @au_lname, @au_fname
+WHILE @@FETCH_STATUS = 0 BEGIN
+	PRINT 'Author: ' + @au_fname + ' ' + @au_lname
+	FETCH NEXT FROM authors_cursor
+	INTO @au_lname, @au_fname
+END
+\end{lstlisting}
+
+\subsubsection{Sluiten van een cursor}
+\begin{lstlisting}[language=sql, breaklines=true]
+CLOSE <cursor_name>
+\end{lstlisting}
+
+\begin{itemize}
+\item de cursor wordt gesloten
+	\begin{itemize}
+	\item de definitie van de cursor blijft bestaan
+		\begin{itemize}
+		\item er mogelijkheid om de cursor te heropenen
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{Dealloceren van een cursor}
+\begin{lstlisting}[language=sql, breaklines=true]
+DEALLOCATE <cursor_name>
+\end{lstlisting}
+
+
+\begin{itemize}
+\item de cursordefinitie wordt verwijderd
+	\begin{itemize}
+	\item wanneer dit de laatste referentie naar de cursor was dan worden alle resources voor die cursor vrijgegeven
+	\item indien de cursor nog niet gesloten is da deallocate de cursor automatisch sluiten
+		\begin{itemize}
+		\item een close opdracht net voor een deallocatie opdracht hoeft dus niet
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{Updaten via een cursor}
+\begin{lstlisting}[language=sql, breaklines=true]
+UPDATE <table name>
+SET ...
+WHERE CURRENT OF <cursor name>
+\end{lstlisting}
+
+\subsubsection{Verwijderen via een cursor}
+\begin{lstlisting}[language=sql, breaklines=true]
+DELETE FROM <table name>
+WHERE CURRENT OF <cursor name>
+\end{lstlisting}
+
+\subsection{Stored Procedures}
+\subsubsection{Creatie van een SP}
+\begin{lstlisting}[language=sql, breaklines=true]
+CREATE PROCEDURE <proc_name> [parameter declaratie]
+AS
+<sql_statements>
+\end{lstlisting}
+\begin{itemize}
+\item aanmaken db-object: via DDL instructie
+\item controle op syntax
+	\begin{itemize}
+	\item enkel indien syntactisch correct wordt de stored procedure opgeslaan in de catalogus.
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{Wijzigen van een SP}
+\begin{lstlisting}[language=sql, breaklines=true]
+ALTER PROCEDURE <proc_name> [parameter declaratie]
+AS
+<sql_statements>
+\end{lstlisting}
+
+\subsubsection{Verwijderen van een SP}
+\begin{lstlisting}[language=sql, breaklines=true]
+DROP PROCEDURE <proc_name>
+\end{lstlisting}
+
+\subsubsection{Uitvoeren van een SP}
+\begin{lstlisting}[language=sql, breaklines=true]
+EXCUTE <proc_name> [parameters]
+\end{lstlisting}
+
+\begin{itemize}
+\item bij eerste uitvoering
+	\begin{itemize}
+	\item compilatie en optimalisatie
+	\end{itemize}
+\item hercompilatie forceren
+	\begin{itemize}
+	\item wenselijk bij wijzigingen aan structuur databank
+	\begin{lstlisting}[language=sql, breaklines=true]
+	execute uspOrdersSelectAll with recompile
+	\end{lstlisting}
+	\begin{lstlisting}[language=sql, breaklines=true]
+	execute sp_recompile uspOrdersSelectAll
+	\end{lstlisting}
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{De returnwaarde van een SP}
+\begin{itemize}
+\item Bij uitvoering keert een SP een returnwaarde terug
+	\begin{itemize}
+	\item deze waarde is een int
+	\item de default return waarde is 0.
+	\end{itemize}
+\item return statement
+	\begin{itemize}
+	\item uitvoering van de SP wordt gestopt
+	\item laat toe om de returnwaarde te bepalen
+	\end{itemize}
+\end{itemize}
+
+Creatie van een SP met expliciete returnwaarde:
+\begin{lstlisting}[language=sql, breaklines=true]
+CREATE PROCEDURE usp_OrdersSelectAllAS
+select * from orders
+return @@ROWCOUNT
+\end{lstlisting}
+
+Gebruik van een SP met een returnwaarde:
+\begin{lstlisting}[language=sql, breaklines=true]
+DECLARE @returnCode int
+EXEC @returnCode = usp_OrdersSelectAll
+PRINT 'Er zijn ' + str(@returnCode) + ' records.'
+\end{lstlisting}
+
+\subsubsection{SP met parameters}
+Via een input parameter kan men een waarde doorgeven aan de SP.
+
+Via een output parameter kan men eventueel een waarde doorgeven aan de SP en krijgt men een waarde terug van de SP.
+
+\begin{lstlisting}[language=sql, breaklines=true]
+CREATE PROCEDURE usp_OrdersSelectAllForCustomer
+@customerIDnchar(5) = 'ALFKI',
+@count intOUTPUT
+AS
+SELECT @count = count(*)
+FROM orders WHERE customerID= @customerID
+\end{lstlisting}
+Merk op dat 'ALFKI' een default waarde is die ingesteld wordt.
+
+\begin{itemize}
+\item aanroepen van de SP
+	\begin{itemize}
+	\item voorzie steeds het keyword OUTPUT voor output parameters
+	\item twee manieren om actuele parameters door te geven
+		\begin{itemize}
+		\item gebruik formele parameternaam
+		\item positioneel
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+
+Parameters via formele naam doorgeven:
+\begin{lstlisting}[language=sql, breaklines=true]
+DECLARE @aantal int
+EXECUTE usp_OrdersSelectAllForCustomer
+@customerID= 'ALFKI',
+@count= @aantal OUTPUT
+PRINT @aantal
+\end{lstlisting}
+
+Parameters positioneel doorgeven:
+\begin{lstlisting}[language=sql, breaklines=true]
+DECLARE @aantalint
+EXEC usp_OrdersSelectAllForCustomer'ALFKI', @aantalOUTPUT
+PRINT @aantal
+\end{lstlisting}
+
+\subsubsection{Error handling}
+@@erroris een systeemfunctie die het foutnummer bevat van de laatst uitgevoerde opdracht. De waarde 0 wijst op succesvolle uitvoering.
+
+Alle foutboodschappen zitten in de systeemtabel sysmessages.
+\begin{lstlisting}[language=sql, breaklines=true]
+SELECT * FROM master.dbo.sysmessages
+WHERE error = @@ERROR
+\end{lstlisting}
+Eigen fouten kan men genereren via raiseerror(msg,severity,state)
 \end{document}
