@@ -20,7 +20,7 @@ Hieronder volgt een lijstje met opsommingen van de vakken waarvoor reeds een sam
 - [ ] Webapplicaties III
 
 ###2e Jaar 2e semester
-- [ ] Databanken II
+- [x] Databanken II
 - [ ] IT2Business
 - [ ] Onderzoekstechnieken
 - [x] OO Ontwerpen III

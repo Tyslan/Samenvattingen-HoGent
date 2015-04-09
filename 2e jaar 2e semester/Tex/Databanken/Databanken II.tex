@@ -385,4 +385,102 @@ Verwijderen:
 DROP INDEX table_name.index_name[,...n]
 \end{lstlisting}
 
+\section{Postrelationele DBMS}
+\subsection{SQL als volwaardige taal}
+Procedurele uitbreidingen op SQL zijn merkgebonden. Database systemen die gebruik maken van deze uitbreidingen zijn dus moeilijker om te zetten van één RDBMS op een andere.
+
+In het vervolg van deze samenvatting gaan we verder met t-SQL, die gebruikt wordt bij SQL Server.
+
+De meeste database systemen voorzien al een aantal standaard SQl functies zoals minimum, maximum, som, gemiddelde, aantal \dots
+
+SQL Server heeft nog een aantal extra functies zoals datediff, substring, len, round \dots
+
+Naast deze functies is het ook nog mogelijk om user defined functies aan te maken.
+
+\subsubsection{Voordelen van PSM}
+\begin{itemize}
+\item Code modularisatie
+	\begin{itemize}
+	\item reduceren redundante code: veel gebruikte queries in Stored Procedures en hergebruiken in 3GL.
+	\item vaak voor de CRUD-operaties
+	\item minder onderhoud bij schema-wijzigingen
+	\end{itemize}
+\item Security
+	\begin{itemize}
+	\item rechtstreekse queries op tabellen zijn uitgesloten
+	\item via stored procedures vastleggen wat kan en wat niet
+	\item vermijd SQL-injection, door gebruik input-parameters
+	\end{itemize}
+\item Centrale administratie van (delen van) DB-code.
+\end{itemize}
+
+\subsubsection{Nadelen van PSM}
+\begin{itemize}
+\item Beperkte schaalbaarheid
+\item Vendor lock-in
+	\begin{itemize}
+	\item Er is geen standaard syntax
+	\end{itemize}
+\item Twee programmeertalen
+\item Twee debugomgevingen
+\item Beperkte OO-ondersteuning
+\end{itemize}
+
+\subsubsection{Vuistregels}
+\begin{itemize}
+\item Vermijd PSM voor grotere business logica
+\item Gebruik PSM voor technische zaken: logging, auditing, validatie
+\item Maak keuze voor portabiliteit/vendor lock-in in overleg met de business of corporate IT policies.
+\end{itemize}
+
+\subsubsection{Stored procedure}
+Een stored procedure is een benoemde verzameling sql en control-of-flow opdrachten (programma) die opgeslagen wordt als een database object.
+De stored procedure is analoog aan procedures uit andere talen.
+Het kan aangeroepen worden vanuit een programma, trigger of stored procedure.
+
+\subsection{Variabelen}
+\subsubsection{Lokale variabelen}
+\begin{lstlisting}[language=sql, breaklines=true]
+DECLARE @lname varchar(40), @rijtelling int
+SET @lname = 'Ringer'
+SELECT @rijtelling = count(*)
+FROM Authors
+Where au_lname = @lname
+PRINT 'Aantal werknemers met naam ' + @lname + ' = ' + str(@rijtelling)
+\end{lstlisting}
+Merk bij bovenstaande code op dat de naam van een variabele steeds wordt voorafgegaan door @.
+Het toekennen van een waarde gebeurt via SET of SELECT
+
+\subsubsection{Control flow met Transact SQL}
+In een programma kan je het verloop bepalen via o.a.:
+\begin{itemize}
+\item Instructie niveau
+	\begin{itemize}
+	\item BEGIN ... END
+	\item IF ... ELSE
+	\item WHILE ...
+		\begin{itemize}
+		\item BREAK
+		\item CONTINUE
+		\end{itemize}
+	\item RETURN
+	\end{itemize}
+\item Rij niveau
+	\begin{itemize}
+	\item CASE ... END
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{Gebruik van commentaar}
+\begin{itemize}
+\item Inline commentaar
+	\begin{itemize}
+	\item --commentaar
+	\end{itemize}
+\item Block commentaar
+	\begin{itemize}
+	\item /*commentaar*/
+	\end{itemize}
+\end{itemize}
+
 \end{document}
