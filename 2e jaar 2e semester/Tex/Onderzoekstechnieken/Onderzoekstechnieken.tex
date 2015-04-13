@@ -197,4 +197,91 @@ Dit betekent dat de grafiek te veel toeters en bellen bevat.
 Men moet de \textit{inkt to data ratio} beperken.
 De figuren~\ref{fig:datadistraction1} en ~\ref{fig:datadistraction2} zijn hier voorbeelden van.
 
+\section{Analyse van 2 variabelen}
+\subsection{Bivariatie analyse}
+
+\subsection{Kruistabellen en Cramér's V}
+Een kruistabel wordt als volgt opgesteld:
+\NumTabs{6}
+\begin{enumerate}
+\item	Percenteer:
+		\tab{}
+		\tab{Deel de cel door het kolomtotaal}		
+\item	Bepaal de schatter 
+		\tab{$e=\frac{kolomtotaal \times rijtotaal}{n}$}
+		\tab{n: totaal aantal}
+\item	Bepaal het verschil
+		\tab{$cel - e$}
+\item	Kwadrateren en normeren
+		\tab($cel = \frac{verschil^2}{e}$)
+\end{enumerate}
+$\chi^2=\sum\frac{(a-e)^2}{e}$ 
+
+$V = \sqrt{\frac{\chi^2}{n \times (k-1)}}$
+met: {$n = totaal$ en $k = min(\#rijen,\#kolommen)$}
+
+Cramér's V is een maat die aanduidt hoe sterk de samenhang is tussen twee nominale variabelen.
+Dit getal ligt altijd tussen 0 en 1.
+\begin{table}[H]
+\centering
+\begin{tabular}{|r|r|}
+\hline
+Waarde & Interpretatie\\
+\hline
+0 & Geen samenhang\\
+0.1 & zwakke samenhang\\
+0.25 & redelijk sterke samenhang\\
+0.5 & sterke samenhang\\
+0.75 & zeer sterke samenhang\\
+1 & volledige samenhang\\
+\hline
+\end{tabular}
+\caption{Interpretatie van Cramér's V}
+\label{tab:interpretatieCramersV}
+\end{table}
+
+\subsection{Regressie}
+Bij regressie gaan we proberen een consistente en systematische koppeling tussen variabelen te vinden.
+
+\begin{itemize}
+\item	\textbf{Niet-monotoon}: aanwezigheid (of afwezigheid) van de ene variabele gerelateerd aan de aanwezigheid (of afwezigheid) van een andere variabele.
+\item	\textbf{Monotoon}: algemene richting van de samenhang tussen de twee variabelen kan aangeduid worden.
+\end{itemize}
+
+\subsubsection{Lineaire regressie}
+Een lineair verband is een rechtlijnige samenhang tussen een onafhankelijke en afhankelijke variabele, waarbij kennis van de onafhankelijke variabele kennis over de afhankelijke variabele geeft.
+
+\textsc{Kleinste kwadranten methode}
+
+We proberen een rechte te vinden van de vorm $y=\beta_0+\beta_1x$
+
+Hierbij geldt:
+
+$\beta_1 = 
+\frac
+{\sum^n_{i=1}(x_i-\overline{x})(y_i-\overline{y})}
+{\sum^n_{i=1}(x_i - \overline{x})^2}$
+
+$\beta_0 = \overline{y} - \beta_1 \overline{x}$
+
+Kwadraten omdat kleine verschillen minder in rekening moeten gebracht worden dan grote verschillen.
+	
+Je kan altijd een kleinste kwadratenmethode uitvoeren ==> Dit is daarom wel niet altijd goed.
+
+\subsection{Correlatiecoëfficiënt en determinatiecoëfficiënt}
+De Pearson correlatiecoëfficiënt is een maat voor de sterkte van de lineaire samenhang tussen x en y.
+
+De determinatiecoëfficiënt verklaart het percentage van de variantie van de waargenomen waarden t.o.v. de regressierechte.
+
+\subsubsection{Covariantie}
+$cov(x,y) = \sum^n_i 
+\frac
+{(x_i-\overline{x})(y_i-\overline{y})}
+{n}$
+
+$R=\frac
+{cov(x,y)}
+{\sqrt{\frac{(x-\overline{x})^2}{n}\times \frac{(y-\overline{y})^2}{n}}}=
+\frac{\sum(x-\overline{x})(y-\overline{y})}
+{\sqrt{(\sum (x-\overline{x})^2} \times \sqrt{(\sum (y-\overline{y})^2}}$
 \end{document}
