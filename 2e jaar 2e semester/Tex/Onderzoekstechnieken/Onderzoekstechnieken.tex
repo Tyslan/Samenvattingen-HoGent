@@ -271,7 +271,7 @@ Je kan altijd een kleinste kwadratenmethode uitvoeren ==> Dit is daarom wel niet
 \subsection{Correlatiecoëfficiënt en determinatiecoëfficiënt}
 De Pearson correlatiecoëfficiënt is een maat voor de sterkte van de lineaire samenhang tussen x en y.
 
-De determinatiecoëfficiënt verklaart het percentage van de variantie van de waargenomen waarden t.o.v. de regressierechte.
+De determinatiecoëfficiënt ($R^2$) verklaart het percentage van de variantie van de waargenomen waarden t.o.v. de regressierechte.
 
 \subsubsection{Covariantie}
 $cov(x,y) = \sum^n_i 
@@ -279,9 +279,140 @@ $cov(x,y) = \sum^n_i
 {(x_i-\overline{x})(y_i-\overline{y})}
 {n}$
 
-$R=\frac
+$R= \frac{cov(x,y}{\sigma_x\sigma_y}
+=
+\frac
 {cov(x,y)}
 {\sqrt{\frac{(x-\overline{x})^2}{n}\times \frac{(y-\overline{y})^2}{n}}}=
 \frac{\sum(x-\overline{x})(y-\overline{y})}
 {\sqrt{(\sum (x-\overline{x})^2} \times \sqrt{(\sum (y-\overline{y})^2}}$
+
+\section{Steekproefonderzoek}
+\subsection{Steekproefonderzoek}
+De verzameling van alle objecten of personen waar men in geïnteresseert is en onderzoek wil naar doen, heet de \textit{populatie}.
+
+Wanneer met een subgroep uit een populatie gaat onderzoeken, dan noemen we die groep een \textit{steekproef}.
+
+Om tot een steekproef te komen neemt men de volgende stappen:
+\begin{enumerate}
+\item Definitie van de populatie
+\item Bepalen van het steekproefkader
+\item Budget en tijd
+\end{enumerate}
+
+Een \textit{gestratificeerde steekproef} is proportioneel als het aandeel van de subpopulatie in de steekproef gelijk is aan het aandeel van de subpopulatie in de populatie als geheel.
+
+\begin{enumerate}
+\item \textbf{Aselecte steekproef}: elk element uit de onderzoekspopulatie heeft een even grote kans om in de steekproef te komen.
+\item \textbf{Selecte steekproef}: of een element uit de steekproef terecht komt is afhankelijk van een persoonlijke beoordeling van een onderzoeker.
+\end{enumerate}
+
+\subsubsection{Fouten bij steekproeven}
+\begin{itemize}
+\item \textbf{Toevallige steekproeffouten}: puur toeval
+\item \textbf{Systematische steekproeffouten}: een fout die een systematische oorzaak heeft.
+
+bv. online enquëte sluit een deel van de populatie uit, nl. diegene zonder computer.
+
+\item \textbf{Toevallige niet-steekproeffouten}: Verkeerd aangekruiste antwoorden.
+\item \textbf{Systematische niet-steekproeffouten}: Respondenten met sterke band met onderwerp van onderzoek reageren positief terwijl anderen niet reageren.
+\end{itemize}
+
+\subsubsection{Aanpassing formule standaarddeviatie}
+\begin{equation}
+s^2=\frac{1}{N} \sum_{i=1}^n (x_i - \overline{x})^2
+\end{equation}
+\begin{equation}
+s^2_n=\frac{1}{(n-1} \sum_{i=1}^n (x_i - \overline{x})^2
+\end{equation}
+\subsection{Kansverdeling van een steekproef}
+\begin{figure}[H]
+\centering
+\includegraphics[width=.9\textwidth]
+{img/Hoofdstuk_4/GaussCurve.png}
+\caption{Standaardnormale verdeling}
+\label{fig:GaussCurve}
+\end{figure}
+
+De formule voor de standaardnormale verdeling, die te zien is op figuur~\ref{fig:GaussCurve}, is:
+\begin{equation}
+f(x) = \frac{1}{\sigma \sqrt{2 \pi}} e^{-\frac{1}{2}\frac{(x - \mu)^2}{\sigma^2}}
+\end{equation}
+
+Men noteert dat SxS normaal verdeeld is met gemiddelde $\mu$ en standaardafwijking $\sigma$ als: $X \approx Nor(\mu, \sigma)$.
+
+Standaard verdeling: $Z \approx N(\mu = 0, \sigma = 1)$
+
+\begin{enumerate}
+\item $N(0,1)$: hiervoor bestaan z-tabellen.
+\item Symmetrieregel: $P(Z < -z) = p(Z > z)$
+\item 100\% kans: $P(Z < z) = 1- P(Z >z)$
+\end{enumerate}
+
+\subsection{De centrale limietstelling}
+Als de steekproefomvang voldoende groot is, dan kan de kansverdeling van het steekproefgemiddelde benaderd worden met een normale verdeling.
+Dit geldt ongeacht de vorm van de kansverdeling van de individuele waarnemingen.
+
+\subsection{Van steekproef naar populatie}
+\subsubsection{Puntschatter}
+Een puntschatter voor een populatieparameter is een regel of een formule die ons zegt hoe we uit de steekproef een getal moeten berekenen om de populatieparameter te schatten.
+
+\subsubsection{Betrouwbaarheidsinterval}
+Een betrouwbaarheidsinterval is een regel of een formule die ons zegt hoe we uit de steekproef een interval moeten berekenen dat de waarde van de parameter met een bepaalde hoge waarschijnlijkheid bevat.
+
+De betrouwbaarheidscoëfficieënt is de kans dat een willegkeurig gekozen betrouwbaarheidsinterval de parameter bevat.
+
+Het symbool voor betrouwbaarheidscoëfficiënt is $\alpha$.
+
+\paragraph{Voorbeeld:}
+
+We willen betrouwbaarheidsinterval bepalen waar we 95\% dat $\mu$ er in ligt.
+
+$z = \frac{x - \mu}{\frac{\sigma}{\sqrt{n}}}$: Hierbij is $\mu$ onbekend.
+
+We zoeken dus z waarvoor geldt dat:
+
+$P(-z < \mu < +z) = 0.95$
+
+$P(-Z < \mu) = 0.025$ -> $ 0.025 = \frac{\alpha}{2}$
+
+$P(Z > \mu) = 0.025$
+
+$P(-1.96 > \mu) = 0.025$
+
+$P(-1.96 < \frac{\overline{x} - \mu}{\frac{\sigma}{\sqrt{n}}} <1.96)$
+
+$P(\overline{x} - 1.96\frac{\sigma}{\sqrt{n}} < \mu < \overline{x}+1.96\frac{\sigma}{\sqrt{n}})$
+
+Betrouwbaarbeidsinterval: $[x - 1.96\frac{\sigma}{\sqrt{n}} , x+1.96\frac{\sigma}{\sqrt{n}})]$
+
+\subsubsection{Betrouwbaarheidsinterval voor een kleine steekproef}
+In plaats van:
+$z = \frac{x - \mu}{\frac{\sigma}{\sqrt{n}}}$
+
+construeren we:
+$t=\frac{\overline{x}-\mu}{\frac{s}{\sqrt{n}}}$
+
+Om een betrouwbaarheidsinterval voor het gemiddelde te bepalen
+op basis van een klein steekproef bepalen we:
+
+$\overline{x} \pm t_{\frac{\alpha}{2}}(\frac{s}{\sqrt{n}})$
+
+waarbij $t_{\frac{\alpha}{2}}$ gebaseerd is op (n - 1) vrijheidsgraden.
+We veronderstellen wel dat we een aselecte steekproef genomen hebben uit een populatie die bij benadering normaal verdeeld is.
+
+\subsubsection{Betrouwbaarheidsinterval voor een fractie}
+$\overline{p}=\frac{aantal successen}{n}$
+
+\begin{itemize}
+\item Verwachting van kansverdeling van $\overline{p} = p$
+\item De standaardafwijking van kansverdeling $\overline{p} = \sqrt{\frac{pq}{n}}$
+\item Voor grote steekproeven is $\overline{p}$ bij benadering normaal verdeeld.
+\end{itemize}
+Aangezien $\overline{p}$ een steekproefgemiddelde is van het aantal successen, stelt dit ons in staat een betrouwbaarheidsinterval te berekenen analoog als die voor de intervalschatting van $\mu$ voor grote steekproeven.
+
+\begin{equation}
+\overline{p} \pm z_{\frac{\alpha}{2}}\sqrt{\frac{\overline{pq}}{n}}
+\end{equation}
+met $\overline{p} = \frac{x}{n}$ en $\overline{q}= 1-\overline{p}$
 \end{document}
