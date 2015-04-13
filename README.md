@@ -22,7 +22,7 @@ Hieronder volgt een lijstje met opsommingen van de vakken waarvoor reeds een sam
 ###2e Jaar 2e semester
 - [x] Databanken II
 - [ ] IT2Business
-- [ ] Onderzoekstechnieken
+- [x] Onderzoekstechnieken
 - [x] OO Ontwerpen III
 - [ ] Probleemoplossend denken II
 - [ ] Webapplicaties IV
