@@ -415,4 +415,98 @@ Aangezien $\overline{p}$ een steekproefgemiddelde is van het aantal successen, s
 \overline{p} \pm z_{\frac{\alpha}{2}}\sqrt{\frac{\overline{pq}}{n}}
 \end{equation}
 met $\overline{p} = \frac{x}{n}$ en $\overline{q}= 1-\overline{p}$
+
+\section{Hypothese toetsen}
+\subsection{Toetsen van hypothesen}
+Een \textbf{hypothese} is een idee waarvan nog bewezen moet worden dat het juist is.
+
+Een \textbf{hypothesetest} is een vontrole van een uitspraak voer de waarden van één of meerdere populatieparameters.
+
+De \textbf{nulhypothese} ($H_0$) is de hypothese die men probeert te ontkrachten door redenering in het ongerijmde.
+
+De \textbf{alternatieve hypothese} ($H_1$ of $H_\alpha$) is de hypothese die men wil aantonen.
+
+De \textbf{teststatistiek} is de variabele die berekend wordt uit de steekproef.
+
+Het \textbf{aanvaardingsgebied} is het gebied van waarden die de nulhypothese ondersteunt.
+
+Het \textbf{kritieke of verwerpingsgebied} is het gebied van waarden die de nulhypothese verwerpt.
+
+\subsection{Werkwijze}
+\begin{enumerate}
+\item Bepalen van de hypotheses ($H_0$ en $H_1$)
+\item Vastleggen van het significantieniveau ($\alpha$ en $n$)
+\item Toestingsgrootheid en waarde ervan bepalen
+\item Berekenen en tekenen van het kritieke gebied
+\item Conclusies trekken
+\end{enumerate}
+
+\subsection{Overschrijdingskans}
+De p-waarde is de kans, indien de nulhypothese waar is, om een waarde te verkrijgen van de toetsingsgrootheid die minstens even extreem is al de geobserveerde waarde.
+
+\subsection{Kritieke gebied}
+\begin{equation}
+g=\mu-z\times \frac{\sigma}{\sqrt{n}}
+\end{equation}
+Bereken $P(M>g)=\alpha \Leftrightarrow P(Z>\frac{g-\mu}{\frac{\sigma}{\sqrt{n}}}$
+
+\subsubsection{Tweezijdig toetsen}
+\begin{equation}
+g=\mu \pm z \times \frac{\sigma}{\sqrt{n}}
+\end{equation}
+
+\subsection{Samenvatting Z-toets}
+\subsubsection{Overschrijdingskans}
+\begin{equation}
+p=P(Z>\frac{x-\mu_0}{\frac{\sigma}{\sqrt{n}}}
+\end{equation}
+$P<\alpha \Leftarrow H_0 $ verwerpen.
+
+$P\geq \alpha \Leftarrow H_0$ aanvaarden.
+\subsubsection{Kritieke gebied}
+\begin{equation}
+g=\mu_0 + z\frac{\sigma}{\sqrt{n}}
+\label{eq:vergelijkingVoorG}
+\end{equation}
+
+In vergelijking~\ref{eq:vergelijkingVoorG} zijn alle waarden buiten z gegeven. Z kan echter makkelijk opgezocht worden in de z-tabel.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{l c c c}
+Doel & \multicolumn{3}{l}{
+\begin{minipage}{11cm}
+Test op gemiddelde waarde $\mu$ van één populatie a.d.h.v één steekproef van n onafhankelijke steekproefwaarden
+\end{minipage}
+}\\
+\hline
+Voorwaarde & \multicolumn{3}{l}{De populatie is willekeurig verdeeld, n voldoende groot ($n>30$)}\\
+\hline
+Type test & Tweezijdig & Eenzijdig links & Eenzijdig rechts\\
+\hline
+$H_0$ & $\mu = \mu_0$ & $\mu = \mu_0$ & $\mu = \mu_0$\\
+$H_1$ & $\mu \neq \mu_0$ & $\mu < \mu_0$ & $\mu >\mu_0$ \\
+Verwerpingsgebied & $|z| > g $ & $z<-g$ & $z>g$\\
+Teststatistiek & \multicolumn{3}{l}{$z=\frac{\overline{x}-\mu_0}{\frac{\sigma}{\sqrt{n}}}$} \\
+\hline
+\end{tabular}
+\caption{Samenvatting  voor kritieke gebied}
+\label{tab:kritiekeGebied}
+\end{table}
+
+\subsection{Conclusies en consequentie bij toetsen van hypotheses}
+\begin{table}[H]
+\centering
+\begin{tabular}{l c c}
+
+& \multicolumn{2}{c}{\textbf{Werkelijke stand van zaken}}\\
+\hline
+\textbf{Conclusies} & $H_0$ is correct & $H_1$ is correct \\
+\textbf{Accepteer $H_0$} & Juist & $2^e$ soort fout ($\beta$)\\
+\textbf{Verwerp $H_0$} & Fout van $1^e$ soort & Juist\\
+\hline
+\end{tabular}
+\caption{Conclusies en consequenties bij toetsen van hypotheses}
+\label{tab:conseqentiesToetsenHypotheses}
+\end{table}
 \end{document}
