@@ -219,6 +219,285 @@ Data-intensieve applicaties bevatten 5 hoofdcomponenten:
 \item user interface
 \end{enumerate}
 
+\subsubsection{Teleprocessing}
+Éen centrale processor verbonden met een aantal terminals.
+Zie figuur~\ref{fig:Teleprocessing}.
+
+\subsubsection{File-Server}
+Éen file-server verbonden via LAN met workstations.
+Zie figuur~\ref{fig:FileServer}.
+
+\subsubsection{2-tier client-server (Fat client)}
+Client via een netwerk verbonden met een server.
+Zie figuur~\ref{fig:Tier2Server}
+
+\subsubsection{3-tier client-server}
+Er is een bijkomende middle tier.
+Zie figuur~\ref{fig:Tier3Server}.
+Op deze figuur is de client tier verantwoordelijk voor de presentatie, de middle tier voor de logica en de database tier voor de data.
+
+\subsubsection{n-tier client- server}
+De middle tier wordt opgesplitst voor meer flexibiliteit, schaalbaarheid, beschikbaarheid\dots
+
+\subsubsection{Applicatieserver}
+Een server waarop applicaties worden aangeboden aan de client.
+
+De clients kunnen de aangeboden applicaties op hun eigen werkplek bedienen, terwijl onderhoud, beheer en ondersteuning op afstand plaatsvinden (op de server).
+
+Zorgt ervoor dat via een application programming interface (API) business logica en business processen kunnen gebruikt worden daar andere applicaties.
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{.49\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{img/Teleprocessing.png}
+  \caption{Teleprocessing}
+  \label{fig:Teleprocessing}
+\end{subfigure}
+\begin{subfigure}{.49\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{img/FileServer.png}
+  \caption{File-Server}
+  \label{fig:FileServer}
+\end{subfigure}
+\begin{subfigure}{.49\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{img/Tier2Server.png}
+  \caption{2-tier client-server}
+  \label{fig:Tier2Server}
+\end{subfigure}
+\begin{subfigure}{.49\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{img/Tier3Server.png}
+  \caption{3-tier client-server}
+  \label{fig:Tier3Server}
+\end{subfigure}
+\caption{Verschillende harware-architecturen}
+\label{fig:HardwareArchitecturen}
+\end{figure}
+
+\subsection{Middleware}
+Middleware is software die softwarecomponenten of applicaties verbindt.
+Dit is nodig wanner gedistribueerde systemen te complex worden zonder een gemeenschappelijke interface.
+
+$\Rightarrow$ Doel: verbergen van onderliggende complexiteit van gedistribueerde systemen.
+
+\subsubsection{Asynchrone Remote Procedure Call}
+Bij asynchrone RCP stuurt de client een verzoek naar de server zonder te wachten op antwoord.
+Als de connectie verbroken wordt dan moet de client opnieuw beginnen.
+
+$\Rightarrow$ Gebruiken indien integriteit niet belangrijk is.
+
+Er zijn zes types middleware:
+\begin{enumerate}
+\item Asynchrone RPC
+\item Synchrone RPC
+\item Publish/Subscribe
+\item Message oriented middleware
+\item Object Request Broker
+\item SQL-oriented data acces
+\end{enumerate}
+\subsubsection{Synchrone Remote Procedure Call}
+Bij synchrone RCP stuurt de client een verzoek naar de server wacht op antwoord.
+Zolang de server bezig is met het verzoek is de client geblokkeerd.
+
+$\Rightarrow$ Gebruiken indien integriteit uiterst belangrijk is.
+
+\subsubsection{Publish/Subscribe}
+Publish/Subscribe is een asynchroon messaging protocal.
+De clients zijn abonnees en kunnen zich inschrijven om boodschappen van publishers te ontvangen.
+
+Boodschappen zijn gecatalogeerd in klassen en een abonnee kan zich inschrijven in één of meerdere klassen.
+
+\subsubsection{Message Oriented Middleware}
+Bij MOM staat de software zowel op de client als op de server.
+
+Er gebeuren asynchrone calls tussen client- en server-applicaties.
+
+Er is een wachtrij die dient als tijdelijke opslag indien de bestemming bezet of niet geconnecteerd is.
+
+\subsubsection{Object Request Broker}
+Bij ORB is er communicatie en data-uitwisseling tussen objecten.
+
+Common ORB Architecture (CORBA) is een standaard om software componenten, geschreven in verschillende talen en draaied op verschillende computers, met elkaat te laten communiceren.
+
+\subsubsection{SQL-oriented data access}
+SQL-oriented data access verbint applicaties met een database over het net.
+Het vertaalt SQL requests naar de eigen SQL van de database.
+
+\subsubsection{Middleware voor transactiebeheer}
+\textbf{Transaction Processing Monitor}
+
+Complexe applicaties zijn vaak gebouwd op verschillende resource managers.
+
+TP Monitor controleert het dataverkeer tussen clients en servers.
+
+TP Monitor is een middleware component die toegang geeft tot de diensten van een aantal resource managers en zorgt voor een uniforme interface voor programmeurs die transactionele software ontwikkelen.
+
+Er is een verhoogde \textit{schaalbaarheid} door transaction routing.
+
+Er is \textit{taaklastbeheersing} want de TP monitor kan zien welke server het minst belast is en daar de client-calls naar toe dirigeren.
+
+Er zijn \textit{hetrogene bronnen} mogelijk.
+
+Er is \textit{funneling}: niet alle clients moeten constant online zijn
+$\rightarrow$ TP monitor kan user requests sturen naar reeds openstaande connecties.
+
+Kortweg kan gezegd worden dat de TP monitor een transaction manager is.
+
+\subsection{Webservices}
+Een webservice is een software systeem, dat ontworen wed voor interactie tussen applicaties en webservers.
+
+Webservices delen business logica, dataen processen m.b.v. een programmeerbare interface over een netwerk.
+
+Ontwikkelaars voegen de webservice toe aan een webpagina om specifieke functionaliteit aan te bieden aan de gebruikers.
+
+Webservices gebruiker algemeen aanvaarde technologieën en standaarden zoals: XML, SOAP, WSDL en UDDI.
+
+\subsection{Service-Oriented Architecturen}
+Business-georiënteerde software-architectuur voor het bouwen van applicaties en business processen implementeren als een set van gepubliceerde services.
+
+Granulariteit moet relevant zijn voor de service-gebruiker.
+
+Services kunnen aangeroepen, gepubliceerd en gevonden worden op een abstracte manier, d.w.z. los van de implementatiedetails, maar gebaseerd op een unieke standaar-interface.
+
+Laat toe dat applicaties zich snel kunnen aanpassen aan wijzigende business-processen t.g.v. bijvoorbeeld gewijzigde marktomstandigheden.
+
+\subsection{Cloud Computing}
+\subsubsection{Kenmerken}
+\textbf{On-demand self-service}: Gebruikers kunnen clouddiensten verkrijgen, configureren en deployen zonder hulp van een provider.
+
+\textbf{Broad network acces}: Toegankelijk van overal, vanaf elke standaardplatform.
+
+\textbf{Resource pooling}: Computer resources van provider zitten in een pool, die meerdere gebruikers bedient.
+Fysieke en virtuele resources worden dynamisch toegekend volgens de behoefte van een gebruiker op een bepaald moment.
+
+\textbf{Snelle elasticiteit}: Piekbehoeften van de klant worden opgevangen door pooling.
+Er is een sterk verminderd risico op uitval en onderbrekingen van de dienstverlening.
+Toekenning van de capaciteit kan geautomatiseerd gebeuren op basis van vraag $\rightarrow$ \textit{scalability}.
+
+\textbf{Metingen van afgenomen diensten}: Provider meet gebruik van storage, CPU, bandbreedte\dots
+Deze metingen worden dan gebruik voor de Service Level Agrements (SLA) en de facturatie.
+
+\subsubsection{Software as a Service}
+Bij SaaS bevinden zich software en data in de cloud.
+De toegang wordt verzorgt via een thin client (bv. web browser).
+De gebruiker kan hier beperkte toegang hebben tot configuratie-instellingen.
+
+\subsubsection{Platform as a Service}
+Bij PaaS bouwt de klant de webapplicatie zonder aankoop/onderhoud van software en infrastuctuur.
+De provider beheert de infrastructuur (netwerk, OS en storage).
+De klant beheert het deployment en de configuratie van applicaties.
+
+\subsubsection{Infrastructure as a Service}
+Bij SaaS levert de provider servers, storage, netwerk en OS aan de gebruikers, gebundeld al on-demand service.
+Dit model wordt typisch gebruikt voor platform-virtualisatie.
+De facturatie gebeurt volgens gebruik.
+
+\begin{figure}[H]
+\includegraphics[scale=1]{./img/VergelijkingServiceModellen}
+\caption{Vergelijking van service-modellen}
+\label{fig:VergelijkingServiceModellen}
+\end{figure}
+
+\subsubsection{Voordelen van cloud computing}
+\textbf{Kostenreductie}: vermijd kapitaalintensieve investeringen voor opbrengsten.
+
+\textbf{Scalability}: bijkomende resources schaf je aan volgens behoefte.
+
+\textbf{Security en betrouwbaarheid}: providers kunnen expertise en resources verdelen over meerdere klanten.
+Een individuele klant kan dit niet betalen.
+
+\textbf{Toegang tot nieuwste technologieën}: systemen moeten niet meer afgeschreven zijn om nieuwe technologieën te kunnen gebruiken, want je huurt de systemen.
+
+\textbf{Snellere ontwikkeling}: platform van de provider zorgt voor software en diensten die ontwikkelingscyclus kunnen versnellen.
+
+\textbf{Prototyping/Load testing op grote schaal}: de provider heeft hiervoor de resources.
+
+\textbf{Verhoogde competitiviteit}: organisaties kunnen focussen op hun kerncompetenties i.p.v. op IT-infrastructuren.
+
+\textbf{Flexibeler werken} : bv. toegang via mobile devices.
+
+\subsubsection{Risico's van cloud computing}
+\textbf{Afhankelijkheid van het netwerk}: Stroomonderbrekingen, bandbreedte-problemen en onderbreking dienstverlening.
+
+\textbf{Afhankelijkheid van de systemen}: je vertrouwt op beschikbaarheid en betrouwbaarheid van systemen van de provider.
+
+\textbf{Afhankelijkheid van de cloud provider}: deze kan failliet gaan of overgenomen worden door concurrent met mogelijk onmiddelijke stopzetting van de service.
+
+\textbf{Gebrek aan controle}: je beslist niet zelf over bv. backup-policy.
+
+\textbf{Gebrek aan transparantie over achterliggende verwerking}
+
+\subsection{Cloud gebaseerde databanken}
+Cloud gebaseerde databanken zijn een voorbeel van SaaS.
+Er zijn twee basiscategorieën:
+\begin{enumerate}
+\item Data as a Service (DaaS)
+\item Database as a Service (DBaaS)
+\end{enumerate}
+Het verschil tussen beiden zit hoofdzakelijk in hoe de data beheerd wordt.
+
+\subsubsection{Database as a Service}
+DBaaS biedt een volledige databankfunctionaliteit aan ontwikkelaars. Dit model voorziet ook in een management-laag, die continue monitoring en cofiguratie van de databank toelaat:
+\begin{itemize}
+\item geoptimaliseerde scalability
+\item hoge beschikbaarheid
+\item multi-tenancy: meerdere client-organisaites worden gelijktijdig bediend.
+\item effectief reource management in de cloud $\rightarrow$ ontwikkelaar moet zich niet bezighouden met dba-taken.
+\end{itemize}
+
+\subsubsection{Data as a Service}
+Bij DaaS zit de data-definitie en querying in de cloud.
+
+DaaS implementeert geen typische DMBS-interface (bv SQL), maar de data is beschikbaar via API's. $\rightarrow$ verhoogde controle door de provider.
+
+DaaS laat toe om je data aan anderen ter beschikking te stellen.
+
+\subsection{Mobile Databases}
+Mobile databases dienen om data persistent te maken.
+Hierbij zijn er twee mogelijkheden waarbij de keuze gemaakt wordt door de app developer.
+\begin{enumerate}
+\item Database op afstand die verbonden wordt met het mobiele toestel (internet nodig).
+\item Database die opgeslagen wordt op het mobiele toestel (offline gebruik mogelijk).
+\end{enumerate}
+
+Vaak wordt met een middle tier zoals een mobile web service gewerkt.
+Hierbij is er geen rechtstreeks contact tussen de client en de databank.
+
+De client stuurt een HTTP request naar de webservice.
+De client kan vaak in zijn request naar de webservice kiezen hoe hij de data wil ontvangen (=content negotiation).
+De webservice communiceert met de databank en haalt de data binnen.
+Naar gelang wat werd gevraagd, zal de web service de resultset omzetten.
+Dit resultaat wordt dan aangeboden aan de client.
+Op die manier is er nooit rechtstreeks contact tussen de databank en de client.
+
+\subsubsection{Voordelen}
+Er is nooit rechtstreeks contact tussen de client en de DB.
+
+Clients kunnen kiezen in welk formaat ze de data wensen te ontvangen.
+
+Schaalbaarheid hangt niet enkel af van de databank maar ook van de webservice $\rightarrow$ wordt verdeeld.
+
+Dezelfde web service (logica) kan gebruikt worden door verschillende clients/platformen $\rightarrow$ reuse.
+
+Request kan over https gebeuren $\rightarrow$ veiligheid.
+
+\subsubsection{Nadelen}
+Performantie wordt o.a. bepaald door de internetverbinding.
+
+Behalve een DB Server ook nog nood aan eene extra technologie voor de middle tier.
+
+Er is steeds internetverbinding nodig.
+
+\subsubsection{Mobile database lokaal}
+De lokale mobile database wordt ook wel de offline storage genoemd.
+
+De DB is platform afhankelijk, maar is wel relatief snel.
+
+De DB neemt opslagplaats in op het device.
+Hierdoor is de app zelf verantwoordelijk voor het updaten van de data.
+
 \section{Database ontwerp - DDL}
 \subsection{Database}
 \subsubsection{Een database creëren}
@@ -228,18 +507,18 @@ Er kunnen ook meerdere logfiles zijn.
 
 Bij creatie van een DB wordt een kopie genomen van de model database, deze bevat systeemtabellen en systeemviews.
 
-Data wordt opgeslagen in blokken van 8 KB aaneensluitende diskspace, dit noemt met een pagina.
-Eén rij kan niet op meerdere pagina’s bewaard worden, een rij mag maximaal 8060 b groot zijn (8KB – ruimte overhead).
-8 opeenvolgende pagina’s worden 1 extend (64 KB).
-Een tabel, index wordt opgeslagen in een extend.
-Dit alles is te zien op figuur~\ref{fig:DatabaseCreatie}
-
 \begin{figure}[H]
 \centering
   	\includegraphics[width=.5\linewidth]{img/DatabaseCreatie.png}
   	\caption{Opbouw van een database}
   	\label{fig:DatabaseCreatie}
 \end{figure}
+
+Data wordt opgeslagen in blokken van 8 KB aaneensluitende diskspace, dit noemt met een pagina.
+Eén rij kan niet op meerdere pagina’s bewaard worden, een rij mag maximaal 8060 b groot zijn (8KB – ruimte overhead).
+8 opeenvolgende pagina’s worden 1 extend (64 KB).
+Een tabel, index wordt opgeslagen in een extend.
+Dit alles is te zien op figuur~\ref{fig:DatabaseCreatie}
 
 Logfiles bevatten informatie nodig voor recovery.
 De logfile-grootte is per default 25\% van grootte van de datafile.
