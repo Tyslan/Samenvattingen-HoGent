@@ -142,6 +142,83 @@ In de hoofdvraag mag je geen velden gebruiken uit de subvraag, maar wel omgekeer
 \subsubsection{Exists operator}
 Via de operator EXISTS wordt getest op het al dan niet leeg zijn van een resultaatset. Er bestaat ook NOT EXISTS.
 
+\section{Database architecturen}
+\subsection{Componenten van een database}
+\subsubsection{Hardware}
+\begin{itemize}
+\item PC
+\item Mainframe
+\item Netwerk van computers $\leftarrow$ multi-user
+\end{itemize}
+
+\subsubsection{Software}
+\begin{itemize}
+\item DBMS
+\item Applicaties
+\item Netwerk-software
+\item Operating System
+\end{itemize}
+
+\subsubsection{Data}
+\begin{itemize}
+\item Brug tussen machine en mens
+\item Operationele data $\rightarrow$ database
+\item Metadata $\rightarrow$ systeem cataloog
+\end{itemize}
+
+\subsubsection{Procedures}
+\begin{itemize}
+\item Hoe het DB-systeem te gebruiken
+\item Inloggen
+\item Hoe een specifiek BD-programma gebruiken
+\item \dots
+\end{itemize}
+
+\subsubsection{Mensen}
+\begin{itemize}
+\item DB admins
+\item DB ontwerpers
+\item Applicatie-ontwikkelaars
+\item Eindgebruikers
+\end{itemize}
+
+\subsection{Multi-user DB}
+Bij multi-user DB's gebuiken verschillende gebruikers tegelijk de data in de DB.
+Wanneer verschillende transacties enkel data lezen is er geen probleem.
+Als minstens één transactie data wijzigt kunnen wel problemen optreden.
+
+$\Rightarrow$ Concurrency control: voorkomen van problemen.
+
+$\Rightarrow$ Recovery: herstel in geval van problemen.
+
+\subsection{Gedistribueerde DB}
+Bij een gedistribueerde DB bevinden de data (en metadata) zich fysisch op  verschillende plaatsen.
+
+Gedistribueerde DBMS nodig: een logische DB die verdeeld is in fragmenten.
+Elk fragment is gestockeerd op één of meerdere computers.
+
+Elke site kan autonoom beslissen over zijn eigen data.
+
+Wanneer data nodig is uit een andere site $\rightarrow$ global application.
+
+\subsection{Data warehouse}
+Geïntegreerde view van data uit heteregone data sources om beslissingen van beleidsmakers te ondersteunen.
+
+Er wordt enkel gelezen (niet weggeschreven).
+
+Moet snel ingewikkelde queries kunnen uitvoeren.
+
+\subsection{Hardware architectuur}
+Data-intensieve applicaties bevatten 5 hoofdcomponenten:
+
+\begin{enumerate}
+\item database
+\item DBMS
+\item dataprocessing-logica
+\item business-logica
+\item user interface
+\end{enumerate}
+
 \section{Database ontwerp - DDL}
 \subsection{Database}
 \subsubsection{Een database creëren}
