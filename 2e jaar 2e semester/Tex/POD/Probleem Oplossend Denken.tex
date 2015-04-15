@@ -15,7 +15,58 @@
 
 \begin{document}
 \maketitle
-\huge \textsc{Kansrekening}
+\LARGE \textsc{Kansrekening}\normalsize
 \section{Gebeurtenissen en hun kansen}
-\subsection{•}
+\subsection{Inleiding}
+De kansrekening houdt zich bezig met de studie van gebeurtenissen of toevalsveranderlijken.
+
+\subsection{Universum of uitkomstenruimte}
+Het universum of de utkomstenruimte van een experiment is de verzameling van alle mogelijke uitkomsten van dit experiment en wordt genoteerd met $\Omega$.
+
+Het is van belang dat de uitkomstenruimte volledig is: elke mogelijke
+uitkomst van een experiment moet tot $\Omega$ behoren.
+Bovendien moet elke uitkomst van een experiment overeenkomen met juist één element van $\Omega$.
+
+\subsection{Gebeurtenis}
+Een gebeurtenis is een deelverzameling van de uitkomstenruimte.
+Een enkelvoudige of elementaire gebeurtenis is een \textit{singleton}.
+
+Een \textit{samengestelde} gebeurtenis heeft cardinaliteit groter dan 1.
+
+Gebeurtenissen die geen gemeenschappelijke uitkomsten hebben noemt men \textit{disjunct}.
+Disjuncte gebeurtenissen kunnen dus nooit samen voorkomen.
+
+\subsection{Kansen en kansruimte}
+We wensen nu aan elke gebeurtenis A een getal te koppelen dat uitdrukt hoe waarschijnlijk het is dat deze gebeurtenis voorkomt bij het uitvoeren van een experiment.
+We noemen dit getal de \textit{kans} of \textit{waarschijnlijkheid} van A, en we noteren deze kans als $P(A)$.
+
+Het toekennen van kansen aan gebeurtenissen dient aan de volgende drie regels te voldoen:
+
+\begin{enumerate}
+\item Kansen zijn steeds positief: voor elke gebeurtenis $A$ geldt dat $P(A) \geq 0$.
+\item De uitkomstenruimte heeft kans 1: $P(\Omega)=1$.
+\item Wanneer $A$ en $B$ disjuncte gebeurtenissen zij dan is: $P(A\cup B)=P(A)+P(B)$.
+
+Dit noemt men de \textbf{somregel}.
+\end{enumerate}
+
+Wanneer de functie $P$ aan de bovenstaande eigenschappen voldoet dan noemt ment het drietal $(\Omega, P(\Omega), P)$ een \textit{kansruimte}.
+
+Kansen voldoen aan de volgende eigenschappen:
+\begin{enumerate}
+\item Voor elke gebeurtenis A geldt dat $P(\overline{A}) = 1-P(A)$
+
+$1 = P(\Omega) = P(A\cup \overline{A}) = P(A) + P(\overline{A})$
+\item De onmogelijke gebeurtenis heeft een kans nul: $P(\emptyset)=0$
+
+$P(\emptyset)= P(\overline{\Omega}) = 1 - P(\Omega) = 0$
+\item Als $A \subseteq B$ dan is $P(A)\leq P(B)$, dan geldt= $P(A) = P(B) - P(B\setminus A)$.
+\item De \textbf{uitgebreide somregel} is: $P(A \cup B) = P(A) + P(B) - P(A \cap B)$
+
+$P(A\cup B) = P(A \cup (B\setminus A))\\
+= P(A) + P(B\setminus A)\\
+= P(A) + P(B\setminus (A \cap B))\\
+= P(A) +- P(B) - P(A \cap B)$
+\end{enumerate}
+\subsubsection{Eindig universum}
 \end{document}
