@@ -9,6 +9,7 @@
 \usepackage{parskip}
 \usepackage{float}
 \usepackage{subcaption}
+\usepackage{amsmath}
 
 \title{Samenvatting Probleem Oplossend Denken II \\ \large TIN 2 - HoGent}
 \author{Lorenz Verschingel}
@@ -141,4 +142,98 @@ Deze formule geeft de mogelijkheid om de variantie efficiënter te berekenen dan
 \item $\sigma^2_{X+a}=\sigma^2_X$
 \item $\sigma^2_{aX}=a^2\sigma^2_X$
 \end{enumerate}
+
+\section{Kansverdelingen}
+\subsection{Discrete kansverdelingen}
+\subsubsection{De Bernoulliverdeling}
+$x$ kan maar twee waarden aannemen.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+x&0&1\\
+\hline
+$f_X(x)$ & 1-p & p\\
+\hline
+\end{tabular}
+\end{table}
+$\mu_X=0\times(1-p)+1\times p = p$
+
+$\sigma^2_X=E[x^2]-E[x]^2=0^2\times (1-p)+1^2\times p - p^2 = p(1-p)=pq$
+
+Het Bernouilliverdeling kan het best beschreven worden met het volgende voorbeeld:
+één maal een muntstuk opgooien en kijken of je munt hebt.
+
+\subsubsection{De binomiale verdeling}
+$X\approx B(n,p)$
+
+De binimiale verdeling kan het best beschreven worden met het volgende voorbeeld:
+tien maal met een munt gooien en kijken hoeveel keer je munt hebt.
+
+$f_X(k)=P(X=k)=C^k_np^kq^{n-k}=\binom{n}{k}p^kq^{n-k}$
+
+met $\binom{n}{k}=\frac{n!}{k!(n-k)!}$
+
+$\mu_X=np$
+
+$\sigma^2_X=np(1-p)$
+
+\subsubsection{De geometrische verdeling}
+De geometrische verdeling kan het best beschreven worden met het volgende voorbeeld:
+blijven gooien met een muntstuk tot je munt hebt.
+
+$P(X=k) = (1-p)^{k-1}p$
+
+$\mu_X = \frac{1}{1-q}$
+
+$\sigma^2_X=\frac{q}{p^2}$
+
+\textbf{De markov-eigenschap}
+
+\begin{equation}
+\begin{array}{rcl}
+P(X>m+n|X>m)&=&\frac{P((X>m+n)\cap (X>n))}{P(X>n)}\\
+&=& \frac{P(X>m+n)}{P(X>m)}\\
+&=&\frac{q^{m+n}}{q^m}\\
+&=&q^n\\
+&=&P(X>n)
+\end{array}
+\end{equation}
+
+\subsubsection{De Poisson verdeling}
+De Poisson verdeling kan gezien worden als een binomiale verdeling met n  zeer groot en p $\approx$ 0.
+
+$\Rightarrow np=\lambda$
+
+$P(X=k)=e^{-\lambda}\frac{\lambda^k}{k!}$
+
+$\mu_X = np=\lambda$
+
+$\sigma^2_X=(np(1-p))=\lambda\times 1=\lambda$
+
+\textbf{Het Poisson-proces}
+
+$P(\text{k voorkomens in [0,t]})=e^{-\lambda t}\frac{(\lambda t)^k}{k!}$
+
+\subsection{Continue kansverdelingen}
+\subsubsection{Uniforme kansverdeling}
+$\mu_X=\frac{a+b}{2}$
+
+$\sigma^2_X=\frac{(b-a)^2}{12}$
+
+\subsubsection{De exponentiële verdeling}
+X $\rightarrow$ Poisson-proces met parameter $\lambda$.
+
+T = tijd tot eerste voorkomen.
+
+$P(T>t)=P(\text{0 voorkomens in[0,t]}) = e^{-\lambda t}\frac{(\lambda t)^k}{k!}=e^{-\lambda t}$
+
+$\Rightarrow P(T\leq t) = 1-e^{-\lambda t}\text{ als t} \geq 0$
+
+$\mu_T = \frac{1}{\lambda}$
+
+$\sigma^2_T = \frac{1}{\lambda^2}$
+
+De exponentiële verdeling voldoet aan de Markov-eigenschap: ze bezit geen geheugen.
 \end{document}
