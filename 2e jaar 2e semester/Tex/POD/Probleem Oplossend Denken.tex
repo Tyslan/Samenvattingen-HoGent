@@ -92,4 +92,53 @@ $P(B_j|A) =
 Dit resultaat is belangrijk voor het opstellen van zogenaamde boomdiagrammen of beslissingsbomen in het kader van opeenvolgende beslissingen.
 
 \section{Kans- of toevalsvariabelen}
+\subsection{Inleiding}
+Een \textit{kansvariabele} $X$ is een afbeelding van $\Omega$ naar $R$.
+Deze afbeelding associeert met elke mogelijke uitkomst van een kansexperiment dus een reëel getal.
+
+\subsection{Discrete kansvariabelen}
+Een kansvariabele $X$ is \textit{discreet} wanneer $X$ slechts een eindig of aftelbaar oneindig aantal waarden aanneemt.
+Dit wil zeggen dat: $bld(X)=\{x_1,x_2,\dots\}$.
+
+$P(X=x_i)=P(\{\omega \cap \Omega |X(\omega)=x_i\})=f_X(x_i)$
+
+\subsection{Continue kansvariabelen}
+Een toevalsveranderlijke $X$ is \textit{continu} als er een functie $f_X$ van $R$ naar $R^+$ bestaat zodanig dat:
+$F_X(x)=\int^x_{-\infty}f_X(y)dy$
+
+De functie $f_X$ wordt de \textit{kansdichtheid} genoemd.
+
+\subsection{Verwachtingswaarde en variantie}
+\subsubsection{Discrete kansvariabele}
+$E[x]= \sum_i^nx_iP(X=x_i)$
+
+$E[x] = \mu$ = expected value = verwachtingswaarde = gemiddelde
+
+$Var[x]=\sum_i^n(x_i-E[x])^2P(X=x_i)$
+
+$Var[x] = \sigma^2$ = variantie = gemiddelde kwadratische afwijking
+
+$\sigma$ = standaardafwijking
+
+\subsubsection{Continue kansvariabele}
+$E[x]=\int^\infty_{-\infty}xf_X(x)dx$
+
+$Var[x]=\int^\infty_{-\infty}(x-\sigma_x)^2f_X(x)dx$
+
+\subsubsection{Eigenschappen van verwachtingswaarde en variantie}
+\begin{enumerate}
+\item Als $X$ constant is, i.e. $X(\omega)=k$ voor alle elementen $\omega$ van  $\Omega$, dan is $E(X)=k$.
+\item Als $a \in R$ een constante is, dan geldt:
+$E(X+a)=E(X)+a)$
+
+waaruit volgt dat: $E(X-\mu_X)=0$
+\item Als $ a \in R$ een constante is, dan geldt:
+$E(aX)=aE(X)$
+\item Er geldt steeds dat:
+$\sigma^2_X=E(X^2)-\mu^2_X$
+
+Deze formule geeft de mogelijkheid om de variantie efficiënter te berekenen dan rechtstreeks via de definitie.
+\item $\sigma^2_{X+a}=\sigma^2_X$
+\item $\sigma^2_{aX}=a^2\sigma^2_X$
+\end{enumerate}
 \end{document}
