@@ -24,5 +24,5 @@ Hieronder volgt een lijstje met opsommingen van de vakken waarvoor reeds een sam
 - [ ] IT2Business
 - [x] Onderzoekstechnieken
 - [x] OO Ontwerpen III
-- [ ] Probleemoplossend denken II
+- [x] Probleemoplossend denken II
 - [ ] Webapplicaties IV

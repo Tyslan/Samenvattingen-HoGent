@@ -69,4 +69,27 @@ $P(A\cup B) = P(A \cup (B\setminus A))\\
 = P(A) +- P(B) - P(A \cap B)$
 \end{enumerate}
 \subsubsection{Eindig universum}
+\textbf{Formule van Laplace}: $P(A)=\frac{\#(A)}{\#(\Omega)}$
+
+De formule van Laplace is enkel van toepassing als alle kansen even waarschijnlijk zijn.
+
+\subsection{Voorwaardelijke kansen en (on)afhankelijkheid van gebeurtenissen}
+Als $P(B)>0$, dab is de \textbf{voorwaardelijke kans} dat $A$ voorkomt als gegeven is dat B voorkomt gedefinieerd is als:
+$P(A|B)=\frac{P(A\cap B)}{P(B)}$
+
+$P(A|B)$ spreken we uit als "De kans op A gegeven B".
+
+Twee gebeurtenissen $A$ en $B$ zijn \textbf{onafhankelijk} als:
+$P(A\cap B) = P(A)P(B)$
+
+Bewijs: $P(A|B) = \frac{P(A\cap B)}{P(B)} =P(A) 
+\Leftrightarrow P(A\cap B) = P(A)P(B)$
+
+\subsubsection{De regel van Bayes}
+$P(B_j|A) = 
+\frac{P(B_j)P(P(A|B_j)}{\sum^n_{i=1}P(B_i)P(A|B_i)}$
+
+Dit resultaat is belangrijk voor het opstellen van zogenaamde boomdiagrammen of beslissingsbomen in het kader van opeenvolgende beslissingen.
+
+\section{Kans- of toevalsvariabelen}
 \end{document}
