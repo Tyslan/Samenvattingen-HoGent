@@ -1281,7 +1281,38 @@ ORDBMS behouden de opgebouwde kennis rond RDBMS.
 \end{figure}
 
 \subsubsection{Voordelen van ORDBMS}
+Oplossing voor de grote zwaktes van het relationeel model
+\begin{itemize}
+\item zwakke representatie van 'real-world' entiteiten
+\item semantische overloading
+\item zwakke ondersteuning voor integriteit en andere constraints
+\item homogene data structuur
+\item beperkte operaties
+\item geen recursie
+\item impedance mismatch
+\item hergebruiken delen
+\begin{itemize}
+\item uitbreiden van de server functionaliteit om functionaliteit centraal uit te voeren
+\item de centraal gedefinieerde functionaliteit kan nu gebruikt worden door alle applicaties
+\end{itemize}
+\item met als gevolg een hogere productiviteit
+\item behoud van expertiseen kennisvan RDBMS
+\item backwardscompatibility
+\end{itemize}
+
 \subsubsection{Nadelen van ORDBMS}
+\begin{itemize}
+\item complexiteit van het OR model: eenvoud en puurheid van het relationeel model gaat verloren
+\item verhoogdekosten
+\item enkel een klein deel van de applicaties kan gebruik maken van de object extensies
+\item het is niet puur OO
+\begin{itemize}
+\item OO applicaties zijn niet zo data gecentreerd
+\item in pure OO zijn objects first class citizens, geen extensies van het relationele model
+\end{itemize}
+\item SQL is te complex geworden
+\end{itemize}
+
 
 \subsubsection{Impedance Mismatch}
 Er zijn verschillen tussen OO-model en relationeel model.
