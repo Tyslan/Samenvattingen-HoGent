@@ -1097,4 +1097,210 @@ SELECT * FROM master.dbo.sysmessages
 WHERE error = @@ERROR
 \end{lstlisting}
 Eigen fouten kan men genereren via raiseerror(msg,severity,state)
+
+\subsection{Triggers}
+Trigger is gekoppeld aan een database actie.
+\subsubsection{Procedurele database objecten}
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|p{2cm}|p{3cm}|}
+\hline
+Soort & Batches & Opgeslaan als & Uitvoering & Ondersteunt\newline parameters\\
+\hline
+Script & meerdere & Apart bestand & Client tool & nee\\
+\hline
+Stored Procedure & 1 & Database Object & Applicatie of SQL & ja\\
+\hline
+User defined function & 1 & Database Object & Applicatie of SQL & ja\\
+\hline
+Trigger & 1 & Database Object & DML, DDL, login-logoff statement & nee\\
+\hline
+\end{tabular}
+\caption{Procedurele programma's}
+\label{tab:procedurele_programmas}
+\end{table}
+Een batch is een programma zonder interactie.
+
+\subsubsection{Definitie}
+Een trigger is een speciaal type Stored Procedure.
+
+Het is een stuk code dat automatisch uitgevoerd wordt als een neveneffect van een actie op een tabel.
+
+\subsubsection{Gebruik}
+\begin{itemize}
+\item Validatie van data en complexe constraints
+\item Automatische generatie van waarden
+\item Ondersteuning voor alerts
+\item Bijhouden van audits
+\item Replicatie en gecontrolleerd bijhouden van redundante data
+\end{itemize}
+
+\subsubsection{Syntax}
+\begin{lstlisting}[language=sql, breaklines=true]
+CREATE TRIGGER TriggerName
+BEFORE | AFTER | INSTEAD OF
+INSERT | DELETE | UPDATE [OF TriggerColumnList]
+
+ON TableName
+[REFERENCING {OLD | NEW} AS {OldName | NewName}]
+[FOR EACH {ROW | STATEMENT}]
+[WHEN condition]
+<trigger action>
+\end{lstlisting}
+
+Trigger Event:
+\begin{itemize}
+\item bepaalt bij welke gebeurtenis de trigger geactiveerd zal worden.
+\item bij update kan eventueel gespecifiëerd worden voor welke kolommen de triggering event gegenereerd wordt.
+\end{itemize}
+
+Trigger Condition
+\begin{itemize}
+\item wanneer de conditie false oplevert wordt er verder niets met de trigger gedaan.
+\item wanneer de conditie true oplevert zal de trigger action uitgevoerd worden.
+\end{itemize}
+
+Trigger Action:
+\begin{itemize}
+\item Een aantal SQL-opdrachten
+\end{itemize}
+
+Timing:
+\begin{itemize}
+\item \textbf{Before}: evaluatie van de trigger conditie en eventuele uitvoering van trigger actie gebeurt op de toestand van de DB zoals deze is vóór de triggering event zelf wordt afgehandeld.
+\item \textbf{After}: evaluatie van de trigger conditie en eventuele uitvoering van trigger actie gebeurt op de toestand van de DB zoals deze is nadat de triggering event zelf wordt afgehandeld.
+\item \textbf{Instead Of}: trigger wordt uitgevoerd ter vervanging van het DML statement.
+\end{itemize}
+
+Uitvoering:
+\begin{itemize}
+\item \textbf{For Each Row}: trigger wordt 'gewekt' voor elk tupel dat wordt gewijzigd door het trigger event.
+\item \textbf{For Each Statement}:   1 keer 'gewekt' ongeacht het aantal tupels dat gewijzigd wordt door het trigger event.
+\end{itemize}
+
+Verwijzen naar tupels/tabellen in de trigger
+\begin{itemize}
+\item \textbf{Old/oldName}: in de condition en trigger action kan verwezen worden naar de oude waarden van de tupels.
+Dit is niet relevant bij de insert trigger.
+\item \textbf{New/newName}: in de condition en trigger action kan verwezen worden naar de nieuwe waarden van de tupels.
+Dit is niet relevant bij delete trigger
+\end{itemize}
+
+\subsubsection{Uitvoering van een trigger}
+Volgorde bij een true-condition:
+\begin{enumerate}
+\item uitvoering van beforestatement level triggersop de tabel
+\item voor elke rij geaffecteerd door de trigger
+\begin{enumerate}
+\item uitvoering van beforerowlevel triggers
+\item uitvoering van de triggering event(i.e. update/delete/insert)
+\item toepassen van referentiële constraints
+\item uitvoering van afterrowlevel triggers
+\end{enumerate}
+\item uitvoering van afterstatement level triggersop de tabel
+\end{enumerate}
+
+\subsubsection{Voordelen}
+Mogelijkheid om functionaliteit in de DB op te slaan en consistent uit te voeren bij elke wijziging aan de DB.
+
+Dus:
+\begin{itemize}
+\item geen redundante code: functionaliteit op 1 plaats
+\item wijzigingen aanbrengen wordt eenvoudig
+\item veiligheid: triggers in de database
+\item meer processing power
+\item past in client-server model
+\end{itemize}
+
+\subsubsection{Nadelen}
+\begin{itemize}
+\item Complexiteit: moeilijk om te debuggen en functionaliteit van applicatie naar DB
+\item Verborgen functionaliteit: onverwachte neveneffecten en cascading
+\item Performantie: Bij elke wijziging aan de DB moet de trigger conditie geëvalueerd worden.
+\item Portabiliteit: Dialect van DBMS
+\end{itemize}
+
+\subsubsection{MS SQL Server: Trigger test tabellen}
+Er zijn 2 tijdelijke tabellen: de deleted en inserted tabel.
+
+De deleted tabel bevat kopies van de gewijzigde of verwijderde rijen:
+\begin{itemize}
+\item tijdens de update of delete worden rijen van de trigger tabel gekopieerd naar de deleted tabel.
+\item deze twee tabellen hebben geen gemeenschappelijke rijen.
+\end{itemize}
+
+De inserted tabel bevat kopies van gewijzigde of ingevoegde rijen:
+\begin{itemize}
+\item tijdens een update of insert wordt een kopie van elke rij die gewijzigd of toegevoegd wordt in de trigger tabel geplaatst in de inserted tabel.
+\item deze twee tabellen hebben dus enkel gemeenschappelijke rijen.
+\end{itemize}
+
+\textbf{Opmerkingen:}
+
+Naast verschillen in syntax, verschillen de SQL-producten tevens voor wat betreft de functionaliteit van triggers.
+Enkele interessante vragen hierbij:
+\begin{itemize}
+\item Mogen voor één tabel en een bepaalde mutatie meerdere triggers gedefinieerd worden?
+\item Kan de verwerking van een instructie die behoort tot een trigger actie leiden tot het activeren van een andere trigger?
+\item Wanneer wordt nu precies een trigger actie verwerkt?
+\item Mogen triggers gedefinieerd worden op catalogustabellen?
+\end{itemize}
+
+\subsection{OODBMS en ORDBMS}
+\subsubsection{Inleiding tot ORDBMS}
+De relationele DBMS is dominant, terwijl de OODBMS relatief klein is op de markt.
+
+\subsubsection{Enkele OO uitbreidingen}
+\begin{itemize}
+\item gebruiker gedefinieerde types
+\item encapsulatie
+\item overerving
+\item polymorfisme
+\item dynamische method binding
+\item complexe objecten
+\item object identiteit
+\end{itemize}
+
+\subsubsection{Realiteit}
+Er is geen standaard "extended" relationeel model.
+
+Alle modellen
+\begin{itemize}
+\item hebben als basis relationele tabellen en query language
+\item hebben 1 of ander concept van object
+\item kunnen methodes opslaan
+\end{itemize}
+ORDBMS behouden de opgebouwde kennis rond RDBMS.
+
+\subsubsection{Stonebreakers View}
+\begin{figure}[H]
+\centering
+\includegraphics[width=.7\linewidth]{img/StonebreakersView.png}
+\caption{Stonebreakers View}
+\label{fig:StonebreakersView}
+\end{figure}
+
+\subsubsection{Voordelen van ORDBMS}
+\subsubsection{Nadelen van ORDBMS}
+
+\subsubsection{Impedance Mismatch}
+Er zijn verschillen tussen OO-model en relationeel model.
+
+Dit probleem kan opgelost worden met OR-mapping of met User defined types.
+
+\subsection{User Defined Types}
+User defined types zijn abstracte types.
+Deze types kunnen gebruikt worden als built-in type.
+
+Er zijn twee soorten:
+\begin{enumerate}
+\item distinct types
+\item structured types
+\end{enumerate}
+
+\subsubsection{Distinct types}
+Een distinct type is gebaseerd op een basis type.
+Het laat toe om onderscheid aan te brengen tussen anders gelijke basis types.
+
+\subsubsection{Structured Types}
 \end{document}
