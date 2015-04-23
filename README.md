@@ -6,7 +6,7 @@ Al deze samenvattingen zijn gebaseert op persoonlijke notities en de slides die 
 
 De samenvattingen starten pas vanaf het 2e jaar in het 1e semester.
 
-Als de bron van de samenvatting beschikbaar is, is deze terug te gevinden in de map Tex.
+Als de bron van de samenvatting beschikbaar is, is deze terug te gevinden in de map Source.
 
 Hieronder volgt een lijstje met opsommingen van de vakken waarvoor reeds een samenvatting beschikbaar is.
 
