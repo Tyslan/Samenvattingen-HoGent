@@ -15,6 +15,8 @@ Hieronder volgt een lijstje met opsommingen van de vakken waarvoor reeds een sam
 - [x] Bedrijfsmanagement
 - [x] Besturingssystemen
 - [ ] Internationale communicatie II
+ - [ ] Frans II
+ - [x] Engels II
 - [x] OO Ontwerpen II
 - [x] OO programmeren III
 - [ ] Webapplicaties III

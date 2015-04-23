@@ -1,0 +1,661 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage{a4wide}
+\usepackage[dutch]{babel}
+\usepackage{amsmath}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage[latin1]{inputenx}
+\usepackage{caption2}
+\usepackage{parskip}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+OO Ontwerp: Design Patterns
+\end_layout
+
+\begin_layout Author
+\noindent
+Lorenz Verschingel
+\end_layout
+
+\begin_layout Date
+3 December 2014
+\end_layout
+
+\begin_layout LyX-Code
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout LyX-Code
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Inleiding
+\end_layout
+
+\begin_layout Subsection
+Waarom?
+\end_layout
+
+\begin_layout Standard
+\noindent
+We gebruiken design patterns omdat andere ontwikkelaars via deze weg het
+ probleem eerder al hebben opgelost.
+ Een pattern is geen concrete oplossing, maar eerder een sjabloon waarmee
+ het ontwerpprobleem kan worden opgelost.
+\end_layout
+
+\begin_layout Subsection
+Hoe gebruiken?
+\end_layout
+
+\begin_layout Standard
+De beste manier om design patterns te gebruiken is om ze vanbuiten te leren
+ en vervolgens de plaatsen te leren herkennen waar men ze kan toepassen.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Strategy Pattern
+\end_layout
+
+\begin_layout Subsection
+Waarom?
+\end_layout
+
+\begin_layout Standard
+Specificaties blijven constant veranderen.
+\end_layout
+
+\begin_layout Standard
+Hergebruik van code door overerving is in veel gevallen geen zo'n goed idee.
+ Men moet in iedere subklasse gaan kijken of een bepaalde supermethode niet
+ moet vervangen worden via een override.
+\end_layout
+
+\begin_layout Quotation
+\noindent
+Los van wat je maakt of in welke taal je programmeert, de enige constante
+ die je altijd tegenkomt is VERANDERING.
+\end_layout
+
+\begin_layout Subsection
+Ontwerpprincipe
+\end_layout
+
+\begin_layout Standard
+Bepaal de aspecten van je applicatie die variëren en scheid deze van de
+ aspecten die hetzelfde blijven.
+ M.a.w.
+ bevat onze code een aspect dat verandert, dan weten we dat we een gedrag
+ hebben dat eruit gelicht moet worden en moet worden afgezonderd van alle
+ code die niet verandert.
+\end_layout
+
+\begin_layout Standard
+Voordelen:
+\end_layout
+
+\begin_layout Itemize
+Blijft flexibel
+\end_layout
+
+\begin_layout Itemize
+Gedrag aan instanties toekennen die het nodig hebben.
+\end_layout
+
+\begin_layout Itemize
+Het gedrag kan dynamisch verandert worden als in de superklasse een methode
+ voorzien wordt om het gedrag te veranderen.
+\end_layout
+
+\begin_layout Standard
+Programmeer naar een interface, niet naar een implementatie.
+ M.a.w.
+ we gaan voor ieder gedrag een interface gebruiken, bv.
+ FlyBehavior en QuackBehavior, en iedere implementatie van een gedrag implemente
+ert één van deze interfaces.
+ M.a.w.
+ we gaan voor ieder gedrag een interface gebruiken en iedere implementatie
+ van een gedrag implementeert één van deze interfaces.
+\end_layout
+
+\begin_layout Standard
+Geef aan compositie de voorkeur boven overerving.
+ In plaats van het gedrag te erven, verkrijgt de klasse zijn gedrag uit
+ het (juiste) gedragsobject waarmee hij is samengesteld.
+ Het creëren van systemen via compositie geeft meer flexibiliteit.
+ We kunnen een familie algoritmen inkapselen.
+ We kunnen tevens het gedrag at runtime veranderen.
+ Compositie wordt in veel design patterns toegepast.
+\end_layout
+
+\begin_layout Subsection
+Wat?
+\end_layout
+
+\begin_layout Standard
+Het Strategy Pattern definieert een familie algoritmen, isoleert ze en maakt
+ ze uitwisselbaar.
+ het strategy pattern maakt het mogelijk om het algoritme los van de client
+ die deze gebruikt, te veranderen.
+\end_layout
+
+\begin_layout Subsection
+Voorbeeld
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Strategy Pattern.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Simple Factory Pattern
+\end_layout
+
+\begin_layout Subsection
+Wat?
+\end_layout
+
+\begin_layout Standard
+In objectgeoriënteerde programmeertalen is het factory-ontwerppatroon een
+ manier om objecten te instantiëren zonder exact vast hoeven te leggen van
+ welke klasse deze objecten zullen zijn.
+ In dit patroon wordt een methode (de factory-methode) gebruikt die door
+ subklassen geïmplementeerd kan worden.
+ De klasse van het object die door die methode geïnstantieerd wordt, implementee
+rt een bepaalde interface.
+ Elk van de subklassen kan vervolgens bepalen van welke klasse een object
+ wordt aangemaakt, zolang deze klasse maar die interface implementeert.
+\end_layout
+
+\begin_layout Standard
+Het doel van dit ontwerppatroon is het vereenvoudigen van het onderhoud
+ van het programma.
+ Als er nieuwe subklassen nodig zijn dan hoeft men alleen een nieuwe factory-met
+hode te implementeren.
+\end_layout
+
+\begin_layout Subsection
+Voorbeeld
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Factory Pattern.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Decorator Pattern
+\end_layout
+
+\begin_layout Subsection
+Wat?
+\end_layout
+
+\begin_layout Standard
+Een decorator is een ontwerppatroon voor objectoriëntatie dat dynamisch
+ extra functionaliteit toevoegt aan een object.
+ Dit is flexibeler dan uitbreiding van functionaliteit door middel van subklasse
+n.
+ Decorator behoort tot de structuurpatronen.
+\end_layout
+
+\begin_layout Subsection
+Het open-gesloten principe
+\end_layout
+
+\begin_layout Standard
+Het doel is dat klassen eenvoudig uitgebreid kunnen worden om nieuw gedrag
+ te incorporeren zonder de bestaande code te wijzigen.
+ Dit kan bereikt worden door ontwerpen te maken die weerstand bieden tegen
+ verandering en flexibel genoeg zijn om nieuwe functionaliteiten op te nemen
+ om aan veranderende eisen tegenmoet te komen.
+\end_layout
+
+\begin_layout Subsection
+Toepassing
+\end_layout
+
+\begin_layout Standard
+Het patroon is van toepassing in situaties waarbij aan objecten dan weer
+ de ene en dan weer de andere functionaliteit toegevoegd wordt.
+ Indien overerving gebruikt zou worden zou voor elke combinatie van functionalit
+eiten een subklasse geschreven moeten worden hetgeen al snel inefficiënt
+ wordt in termen van onderhoudbaarheid van broncode.
+\end_layout
+
+\begin_layout Standard
+Het Decorator Pattern kent dynamisch additionele verantwoordelijkheden toe
+ aan een object.
+ Decorators bieden een flexibel alternatief voor het gebruik van subklassen
+ om functionaliteiten uit te breiden.
+\end_layout
+
+\begin_layout Standard
+Een ander voordeel is dat de functionaliteit ter plekke weer kan worden
+ opgeheven.
+\end_layout
+
+\begin_layout Standard
+Grootste nadeel is dat er een nieuw (decorator-)object gemaakt wordt terwijl
+ bij overerving de functionaliteit aan hetzelfde object wordt toegevoegd.
+\end_layout
+
+\begin_layout Subsection
+Voorbeeld
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Decorator Pattern.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Observer Pattern
+\end_layout
+
+\begin_layout Subsection
+Wat?
+\end_layout
+
+\begin_layout Standard
+Het Observer Pattern definieert een één-op-veel-relatie tussen objecten,
+ zodanig dat wanneer de toestand van een object verandert, alle afhankelijke
+ objecten worden bericht en automatisch worden geüpdatet.
+\end_layout
+
+\begin_layout Subsection
+Kracht van zwakke koppelingen
+\end_layout
+
+\begin_layout Itemize
+Wanneer twee objecten een zwakke koppeling hebben, dan kunnen ze interactie
+ plegen, maar weten ze weinig over elkaar.
+\end_layout
+
+\begin_layout Itemize
+Het Observer Pattern zorgt voor een ontwerp van objecten waarin subjecten
+ en observers zwak gekoppeld zijn.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Het enige wat een subject over een observer weet is dat deze een bepaalde
+ interface implementeert (de Observer-interface).
+\end_layout
+
+\begin_layout Itemize
+We kunnen op ieder moment nieuwe observers toevoegen.
+\end_layout
+
+\begin_layout Itemize
+We hoeven het subject nooit te veranderen om nieuwe soorten observers toe
+ te voegen.
+\end_layout
+
+\begin_layout Itemize
+We kunnen subjecten en observers onafhankelijk van elkaar hergebruiken.
+\end_layout
+
+\begin_layout Itemize
+Veranderingen in het subject of een observer hebben geen invloed op elkaar.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Zwak gekoppelde ontwerpen maken het mogelijk om flexibele OO-systemen te
+ bouwen die met verandering om kunnen gaan, omdat ze de wederzijdse afhankelijkh
+eid tussen objecten erg klein maken.
+\end_layout
+
+\begin_layout Subsection
+Voorbeeld
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Observer Pattern.png
+	width 15cm
+
+\end_inset
+
+
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Façade Pattern
+\end_layout
+
+\begin_layout Subsection
+Wat?
+\end_layout
+
+\begin_layout Standard
+Het Façade Pattern zorgt voor een vereenvoudigde interface naar een verzameling
+ interfaces in een subsysteem.
+ De façade definieert een interface op een hoger niveau zodat het gebruik
+ van het subsysteem vereenvoudigt.
+ 
+\end_layout
+
+\begin_layout Subsection
+Het principe van kennisabstractie
+\end_layout
+
+\begin_layout Standard
+Met dit ontwerppatroon wordt er vermeden dat er veel klassen aan elkaar
+ gekoppeld worden, zodat veranderingen in het ene deel van het systeem invloed
+ hebben op andere delen van het systeem.
+ Wanneer er veel afhankelijkheden zijn tussen verschillende klassen dan
+ wordt een systeem ontwikkeld, dat duur is in onderhoud en ook nog eens
+ moeilijk te begrijpen is voor anderen.
+\end_layout
+
+\begin_layout Subsection
+Voordelen
+\end_layout
+
+\begin_layout Standard
+De façade bewerkstelligt losse koppeling tussen verzamelingen functies (of
+ functiecomponenten) en componenten die van die functies gebruik willen
+ maken.
+ Bijgevolg kent een façade de volgende voordelen:
+\end_layout
+
+\begin_layout Itemize
+Het blijft mogelijk om een collectie functies aan te passen of opnieuw te
+ implementeren als de collectie al door andere componenten gebruikt wordt.
+\end_layout
+
+\begin_layout Itemize
+Het is mogelijk om complexiteit bij het correcte gebruik van een collectie
+ functies te verstoppen in of achter de façade.
+\end_layout
+
+\begin_layout Subsection
+Nadelen
+\end_layout
+
+\begin_layout Standard
+Naast voordelen kent het façadepatroon ook enige nadelen:
+\end_layout
+
+\begin_layout Itemize
+Een façade is van nature een sterk gekoppeld component.
+\end_layout
+
+\begin_layout Itemize
+Een façade reduceert het aantal gebruiksmogelijkheden van een collectie
+ functies van ongebreideld tot "dat wat de façade toestaat".
+ Als gevolg hiervan is het mogelijk dat door het gebruik van de façade niet
+ alle mogelijkheden van een collectie functies aan de buitenwereld aangeboden
+ worden (of kunnen worden).
+\end_layout
+
+\begin_layout Subsection
+Overwegingen
+\end_layout
+
+\begin_layout Standard
+De nadelen van de façade maken dat over het gebruik ervan altijd een afweging
+ plaats moet vinden.
+ Aangezien een façade altijd sterk gekoppeld is en ook nog eens een extra
+ component is in het totale systeem, moet bijvoorbeeld de afweging gemaakt
+ worden of toepassing van de façade de moeite waard is.
+ Een façade voor een klein aantal functiecomponenten plaatsen, kan bijvoorbeeld
+ het systeem onnodig verzwaren.
+ En als blijkt dat een façade het moeilijk maakt om een complexe combinatie
+ van achterliggende functies te gebruiken die wel gewenst is, moet overwogen
+ worden of de façade de moeite is of wellicht ook om het mogelijk te maken
+ voor andere componenten om (gedeeltelijk) om de façade heen te gaan.
+\end_layout
+
+\begin_layout Subsection
+Voorbeeld
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Façade Patterrn.png
+	width 15cm
+
+\end_inset
+
+
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+State pattern
+\end_layout
+
+\begin_layout Subsection
+Wat?
+\end_layout
+
+\begin_layout Standard
+Het State Pattern maakt het voor een object mogelijk zijn gedrag te veranderen
+ wanneer zijn interne toestand verandert.
+ Het object lijkt van klasse te veranderen.
+\end_layout
+
+\begin_layout Standard
+Het State Pattern wordt gebruikt om verschillende toestanden van een object
+ op een nette manier in te kapselen.
+\end_layout
+
+\begin_layout Standard
+Het patroon bestaat uit een tweetal klassen: de 'context' en de 'toestand'
+ (state).
+ De eerste handelt verzoeken af en geeft deze door aan de tweede.
+ De verschillende interne toestanden worden geïmplementeerd als subklassen
+ van de state-klasse.
+ Iedere subklasse kan anders reageren op verzoeken, zodat we gedrag verkrijgen
+ dat kan afhangen van de interne toestand van een object zonder allerlei
+ globale variabelen en een batterij if-statements.
+\end_layout
+
+\begin_layout Subsection
+Voorbeeld
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename State Pattern.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Verschil tussen state en strategy pattern
+\end_layout
+
+\begin_layout Standard
+Het state pattern definiëert wat het object is.
+ Het encapsuleert staat-afhankelijk gedrag.
+\end_layout
+
+\begin_layout Standard
+Bijvoorbeeld:
+\end_layout
+
+\begin_layout Standard
+Een kauwgomautomaat: afhankelijk of er een munt in de automaat zit of niet
+ zal de machine anders reageren.
+\end_layout
+
+\begin_layout Standard
+Het strategy pattern bepaalt hoe een object een bepaalde taak uitvoert,
+ het encapsuleert een algoritme.
+\end_layout
+
+\begin_layout Standard
+Bijvoorbeeld:
+\end_layout
+
+\begin_layout Standard
+De sort algoritmes in java.
+ Via een parameter kan meegegeven worden hoe de collection gesorteerd moet
+ worden.
+ Onafhankelijk van welke parameter je meegeeft blijft het doel hetzelfde:
+ de collection moet gesorteerd worden.
+\end_layout
+
+\end_body
+\end_document

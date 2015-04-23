@@ -1,0 +1,1672 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage{parskip}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language dutch
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language swedish
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Algemene inleiding
+\end_layout
+
+\begin_layout Subsection
+Definitie en oorsprong van economie
+\end_layout
+
+\begin_layout Standard
+Economie is een sociale wetenschap en heeft als onderwerp het menselijk
+ streven naar maximale welvaart die verworven wordt met behulp van schaarse
+ middelen.
+\end_layout
+
+\begin_layout Subsubsection
+Economische organisatievormen
+\end_layout
+
+\begin_layout Itemize
+Centraal geleide of planeconomie
+\end_layout
+
+\begin_layout Itemize
+Vrijemarkteconomie of kapitalisme
+\end_layout
+
+\begin_layout Itemize
+Gemengde economie
+\end_layout
+
+\begin_layout Subsection
+Algemene economie
+\end_layout
+
+\begin_layout Subsubsection
+Macro-economie
+\end_layout
+
+\begin_layout Standard
+De macro-economie beoogt verschillende geaggregeerde groothede, in de volkshuish
+ouding vast te stellen en hun ontwikkeling verklaren.
+\end_layout
+
+\begin_layout Standard
+Algemeen, gemiddeldes
+\end_layout
+
+\begin_layout Subsubsection
+Meso- en micro-economie
+\end_layout
+
+\begin_layout Standard
+De meso-economie bestudeert hoe economischeprocessen zich voltrekken binnen
+ bepaalde markten of bedrijfstakken.
+\end_layout
+
+\begin_layout Standard
+De micro-economie houdt zich eerder bezig met gedragingen van individuele
+ economische agenten.
+\end_layout
+
+\begin_layout Subsubsection
+Monetaire economie
+\end_layout
+
+\begin_layout Subsubsection
+Openbare financiën
+\end_layout
+
+\begin_layout Subsubsection
+Media en economie
+\end_layout
+
+\begin_layout Subsection
+Bedrijfseconomie
+\end_layout
+
+\begin_layout Subsubsection
+Relaties met de omgeving
+\end_layout
+
+\begin_layout Standard
+Zie Porter (later)
+\end_layout
+
+\begin_layout Standard
+Kasstroombeheer
+\end_layout
+
+\begin_layout Standard
+De financieringsbehoefte ontstaat doorgaans bij het opstarten van een bedrijf,
+ als er bedrijfsmiddelen moeten worden aangeschaft.
+\end_layout
+
+\begin_layout Subsection
+De rol van bedrijfseconomie
+\end_layout
+
+\begin_layout Subsubsection
+Economische kringloop
+\end_layout
+
+\begin_layout Enumerate
+De totale hoeveelheid inkomen die er gevormd wordt
+\end_layout
+
+\begin_layout Enumerate
+de manier waarop dat inkomen verdeeld wordt
+\end_layout
+
+\begin_layout Enumerate
+de verdeling van dat inkomen over de verschillende producten en diensten
+\end_layout
+
+\begin_layout Standard
+Er zijn 3 markten de onderscheiden:
+\end_layout
+
+\begin_layout Enumerate
+arbeidsmarkt
+\end_layout
+
+\begin_layout Enumerate
+kapitaalmarkt
+\end_layout
+
+\begin_layout Enumerate
+goederenmarkt
+\end_layout
+
+\begin_layout Subsubsection
+De bedrijfskolom
+\end_layout
+
+\begin_layout Enumerate
+Integratie
+\end_layout
+
+\begin_layout Enumerate
+Differentiatie
+\end_layout
+
+\begin_layout Enumerate
+Parallellisatie
+\end_layout
+
+\begin_layout Subsection
+Verschillende sectoren in de economie
+\end_layout
+
+\begin_layout Itemize
+Marktsector
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Primaire sector
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Grondstoffen
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Secundaire sector
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+verwerkt grondstoffen
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Tertiaire sector
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+diensten, distributie
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+Collectieve sector
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+streven meestal geen winst na
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Een aantal micro-economische principes
+\end_layout
+
+\begin_layout Subsubsection
+Vraag en aanbod
+\end_layout
+
+\begin_layout Standard
+De vraag en het aanbod van een product hangen af van de prijs die ervoor
+ gevraagd wordt.
+\end_layout
+
+\begin_layout Standard
+Bij een vraag en aanbodcurve is de prijs de onafhankelijke, het is de vraag
+ die afhankelijk is van de prijs.
+\end_layout
+
+\begin_layout Subsubsection
+Elasticiteit
+\end_layout
+
+\begin_layout Paragraph
+Elasticiteit van de vraag
+\end_layout
+
+\begin_layout Standard
+is de verhouding tussen de procentuele verandering van de gevraagde hoeveelheid
+ van een goed en de procentuele verandering van de prijs van dat goed.
+\end_layout
+
+\begin_layout Standard
+De prijselasticiteit van de vraag
+\end_layout
+
+\begin_layout Itemize
+Als E = -1 of |E| = 1 dan spreken we van een unitair prijselastische vraag.
+\end_layout
+
+\begin_layout Itemize
+Als E < -1 of |E| > 1 dan spreken we van een prijselastische vraag.
+\end_layout
+
+\begin_layout Itemize
+Als -1 < E < 0 of |E| < 1 dan spreken we van een prijsinelastische vraag.
+\end_layout
+
+\begin_layout Itemize
+Als E = 0 dan spreken we van een volkomen prijsinelastische vraag.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $E_{v}=\frac{\triangle Q}{\triangle P}=\frac{\%\triangle Q}{\%\triangle P}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Inkomstenelasticiteit
+\end_layout
+
+\begin_layout Standard
+is de verhouding tussen de procentuele verandering van de gevraagde hoeveelheid
+ van een goed en de procentuele verandering van het inkomen van de consumenten.
+\end_layout
+
+\begin_layout Standard
+|Ey| > 1 inkomenselastisch
+\end_layout
+
+\begin_layout Standard
+|Ey| < 1 inkomensinelastisch
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $E_{Y}=\frac{\%\triangle Q_{v}}{\%\triangle Y}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Kruisprijselasticiteit van de vraag
+\end_layout
+
+\begin_layout Standard
+is de verhouding tussen de procentuele verandering van de gevraagde hoeveelheid
+ van een bepaald goed en de procentuele verandering van de prijs van een
+ ander goed.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $E_{k}=\frac{\%\triangle Q_{vY}}{\%\triangle P_{x}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Als Ek > 0 substituten
+\end_layout
+
+\begin_layout Standard
+Als Ek < 0 complementair
+\end_layout
+
+\begin_layout Subsubsection
+Marktvormen
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="4">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Aantal aanbieders
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Aantal afnemers
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Homogeen product
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Hetrogeen product
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Veel
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Veel
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Volledige vrije mededingen
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Monopolistische concurrentie
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Weinig
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Veel
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Homogene oligopolie
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Hetrogene oligopolie
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Eén
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Veel
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Monopolie
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Monopolie
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Een financiële weergave van de onderneming
+\end_layout
+
+\begin_layout Subsection
+De balans: Algemeen
+\end_layout
+
+\begin_layout Itemize
+Scronto-weergave: Horizontale opstelling.
+ Balans in de vorm van een T
+\end_layout
+
+\begin_layout Itemize
+Staffel-weergave: Verticale opstelling
+\end_layout
+
+\begin_layout Subsection
+De balans: Vaste en vlottende activa
+\end_layout
+
+\begin_layout Itemize
+Vaste activa: elementen die langdurig in het bedrijf aanwezig zijn.
+ Met langdurig wordt langer dan 1 productieperiode bedoeld.
+\end_layout
+
+\begin_layout Itemize
+Vlottende activa: elementen de gedurende een productie/verkoopperiode (eenmalig)
+ worden verbruikt.
+\end_layout
+
+\begin_layout Subsection
+De Balans: Eigen en vreemd vermogen
+\end_layout
+
+\begin_layout Itemize
+Eigen vermogen: vermogen dat door de eigenaar in de organisatie wordt gestopt.
+\end_layout
+
+\begin_layout Itemize
+Vreemd vermogen:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Lang vreemd vermogen: door derden verstrekt aan de onderneming voor een
+ periode langer dan 1 jaar
+\end_layout
+
+\begin_layout Itemize
+Kort vreemd vermogen: door derden verstrekt aan de onderneming voor een
+ periode korter dan 1 jaar.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Ratioanalyse
+\end_layout
+
+\begin_layout Standard
+Partijen uit de externe omgeving willen soms een bedrijf doorlichten.
+ Hierbij wordt vaak gebruik gemaakt van de ratioanalyse.
+ Deze analyse bestaat uit 4 onderdelen.
+\end_layout
+
+\begin_layout Enumerate
+Liquiditeitskengetallen
+\end_layout
+
+\begin_layout Enumerate
+Solvabiliteitskengetallen
+\end_layout
+
+\begin_layout Enumerate
+rentabiliteitskengetallen
+\end_layout
+
+\begin_layout Enumerate
+activiteitskengetallen
+\end_layout
+
+\begin_layout Subsubsection
+Liquiditeit
+\end_layout
+
+\begin_layout Standard
+De statische liquiditeit geeft aan in welke mate een onderneming kan voldoen
+ aan haar kortlopende schulden.
+\end_layout
+
+\begin_layout Itemize
+Netto werkkapitaal: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $Vlottend\: Actief-KVV$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Current ratio: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\frac{Vlottend\: Actief}{KVV}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+norm tussen 1,2 en 2,0
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Quick ratio:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\frac{Vlottend\: Actief-voorraden}{KVV}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+norm tussen 0,8 en 1,0
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection
+Solvabiliteit: financiële situatie op lange termijn
+\end_layout
+
+\begin_layout Standard
+De solvabititeit wordt bekeken om te zien of een organisatie kan voldoen
+ aan haar financiële verplichtingen ten aanzien van haar vreemdvermogenverschaff
+ers.
+\end_layout
+
+\begin_layout Standard
+Debt ratio: 
+\begin_inset Formula $\frac{VV}{TV}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De debt ratio geeft aan in welke mate de onderneming in staat is om bij
+ liquidatie alle verschaffers van vreemd vermogen terug te betalen.
+\end_layout
+
+\begin_layout Standard
+De norm ligt op 0,60.
+ Hoe hoger dit getal hoe hoger het risico voor de verstrekker van geld aan
+ de onderneming.
+\end_layout
+
+\begin_layout Subsubsection
+Rentabiliteit: winstgevendheid van een organisatie
+\end_layout
+
+\begin_layout Standard
+Rentabiliteit totaal vermogen (RTV) = 
+\begin_inset Formula $\frac{ondernemingswinst}{gemiddeld\: totaal\: geïnvesteerd\: vermogen}\times100\%$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ondernemingswinst = bedrijfswinst = opbrengsten-kosten
+\end_layout
+
+\begin_layout Standard
+Rentabiliteit eigen vermogen (REV) = 
+\begin_inset Formula $\frac{ondernemingswinst-rente\: VV}{gemiddeld\: totaal\: vreemd\: vermogen}\times100\%$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Rentabiliteit vreemd vermogen (RVV) = 
+\begin_inset Formula $\frac{rentekosten}{gemiddeld\: totaal\: eigen\: vermogen}\times100\%$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Activiteitskengetallen
+\end_layout
+
+\begin_layout Itemize
+Efficiënt: goed geproduceerd
+\end_layout
+
+\begin_layout Itemize
+Effectief: wordt ook verkocht
+\end_layout
+
+\begin_layout Standard
+Omloopsnelheid TV = 
+\begin_inset Formula $\frac{Omzet}{TV}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hoe hoger de omloopsnelheid, hoe efficiënter het totaal vermogen wordt benut.
+\end_layout
+
+\begin_layout Standard
+Brutowinstmarge = 
+\begin_inset Formula $\frac{ondernemingswinst}{omzet}\times100\%$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De brutowinstmarge geeft aan in procenten hoeveel brutowinst er uit de bedrijfsa
+ctiviteiten overblijft.
+\end_layout
+
+\begin_layout Standard
+Rentabiliteit totaal vermogen (RTV) = 
+\begin_inset Formula $\frac{ondernemingswinst}{gemiddeld\: totaal\: geïnvesteerd\: vermogen}\times100\%$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $=omloopsnelheid\times brutowinstmarge$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Werkkapitaal = voorraden - vorderingen + leveranciers
+\end_layout
+
+\begin_layout Standard
+Omloopsnelheid van de voorraden = 
+\begin_inset Formula $\frac{kostprijs\: van\: de\: voorraden}{gemiddelde\: voorraad}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hoe hoger de omloopsnelheid van de voorraden, hoe beter.
+\end_layout
+
+\begin_layout Standard
+Omlooptijd an de voorraden = 
+\begin_inset Formula $\frac{voorraden}{kostprijs\: van\: de\: voorraad}\times360=\frac{360}{omloopsnelheid\: van\: de\: voorraad}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+\lang english
+De organisatie besturen: Management accounting
+\end_layout
+
+\begin_layout Subsection
+
+\lang english
+Management versus financial accounting
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+De betrokken partijen buiten de organisatie hebben ook behoefte aan informatie,
+ die echter anders van aard is.
+ Het gaat er daarbij meer over de organisatie te beoordelen voor een eventuele
+ investering of het toekennen van scriptwaardigheid en dergelijke.
+\end_layout
+
+\begin_layout Subsection
+
+\lang english
+Kostensoorten/-categorieë,
+\end_layout
+
+\begin_layout Subsubsection
+
+\lang english
+Kosten van de grond- en hulpstoffen
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Grondstoffen vormen de basis van producten.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Hulpstoffen zijn stoffen die gebruikt wordenproducten maken.
+\end_layout
+
+\begin_layout Paragraph
+
+\lang english
+Afvallen, uitval en verspilling
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Afval is grondstof die tijdens de productie verloren gaat, maar noodzakelijk
+ (onvermijdelijk )is om de productie uit te voeren.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Wanneer producten niet door de controle komen, worden ze als uitval beschouwd.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Verspilling is grondstof die je meer gebruikt dan volgens een vooraf gestelde
+ norm (standaardhoeveelheid) is vastgelegd.
+\end_layout
+
+\begin_layout Paragraph
+
+\lang english
+Voorraadkosten
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+3 kostenaspecten:
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Ruimte is nodig om de voorraden op te slaan.
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Risico slaat op het voorkomen van bederf of veroudering.
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Rente, dit is het geval wanneer de voorraden met vreemd vermogen zijn gefinancie
+erd.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset Formula $omloopsnelheid=\frac{afzet}{gemiddelde\, voorraad\,(stuks)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset Formula $omloopsnelheid=\frac{inkoopwaarde\, omzet}{gemiddelde\, voorraadwaarde}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset Formula $omloopsnelheid=\frac{omzet}{gemiddelde\, verkoopwaarde}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset Formula $Opslagduur=\frac{360}{omzetsnelheid}=...dagen$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+
+\lang english
+Kosten van arbeid
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+tijdloon
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+stukloon
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+premieloon
+\end_layout
+
+\begin_layout Subsubsection
+
+\lang english
+Afschrijvingskosten
+\end_layout
+
+\begin_layout Paragraph
+
+\lang english
+Afschrijven met een vast percentage van de aanschafwaarde
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset Formula $Jaarlijkse\: afschrijvingskost=\frac{Aw-Rw}{Eld}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+met:
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+Aw: Aanschafwaarde
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+Rw: Restwaarde
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+Eld: Economische levensduur
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset Formula $Afschrijvingspercentage=\frac{jaarlijkse\, afschrijvingskost}{Aw}*100\%$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+
+\lang english
+Afschrijven met een vast percentage van de boekwaarde
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset Formula $Boekwaarde=aanschafwaarde-afschrijvingen$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Deze methoode wordt vooral gebruikt bij snel verouderende duurzame productiemidd
+elen.
+\end_layout
+
+\begin_layout Paragraph
+
+\lang english
+Afschrijven met een wisselend percentage van de aanschafwaarde
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+voorbeeld: zie boek p145
+\end_layout
+
+\begin_layout Paragraph
+
+\lang english
+Degressief afschrijven
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Het afschrijvingstarief wordt verdubbeld t.o.v.
+ het tarief van een lineaire afschrijving.
+ Dit tarief wordt elk jaar toegepast op het bedrag dat nog dient afgeschreven
+ te worden.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Het gaat in eerste instantie om het Maximale tarief voor degressieve afschrijvin
+gen, t.t.z.
+ dat een beperking op het af te schrijven bedrag voor het eerste jaar opgelegd
+ is.
+ Standaard is het maximale tarief van 40 % van de aanschaffingswaarde (door
+ de Belgische Wetgeving opgelegde maximale tarief).
+ 
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+De berekening van de af te schrijven bedragen volgens de degressieve methode
+ wordt ook beïnvloed door de optie Automatische overgang van degressief
+ naar lineair als deze laatste methode een hoger bedrag geeft.
+ 
+\end_layout
+
+\begin_layout Subsection
+
+\lang english
+Budgetteren
+\end_layout
+
+\begin_layout Subsubsection
+
+\lang english
+Functies van budgetteren
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+Planning
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+Coördinatie en communicatie
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+Taakstelling en autorisatie
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+Motivatie
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+Evaluatie
+\end_layout
+
+\begin_layout Subsubsection
+
+\lang english
+Het masterbudget
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Dit moet zorgen voor een totaaloverzicht waarin alle budgetten van een ondernemi
+ng samenkomen.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Aan de hand van het masterbudget kunnen de gepronognosticeerde financiële
+ statements worden opgemaakt.
+\end_layout
+
+\begin_layout Subsection
+
+\lang english
+Balanced Scorecard
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Balanced Scorecard is een management dashboard die toekomst gericht is.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+4 perspectieven:
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+financieel perspectief
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+intern perspectief
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+klantperspectief
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+lerend vermogen
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Om BSC op te stellen wordt gebruik gemaakt van 2 begrippen:
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+kritische succesfactoren
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+prestatie-indicatoren
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Er zijn leidende/leading prestatie-indicatoren en volgende/lagging prestatie-ind
+icatoren.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+De doelstellingen moeten SMART geformuleerd zijn.
+\end_layout
+
+\begin_layout Subsection
+
+\lang english
+Spanning tussen management accounting en de aandeelhouders
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Er is een scheiding tussen het bezit en het beheersen van de bedrijfprocessen
+ bij beursgenoteerde bedrijven.
+ Deze situatie creëert een spanningsveld tussen bestuur en aandeelhouders,
+ omdat het bestuursbeleid niet altijd zal overeenkomen met de wensen van
+ de aandeelhouders.
+ Dit wordt het Agency-probleem genoemd.
+ Hier ligt informatie-asymmetrie aan de basis van het probleem.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+\lang english
+Investeringsselecties
+\end_layout
+
+\begin_layout Subsection
+
+\lang english
+Wat is investeren?
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Investeren is eerst iets opofferen met als doel het verwerven of het genereren
+ van inkomsten en opbrengsten op de lange termijn.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Beleggen en investeren zijn niet hetzelfde.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Soorten investeringen:
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+Vervangingsinvesteringen
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+Uitbreidingsinvesteringen
+\end_layout
+
+\begin_layout Itemize
+Expansie-investeringen
+\end_layout
+
+\begin_layout Itemize
+Automatiseringsinvesteringen
+\end_layout
+
+\begin_layout Itemize
+Duurzame investeringen
+\end_layout
+
+\begin_layout Itemize
+Reseach & development
+\end_layout
+
+\begin_layout Standard
+Het aanschaffen van investeringsgoederen gebeurt meestal op projectbasis.
+ Hierbij spreekt men dan ook van een investeringsproject.
+\end_layout
+
+\begin_layout Subsection
+Waarin wordt geïnvesteerd?
+\end_layout
+
+\begin_layout Itemize
+Aanschaf van vaste activa
+\end_layout
+
+\begin_layout Itemize
+Aanloopkosten
+\end_layout
+
+\begin_layout Itemize
+Opportunitykosten
+\end_layout
+
+\begin_layout Itemize
+Werkkapitaal
+\end_layout
+
+\begin_layout Subsection
+Het investeringsselectieproces
+\end_layout
+
+\begin_layout Enumerate
+Inventariseer, analyseer en selecteer de investeringsprojecten, die een
+ kernprobleem oplossen en die het beste aansluiten bij de bedrijfsstrategie.
+\end_layout
+
+\begin_layout Enumerate
+Stel de huidige en toekomstige cashflows van de beoogde investeringsprojecten
+ vast en beoordeel de haalbaatheid en de rentabiliteit van elk project volgens
+ de verschillende methoden uit de financiële rekenkunde.
+\end_layout
+
+\begin_layout Enumerate
+Breng de risico's die de uitvoering van de projecten met zich meebrengt
+ in kaart door de kans en het effect te meten.
+\end_layout
+
+\begin_layout Enumerate
+Selecteer het investeringsproject met de hoogste verwachte bijdrage aan
+ de ondernemingsdoelstellingen en de laagste risico's.
+\end_layout
+
+\begin_layout Enumerate
+Evalueer de lopende en beëindigde projecten en regelmatig.
+\end_layout
+
+\begin_layout Subsection
+Vaststellen van de cashflows
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Omzet-kosten=winst\: voor\: belasting$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $winst\: voor\: belasting-belastingen=winst\: na\: belasting$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $winst\: na\: belasting+afschrijvingen=Cashflow$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Initiële cashflow
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Cashflow_{initiëel}=-investeringen$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Operationele cashflow
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Cashflow_{operationeel}=nettowinst+afschrijvingen$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Finale cashflow
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Cashflow_{finaal}=nettowinst+afschrijvingen+restwaarde+vrijgevallen\: werkkapitaal$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Tijdswaarde van cashflows
+\end_layout
+
+\begin_layout Subsubsection
+Hoeveel is een bedrag dat ik vandaag onvang waard binnen x jaar?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $initieel*(1+rente)^{jaar}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Hoeveel is een bedrag dat ik binnen x jaar ontvang vandaag waard?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{initieel}{(1+rente)^{jaar}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Beoordeling van het investeringsproject
+\end_layout
+
+\begin_layout Subsubsection
+Terugverdientijd
+\end_layout
+
+\begin_layout Standard
+De techniek houdt in dat bij de intiële cashflow (die negatief is) de operatione
+le cashflow van jaar 1 wordt geteld.
+ Als de soms nog steeds negatief is dan wordt de cashflow van jaar 2 erbij
+ opgeteld, enzovoort.
+\end_layout
+
+\begin_layout Standard
+Als na het optellen van alle operationele cashflows bij de initiële cashflow
+ er nog steeds geen 0 of positief bedrag is bereikt, wordt de investering
+ niet met de jaarlijkse cashflows terugverdeind en is het investeringsproject
+ vanuit winstoogpunt niet aanvaardbaar.
+\end_layout
+
+\begin_layout Standard
+Voordelen:
+\end_layout
+
+\begin_layout Itemize
+Eenvoudig en simpel
+\end_layout
+
+\begin_layout Itemize
+Biedt snel inzicht
+\end_layout
+
+\begin_layout Standard
+Nadelen:
+\end_layout
+
+\begin_layout Itemize
+Houdt geen rekening met de cashflows na de terugverdientijd
+\end_layout
+
+\begin_layout Itemize
+Geen uitspraak over rentabiliteit mogelijk
+\end_layout
+
+\begin_layout Subsubsection
+Gemiddelde boekhoudkundige rentabiliteit
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $GBR=(\frac{gemiddelde\, winst}{gemiddeld\, geïnvesteerd\, vermogen})*100\%$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Waarbij:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $gemiddelde\, winst=\frac{totaal\, nettowinsten}{looptijd\, investeringsproject}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $gemiddeld\, geïnvesteerd\, vermogen=\frac{totale\, investering+restwaarde}{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Voordelen:
+\end_layout
+
+\begin_layout Itemize
+Houdt rekening met alle nettowinsten
+\end_layout
+
+\begin_layout Itemize
+Geeft een helder beeld over de rentabiliteit
+\end_layout
+
+\begin_layout Itemize
+Eenvoudig toe te passen
+\end_layout
+
+\begin_layout Standard
+Nadelen:
+\end_layout
+
+\begin_layout Itemize
+Houdt geen rekening met de tijdvoorkeur en de volgorde waarmee de nettowinsten
+ worden ontvangen
+\end_layout
+
+\begin_layout Subsubsection
+Netto-contante-waardemethode
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Contante\: waarde=\frac{Cashflow}{(1+\frac{i}{100})^{n}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+met:
+\end_layout
+
+\begin_layout Itemize
+i = rentepercentage
+\end_layout
+
+\begin_layout Itemize
+n = aantal jaren
+\end_layout
+
+\begin_layout Standard
+Voordelen:
+\end_layout
+
+\begin_layout Itemize
+Houdt rekening met alle cashflows gedurende het investeringsproject
+\end_layout
+
+\begin_layout Itemize
+Houdt rekening met de tijdsvoorkeur
+\end_layout
+
+\begin_layout Standard
+Nadelen:
+\end_layout
+
+\begin_layout Itemize
+Meet niet de werkelijke rentabiliteit
+\end_layout
+
+\begin_layout Itemize
+Bij extreem lage discontovoet zijn langlopende projecten in het voordeel
+ ten opzichte van kortlopende projecten.
+\end_layout
+
+\end_body
+\end_document

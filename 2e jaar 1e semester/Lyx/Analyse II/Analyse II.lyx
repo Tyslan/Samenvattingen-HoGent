@@ -1,0 +1,1352 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage{a4wide}
+\usepackage[dutch]{babel}
+\usepackage{amsmath}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage[latin1]{inputenx}
+\usepackage{caption2}
+\usepackage{parskip}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Analyse II
+\end_layout
+
+\begin_layout Author
+Lorenz Verschingel
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 10cm*
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+Samenvatting Analyse II HoGent
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Inleiding
+\end_layout
+
+\begin_layout Subsection
+Waarom Analyse?
+\end_layout
+
+\begin_layout Standard
+Om kwaliteitsvolle projecten op te leveren.
+\end_layout
+
+\begin_layout Itemize
+Kwaliteit
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+uitbreidbaar
+\end_layout
+
+\begin_layout Itemize
+binnen parameters budget, tijd, mensen
+\end_layout
+
+\begin_layout Itemize
+...
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Project
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+scope
+\end_layout
+
+\begin_layout Itemize
+tijd
+\end_layout
+
+\begin_layout Itemize
+resources
+\end_layout
+
+\begin_layout Itemize
+budget
+\end_layout
+
+\begin_layout Itemize
+éénmalig
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Opleveren
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Tot de klant tevreden is.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename resources-time-budget.jpg
+	width 7.5cm
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Het grootste probleem in het verleden met ICT-projecten waren de tijd en
+ het budget.
+ Deze vormden problemen omdat men vroeger weinig voeling had met ICT-projecten.
+\end_layout
+
+\begin_layout Standard
+Het is belangrijk dat in de analyse de requirements duidelijk vast gelegd
+ worden.
+ M.a.w.
+ dat de scope duidelijk vastligt.
+\end_layout
+
+\begin_layout Standard
+Big Data: enorme data die niet in 1 relationele databank kan.
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Requirements
+\end_layout
+
+\begin_layout Subsection
+Situering
+\end_layout
+
+\begin_layout Standard
+Ieder systeem wordt ontwikkeld om een bepaalde reden:
+\end_layout
+
+\begin_layout Itemize
+Vooraf eisen helder en eenduidig formuleren: (= bussiness case)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Identificeren van de stakeholders
+\end_layout
+
+\begin_layout Itemize
+Formuleren van de Kritische SuccesFactoren (KSF)
+\end_layout
+
+\begin_layout Itemize
+Formuleren van meetbare acceptatiecriteria
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection
+Kritische succesfactoren
+\end_layout
+
+\begin_layout Standard
+De KSF worden redelijk abstract geformuleerd.
+\end_layout
+
+\begin_layout Standard
+Voorbeelden:
+\end_layout
+
+\begin_layout Itemize
+begrijpbaarheid
+\end_layout
+
+\begin_layout Itemize
+snelheid
+\end_layout
+
+\begin_layout Itemize
+werkbaarheid onder verschillende systeemsoftware
+\end_layout
+
+\begin_layout Subsubsection
+Meetbare acceptatiecriteria
+\end_layout
+
+\begin_layout Standard
+De acceptatiecriteria zijn concreet en leggen uit hoe de KSF gemeten zal
+ worden.
+\end_layout
+
+\begin_layout Standard
+De acceptatiecriteria worden SMART geformuleerd:
+\end_layout
+
+\begin_layout Itemize
+Specifiek
+\end_layout
+
+\begin_layout Itemize
+Meetbaar
+\end_layout
+
+\begin_layout Itemize
+Acceptabel
+\end_layout
+
+\begin_layout Itemize
+Realistisch
+\end_layout
+
+\begin_layout Itemize
+Tijdsgebonden
+\end_layout
+
+\begin_layout Standard
+Men kan niet altijd voldoen aan alle voorwaarden van SMART.
+\end_layout
+
+\begin_layout Subsection
+Soorten Requirements
+\end_layout
+
+\begin_layout Subsubsection
+Niet-Functionele Requirements
+\end_layout
+
+\begin_layout Standard
+Soorten niet-functionele requirements:
+\end_layout
+
+\begin_layout Itemize
+Look and feel requirements
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+bv: In lijn met huisstijl.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Usability and humanity requirements
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+bv: Bruikbaar voor slechtzienden.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Performance requirements
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+bv: Binnen 5 seconden opstarten.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Operationele en omgevingsrequirements
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+bv: Leesbaar bij laaghangende zon.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+beperkingen opleggen aan kleuren.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+Onderhoudsrequirements
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+bv: Systeem-updates moeten automatisch verlopen.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Security requirements
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+bv: Aanmelden via e-ID.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Culturele en politieke requirements
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Oppassen met religieuze symbolen.
+\end_layout
+
+\begin_layout Itemize
+Meertaligheid van de applicatie.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Legal requirements
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+De applicatie moet beantwoorden aan de geldende wetgevingen.
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection
+Functionele requirements
+\end_layout
+
+\begin_layout Standard
+Met functionele requirements wordt het eenduidig vastleggen van de functionalite
+it.
+ Hiervoor worden use cases gebruikt.
+\end_layout
+
+\begin_layout Subsubsection*
+Use cases
+\end_layout
+
+\begin_layout Standard
+Enkele regels bij use cases:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+My use case is not your use case
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+de manier van noteren is niet altijd dezelfde.
+ De beschreven functionaliteit wel.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+Manage your energy
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+juiste plan op het juiste tijdstip.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+Keep it simple
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+ca.
+ 10 stappen
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Communiceer duidelijk
+\end_layout
+
+\begin_layout Standard
+Proces van een use case:
+\end_layout
+
+\begin_layout Enumerate
+Brainstorming [groep]
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Elementaire businessprocessen = use case
+\end_layout
+
+\begin_layout Itemize
+Primaire actoren
+\end_layout
+
+\begin_layout Itemize
+User goals
+\end_layout
+
+\begin_layout Itemize
+Prioriteiten
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Standaard vastleggen om de use case uit te schrijven [groep]
+\end_layout
+
+\begin_layout Enumerate
+Schrijf de use case uit [max 2 personen]
+\end_layout
+
+\begin_layout Enumerate
+Geef de use case door [max 2 personen]
+\end_layout
+
+\begin_layout Enumerate
+Voorstelling van de use case aan de groep met discussie
+\end_layout
+
+\begin_layout Standard
+Tips:
+\end_layout
+
+\begin_layout Itemize
+Blijf in dezelfde kamer
+\end_layout
+
+\begin_layout Itemize
+Juiste info door juiste mensen
+\end_layout
+
+\begin_layout Itemize
+Kleinere groepen werken efficiënter
+\end_layout
+
+\begin_layout Itemize
+Spendeer max.
+ een halve dag met de eindgebruiker
+\end_layout
+
+\begin_layout Itemize
+Management moet mee in de boot
+\end_layout
+
+\begin_layout Itemize
+Actor is verschillend van de jobtitel
+\end_layout
+
+\begin_layout Itemize
+Aantal use cases beperken
+\end_layout
+
+\begin_layout Itemize
+Wees minimalist
+\end_layout
+
+\begin_layout Standard
+Stakeholders zijn belanghebbende/deelnemende partijen
+\end_layout
+
+\begin_layout Standard
+De primaire actor is de belanghebbende partij die het systeem vraagt een
+ taak uit te voeren.
+ De primaire actor is de persoon die de use case activeert.
+\end_layout
+
+\begin_layout Standard
+Een use case is een elementair businessproces, duurt 2 à 20 minuten en wordt
+ door 1 persoon uitgevoerd.
+\end_layout
+
+\begin_layout Standard
+Structuur:
+\end_layout
+
+\begin_layout Enumerate
+Situering
+\end_layout
+
+\begin_layout Enumerate
+Korte beschrijving
+\end_layout
+
+\begin_layout Enumerate
+Primaire actor
+\end_layout
+
+\begin_layout Enumerate
+Precondities
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Wat moet er gebeurd zijn om de use case te kunnen starten.
+\end_layout
+
+\begin_layout Itemize
+Geeft in veel gevallen aan dat een andere use case moet uitgevoerd zijn.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Postcondities
+\end_layout
+
+\begin_layout Enumerate
+Normaal verloop
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Top-to-bottom-beschrijving van een eenvoudige situatie, waarbij het doel
+ van de actor wordt gerealiseerd.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Alternatieve verlopen
+\end_layout
+
+\begin_layout Standard
+Tips bij het maken van de actiestappen in het normaal of alternatief verloop:
+\end_layout
+
+\begin_layout Itemize
+Gebruik eenvoudige zinnen.
+\end_layout
+
+\begin_layout Itemize
+Bij elke actie heeft 1 actor een boodschap.
+\end_layout
+
+\begin_layout Itemize
+Vogelperspectief
+\end_layout
+
+\begin_layout Itemize
+Toon de vooruitgang in het proces.
+\end_layout
+
+\begin_layout Itemize
+Toon de bedoeling van de actor, niet de beweging.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Geen interactie met de GUI.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Aanvaardbare set van actiestappen:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Transactie bestaat uit 4 delen: vraag, validatie, wijziging, resultaat.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Valideer: vermijd if-statements
+\end_layout
+
+\begin_layout Itemize
+User laat systeem A, systeem B aansturen
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Ontwikkelstrategiën
+\end_layout
+
+\begin_layout Subsection
+Inleiding
+\end_layout
+
+\begin_layout Subsubsection
+Waterval-methode
+\end_layout
+
+\begin_layout Enumerate
+Behoeften analyse
+\end_layout
+
+\begin_layout Enumerate
+Analyse
+\end_layout
+
+\begin_layout Enumerate
+Ontwikkeling
+\end_layout
+
+\begin_layout Enumerate
+Testen
+\end_layout
+
+\begin_layout Enumerate
+Oplevering
+\end_layout
+
+\begin_layout Standard
+Bij de waterval-methode kan er nooit teruggegaan worden naar de vorige stap.
+\end_layout
+
+\begin_layout Subsubsection
+Agile
+\end_layout
+
+\begin_layout Standard
+Agile is een filosofie gebaseerd op het Agile Manifesto.
+ Het is een reactie op de waterval-methode bracht een mentaliteitswijziging
+ op gang.
+\end_layout
+
+\begin_layout Standard
+Enkele principes achter het Agile Manifesto:
+\end_layout
+
+\begin_layout Itemize
+Hoogste prioriteit is de tevredenheid van de klant.
+\end_layout
+
+\begin_layout Itemize
+Verwelkom wijzigingen.
+\end_layout
+
+\begin_layout Itemize
+Lever geregeld werkende software op.
+\end_layout
+
+\begin_layout Itemize
+Business en ontwikkelaars werken samen.
+\end_layout
+
+\begin_layout Itemize
+Bouw producten rond gemotiveerde individuen.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+Face to face
+\begin_inset Quotes erd
+\end_inset
+
+ communicatie binnen het team.
+\end_layout
+
+\begin_layout Itemize
+Werkende software is een meting van vooruitgang.
+\end_layout
+
+\begin_layout Itemize
+Eenvoud is essentiëel.
+\end_layout
+
+\begin_layout Itemize
+Zelforganiserende teams
+\end_layout
+
+\begin_layout Itemize
+Zelfbespiegelende teams
+\end_layout
+
+\begin_layout Standard
+Alle methodes die hierna besproken worden zijn Agile-methodes
+\end_layout
+
+\begin_layout Subsection
+Scrum
+\end_layout
+
+\begin_layout Standard
+Scrum is een open framework gebaseerd op CAS (Complex Adaptieve Systemen),
+ met als doel CAS te evolueren naar intellegentie.
+\end_layout
+
+\begin_layout Standard
+Scrum is een iteratief en incrementeel proces.
+\end_layout
+
+\begin_layout Itemize
+Iteratief:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Het zal niet allemaal meteen correct zijn.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Incrementeel:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Verticaal bouwen i.p.v.
+ horizontaal bouwen.
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection
+Scrum regels
+\end_layout
+
+\begin_layout Itemize
+Werken in gesloten iteraties (geen scopewijzigingen)
+\end_layout
+
+\begin_layout Itemize
+Elke iteratie productiewaardige software
+\end_layout
+
+\begin_layout Itemize
+Zelforganiserende en zelfreflecterende teams
+\end_layout
+
+\begin_layout Itemize
+Alles is geprioritiseerd
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Scrum.jpeg
+	width 10cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Rollen
+\end_layout
+
+\begin_layout Itemize
+Product-owner
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+vertegenwoordigt de belanghebbende partijen
+\end_layout
+
+\begin_layout Itemize
+1 stem, liefst 1 persoon
+\end_layout
+
+\begin_layout Itemize
+bepaalt wat er gebouwd moet worden
+\end_layout
+
+\begin_layout Itemize
+bepaalt wat er prioritair is.
+\end_layout
+
+\begin_layout Itemize
+doet commitment om het team met rust te laten tijdens de sprint
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Scrum-master
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+bewaakt het proces:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Scrumconcepten toepassen
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Zelforganiserende en zelfbespiegelende teams
+\end_layout
+
+\begin_layout Itemize
+Werken in gesloten iteraties (Geen scopewijzigingen).
+\end_layout
+
+\begin_layout Itemize
+Elke sprint productiewaardige software
+\end_layout
+
+\begin_layout Itemize
+Alles is geprioritiseerd
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Kwaliteitscontrole
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Verantwoordelijk voor softwarekwaliteit.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+zorgt voor continuous improvement
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Alles een vraag stellen.
+\end_layout
+
+\begin_layout Itemize
+Mensen uit te dagen.
+\end_layout
+
+\begin_layout Itemize
+Niet zelf met oplossingen komen.
+\end_layout
+
+\begin_layout Itemize
+Eerst: Brandjes blussen.
+\end_layout
+
+\begin_layout Itemize
+Later: Structureel verbeteren.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+Team
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Typisch 5-9 mensen.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Hoe meer mensen, hoe groter de communicatie overhead.
+\end_layout
+
+\begin_layout Itemize
+Indien groter team nodig; Werken met meerdere teams.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Leden zouden fulltime aan het project moeten werken.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Uitzondering bij ondersteunende functies.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Teams zijn zelforganiserend
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Leden brengen ook een achtergrond aan,
+\end_layout
+
+\begin_layout Itemize
+Leden zijn multidisciplinair
+\end_layout
+
+\begin_layout Itemize
+Leden delen hun kennis
+\end_layout
+
+\begin_layout Itemize
+Leden werken mee aan domeinen waar ze geen specialist op zijn.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Subsubsection
+Overlegmomenten
+\end_layout
+
+\begin_layout Standard
+Projecten worden uitgevoerd en een aantal sprints.
+\end_layout
+
+\begin_layout Standard
+Een sprint duurt 2-4 weken.
+ Een constante duur leidt tot een beter ritme.
+\end_layout
+
+\begin_layout Standard
+Het product wordt ontworpen, geschreven en getest tijdens de sprint.
+\end_layout
+
+\begin_layout Paragraph
+Voorbereiding sprint
+\end_layout
+
+\begin_layout Itemize
+Auto takken worden opgemaakt door de product-owner en de klant.
+\end_layout
+
+\begin_layout Itemize
+Oplijsting in een document (Product backlog)
+\end_layout
+
+\begin_layout Itemize
+Uniek geprioritiseerd (dus niet in blokken)
+\end_layout
+
+\begin_layout Paragraph
+Sprint planning deel 1
+\end_layout
+
+\begin_layout Itemize
+Ruwe inschatting van het aantal items dat opgenomen zal worden
+\end_layout
+
+\begin_layout Itemize
+Inschatting door het team
+\end_layout
+
+\begin_layout Itemize
+Product-owner kan antwoorden op alle vragen van het team.
+\end_layout
+
+\begin_layout Paragraph
+Sprint planning deel 2
+\end_layout
+
+\begin_layout Itemize
+Backlog items worden opgesplitst door het team.
+\end_layout
+
+\begin_layout Itemize
+Geen managers
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Manager kent geen taken van individuen.
+\end_layout
+
+\begin_layout Itemize
+Managers maken geen beslissingen voor het team.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Sprint Backlog wordt gemaakt.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Taken van 4-16 uur
+\end_layout
+
+\end_deeper
+\begin_layout Paragraph
+Schattingen
+\end_layout
+
+\begin_layout Itemize
+Planning poker in uren of punten.
+\end_layout
+
+\begin_layout Itemize
+Door mensen die het werk zullen gaan doen.
+\end_layout
+
+\begin_layout Itemize
+Liefst verbale communicatie in plaats van gedetailleerde neergeschreven
+ specificaties
+\end_layout
+
+\begin_layout Itemize
+Opgelet voor anchoring
+\end_layout
+
+\begin_layout Paragraph
+Stand-up
+\end_layout
+
+\begin_layout Itemize
+Parameters:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Dagelijks
+\end_layout
+
+\begin_layout Itemize
+15 minuten
+\end_layout
+
+\begin_layout Itemize
+Rechtop staan
+\end_layout
+
+\begin_layout Itemize
+Niet om problemen op te lossen
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Drie vragen:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Wat deed je gisteren?
+\end_layout
+
+\begin_layout Itemize
+Wat ga je vandaag doen?
+\end_layout
+
+\begin_layout Itemize
+Welke obstakels liggen je weg?
+\end_layout
+
+\end_deeper
+\begin_layout Paragraph
+Demo/sprint review
+\end_layout
+
+\begin_layout Itemize
+Het team stelt voor wat het bereik heeft gedurende de sprint.
+\end_layout
+
+\begin_layout Itemize
+Informeel: 2 uur voorbereidingstijd
+\end_layout
+
+\begin_layout Itemize
+Deelnemers:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Klanten
+\end_layout
+
+\begin_layout Itemize
+Management
+\end_layout
+
+\begin_layout Itemize
+Product-owners
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Validatie: door testen opgesteld tijdens product plannen
+\end_layout
+
+\begin_layout Paragraph
+Retrospective
+\end_layout
+
+\begin_layout Itemize
+Deelnemers:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Team
+\end_layout
+
+\begin_layout Itemize
+Scrum master
+\end_layout
+
+\begin_layout Itemize
+Product-owner (Optioneel)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Vragen:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Wat ging goed?
+\end_layout
+
+\begin_layout Itemize
+Wat kan er verbeterd worden?
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Resultaat:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Altijd acties bepalen
+\end_layout
+
+\begin_layout Itemize
+Tips:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Geen beschuldigingen
+\end_layout
+
+\begin_layout Itemize
+Gebruik nooit het woord "JIJ"
+\end_layout
+
+\begin_layout Itemize
+Gebruik een spreekstok
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Subsubsection
+Documenten
+\end_layout
+
+\begin_layout Standard
+Crum heeft heel weinig documenten.
+\end_layout
+
+\begin_layout Itemize
+Product backlog
+\end_layout
+
+\begin_layout Itemize
+Sprint backlog
+\end_layout
+
+\begin_layout Itemize
+Burndown statistieken
+\end_layout
+
+\begin_layout Standard
+Dit alles kan men opnemen in een Excel spreadsheet.
+ Er bestaan ook meer geavanceerde tools.
+\end_layout
+
+\begin_layout Paragraph
+Product backlog
+\end_layout
+
+\begin_layout Standard
+Een lijst van al het gewenste werk van het project.
+ Dit is meestal een combinatie van story-based werk en task-based werk.
+\end_layout
+
+\begin_layout Standard
+De lijst wordt geprioritiseerd door de product-owner
+\end_layout
+
+\begin_layout Paragraph
+Sprint backlog
+\end_layout
+
+\begin_layout Standard
+De sprint backlog is het werkdocument van het team.
+ Het is een opvolging van individuele taken.
+\end_layout
+
+\begin_layout Standard
+Er wordt ingevuld wat er nog te doen valt om zo te zien en te corrigeren
+ om het doel te behalen.
+ Men doet dit iedere dag opnieuw.
+\end_layout
+
+\begin_layout Standard
+Hiervoor wordt vaak een bord gebruikt.
+\end_layout
+
+\begin_layout Subsection
+Kanban
+\end_layout
+
+\begin_layout Itemize
+Geen rollen
+\end_layout
+
+\begin_layout Itemize
+Visueel bord
+\end_layout
+
+\begin_layout Itemize
+Laagdrempelig
+\end_layout
+
+\begin_layout Itemize
+Aantal:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Bottle neck
+\end_layout
+
+\begin_layout Itemize
+Beperken
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Optimalisatie (lean)
+\end_layout
+
+\begin_layout Itemize
+Gebruik in productieomgeving/systeembeheer
+\end_layout
+
+\begin_layout Itemize
+Agile
+\end_layout
+
+\end_body
+\end_document

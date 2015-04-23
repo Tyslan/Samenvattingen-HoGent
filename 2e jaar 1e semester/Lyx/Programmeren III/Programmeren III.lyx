@@ -1,0 +1,2555 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage{a4wide}
+\usepackage[dutch]{babel}
+\usepackage{amsmath}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage[latin1]{inputenx}
+\usepackage{caption2}
+\usepackage{parskip}
+
+\definecolor{red}{rgb}{0.6,0,0} % for strings
+\definecolor{blue}{rgb}{0,0,0.6}
+\definecolor{green}{rgb}{0,0.8,0}
+\definecolor{cyan}{rgb}{0.0,0.6,0.6}
+\definecolor{light-gray}{gray}{0.85}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\listings_params "basicstyle={\footnotesize\ttfamily},numbers=left,numberstyle={\tiny},numbersep=5pt,tabsize=2,extendedchars=true,breaklines=true,frame=b,stringstyle={\color{blue}\ttfamily},showspaces=false,showtabs=false,xleftmargin=17pt,framexleftmargin=17pt,framexrightmargin=5pt,framexbottommargin=4pt,commentstyle={\color{green}},morecomment={[l]{//}},morecomment={[s]{/*}{*/}},showstringspaces=false,morekeywords={ abstract, event, new, struct,as, explicit, null, switch,base, extern, object, this,bool, false, operator, throw,break, finally, out, true,byte, fixed, override, try,case, float, params,typeof,catch,for, private, uint,char, foreach, protected, ulong,checked, goto, public,unchecked,class, if, readonly, unsafe,const, implicit, ref, ushort,continue, in, return, using,decimal, int, sbyte, virtual,default, interface, sealed, volatile,delegate, internal, short, void,do, is, sizeof, while,double, lock, stackalloc,else, long, static,enum, namespace, string,String,List,final,Map,HashMap},keywordstyle={\color{cyan}},identifierstyle={\color{red}},backgroundcolor={\color{light-gray}}"
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+OO Programmeren III
+\end_layout
+
+\begin_layout Author
+Lorenz Verschingel
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 10cm*
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+Samenvatting OO Programmeren III HoGent
+\end_layout
+
+\begin_layout Abstract
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Datastructuren
+\end_layout
+
+\begin_layout Subsection
+Datastructuren met een vaste lengte
+\end_layout
+
+\begin_layout Itemize
+Eéndimensionale arrays
+\end_layout
+
+\begin_layout Itemize
+Meerdimensionale arrays
+\end_layout
+
+\begin_layout Subsection
+Dynamische datastructuren
+\end_layout
+
+\begin_layout Standard
+De lengte van de datastructuur kan at runtime groter of kleiner worden.
+\end_layout
+
+\begin_layout Standard
+Enkele voorbeelden:
+\end_layout
+
+\begin_layout Itemize
+Gelinkte lijsten
+\end_layout
+
+\begin_layout Itemize
+Stacks
+\end_layout
+
+\begin_layout Itemize
+Queues
+\end_layout
+
+\begin_layout Itemize
+Binaire bomen
+\end_layout
+
+\begin_layout Standard
+Om tot deze dynamische datastructuren te komen heeft men een zelf-referentie
+ klasse nodig:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Java"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+class Node {
+\end_layout
+
+\begin_layout Plain Layout
+
+	private int data; 
+\end_layout
+
+\begin_layout Plain Layout
+
+	private Node next;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	// constructor
+\end_layout
+
+\begin_layout Plain Layout
+
+	public Node (int data) {...}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	public void setData (int data) {...}
+\end_layout
+
+\begin_layout Plain Layout
+
+	public int getData() {...}
+\end_layout
+
+\begin_layout Plain Layout
+
+	public void setNext (Node next) {...}
+\end_layout
+
+\begin_layout Plain Layout
+
+	public Node getNext() {...}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De instantie-variabele nextNode wordt een link genoemd.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Collections
+\end_layout
+
+\begin_layout Subsection
+Inleiding
+\end_layout
+
+\begin_layout Standard
+In het collection framework in Java zitten de meest voorkomende datastrucuren.
+ Deze zijn gestandaardiseerd en efficient geïmplementeerd.
+\end_layout
+
+\begin_layout Standard
+De collections van het Collection framework zijn niet gesynchroniseerd.
+ Dit kan echter wel bekomen worden door het gebruik van de synchronization
+ wrapper class.
+\end_layout
+
+\begin_layout Subsection
+Overzicht van het collection framework
+\end_layout
+
+\begin_layout Standard
+Een collection is een datastructuur die referenties bijhoud naar andere
+ objecten.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Collection framework.png
+	width 15cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Java"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Interface Iterator<E>{
+\end_layout
+
+\begin_layout Plain Layout
+
+	boolean hasNext();
+\end_layout
+
+\begin_layout Plain Layout
+
+	E next();
+\end_layout
+
+\begin_layout Plain Layout
+
+	void remove();
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Java"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Interface ListIterator<E> extends Iterator <E>{
+\end_layout
+
+\begin_layout Plain Layout
+
+	void add(E o);
+\end_layout
+
+\begin_layout Plain Layout
+
+	boolean hasPrevious();
+\end_layout
+
+\begin_layout Plain Layout
+
+	E previous();
+\end_layout
+
+\begin_layout Plain Layout
+
+	int nextIndex();
+\end_layout
+
+\begin_layout Plain Layout
+
+	int previousIndex();
+\end_layout
+
+\begin_layout Plain Layout
+
+	void set(E o);
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Extra tools
+\end_layout
+
+\begin_layout Enumerate
+Klasse Arrays:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+methode asList
+\end_layout
+
+\begin_layout Itemize
+allerlei bewerkingen op arrays
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Klasse Collections
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+allerlei bewerkingen op collections
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Klasse Arrays
+\end_layout
+
+\begin_layout Standard
+De klasse arrays voorziet static methodes om arrays te bewerken.
+\end_layout
+
+\begin_layout Itemize
+binarySearch(array, searchValue)
+\end_layout
+
+\begin_layout Itemize
+equals(array1, array2)
+\end_layout
+
+\begin_layout Itemize
+fill(array,value)
+\end_layout
+
+\begin_layout Itemize
+sort(array)
+\end_layout
+
+\begin_layout Itemize
+asList(array)
+\end_layout
+
+\begin_layout Subsection
+Interface Collection en klasse Collections
+\end_layout
+
+\begin_layout Subsubsection
+Interface Collection<E>
+\end_layout
+
+\begin_layout Standard
+De interface collections bevat bulk operations zoals adding, clearing, comparing...
+\end_layout
+
+\begin_layout Itemize
+removeAll(Collection<?> c)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+verwijdert alle elementen die in c zitten uit de Collection
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+retainAll(Collection<?> c)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+haalt de elementen op die zowel in c als in de Collection zitten
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+De interface voorziet ook een Iterator<E>, deze dient om alle elementen
+ in een collection te doorlopen.
+ De iterator kan ook elementen verwijderen.
+\end_layout
+
+\begin_layout Subsubsection
+Klasse Collections
+\end_layout
+
+\begin_layout Standard
+De klasse Collections voorziet static methodes die collections manipuleren.
+ Hierbij wordt polymorfisme ondersteund.
+\end_layout
+
+\begin_layout Subsection
+Interface List<E>
+\end_layout
+
+\begin_layout Standard
+Een list is een geordende collection waarbij duplicaten toegelaten zijn.
+ De list index start van nul.
+ Er zijn verschillende implementatie klassen.
+\end_layout
+
+\begin_layout Standard
+Arraylist 
+\end_layout
+
+\begin_layout Itemize
+Wijst effectief naar een array.
+ Alle nodes zitten mooi na elkaar
+\end_layout
+
+\begin_layout Itemize
++ Random acces is makkelijk
+\end_layout
+
+\begin_layout Itemize
+- invoegen in midden ⇒ overige elementen moeten opschuiven.
+\end_layout
+
+\begin_layout Standard
+LinkedList
+\end_layout
+
+\begin_layout Itemize
+Iedere node zit ergens anders in het geheugen
+\end_layout
+
+\begin_layout Itemize
+- Geen random acces ⇒ altijd bij de eerste node beginnen 
+\end_layout
+
+\begin_layout Itemize
++ Makkelijk toevoegen en verwijderen van nodes op een random plaats.
+ (Enkel enkele referenties aanpassen) 
+\end_layout
+
+\begin_layout Standard
+Een andere implementatie is de klasse Vector.
+ Dit is een verouderde klasse en is in essentie een gesynchroniseerde ArrayList.
+\end_layout
+
+\begin_layout Subsection
+Algoritmes uit het Collection framework
+\end_layout
+
+\begin_layout Subsubsection
+List algoritmes
+\end_layout
+
+\begin_layout Itemize
+sort
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+de sorteervolgorde wordt bepaald door de compareTo-methode uit de interface
+ comparable.
+ Deze sorteervolgorde wordt de natuurlijke sorteervolgorde genoemd.
+\end_layout
+
+\begin_layout Itemize
+Deze volgorde kan ook aangepast worden via een klasse die de interface Comparato
+r implementeert en waarin de methode compare wordt gedefiniëerd.
+ Er bestaan ook voorgedefiniëerde comparators.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+binarySearch
+\end_layout
+
+\begin_layout Itemize
+reverse
+\end_layout
+
+\begin_layout Itemize
+shuffle
+\end_layout
+
+\begin_layout Itemize
+fill
+\end_layout
+
+\begin_layout Itemize
+copy
+\end_layout
+
+\begin_layout Subsubsection
+Collection algoritmes
+\end_layout
+
+\begin_layout Itemize
+min
+\end_layout
+
+\begin_layout Itemize
+max
+\end_layout
+
+\begin_layout Itemize
+addAll
+\end_layout
+
+\begin_layout Itemize
+frequency
+\end_layout
+
+\begin_layout Itemize
+disjoint
+\end_layout
+
+\begin_layout Subsection
+Klasse Stack
+\end_layout
+
+\begin_layout Standard
+Stack<E> is een subklasse van Vector<E>.
+ In een stack kun je objecten plaatsen via push() en objecten afhalen via
+ pop().
+ Een stack werkt volgens het LIFO-principe.
+\end_layout
+
+\begin_layout Standard
+Verder zijn er ook nog de methodes empty(), peek(), search()...
+\end_layout
+
+\begin_layout Standard
+Er dient wel opgemerkt te worden dat de klasse Stack sinds Java 7 in ongebruik
+ is geraakt.
+ Er wordt nu gebruik gemaakt van de klasse deque.
+ Een deque is een dubble ended queue.
+\end_layout
+
+\begin_layout Standard
+Deze laatste opmerking geldt eveneens voor de klasse Queue, die hierna besproken
+ wordt.
+ Ook hier werd erover gestapt naar de klasse Deque.
+\end_layout
+
+\begin_layout Subsection
+Interface Queue
+\end_layout
+
+\begin_layout Standard
+In een queue kun je objecten plaatsen via offer() en objecten ophalen via
+ poll().
+ Queues werken volgens het FIFO-principe.
+\end_layout
+
+\begin_layout Subsubsection
+De klasse PriorityQueue
+\end_layout
+
+\begin_layout Standard
+In een PriorityQueue worden elementen gesorteerd volgens de natuurlijke
+ ordening of volgens een Comparator-object.
+\end_layout
+
+\begin_layout Subsection
+Interface Set
+\end_layout
+
+\begin_layout Standard
+Een Set is een collectie die unieke elementen bevat.
+ Hierbij moet opgelet worden als men eigen klasses gebruikt: men dient hier
+ de equals() en hashCode() te overriden.
+\end_layout
+
+\begin_layout Itemize
+HashSet: niet gesorteerd
+\end_layout
+
+\begin_layout Itemize
+TreeSet: gesorteerd
+\end_layout
+
+\begin_layout Subsection
+Interface Map
+\end_layout
+
+\begin_layout Standard
+Een Map is een verzameling van key-value paren.
+ Bij elke sluterl hoort precies 1 waarde.
+\end_layout
+
+\begin_layout Itemize
+HashMap: niet gesorteerd
+\end_layout
+
+\begin_layout Itemize
+TreeMap: gesorteerd
+\end_layout
+
+\begin_layout Standard
+Met de methode get(K) haalt men de value op van de key.
+ Met de methode put(K,V) voegt men een element met een bepaalde key toe
+ aan de Map.
+\end_layout
+
+\begin_layout Standard
+Om collisions te voorkomen maakt Java gebruik van 
+\begin_inset Quotes eld
+\end_inset
+
+hash buckets
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Views: 
+\end_layout
+
+\begin_layout Itemize
+Map.keySet() → Set van uniek sleutels
+\end_layout
+
+\begin_layout Itemize
+Map.value() → Collection met alle waardes
+\end_layout
+
+\begin_layout Itemize
+Map.entrySet() → Verzameling van koppels 
+\end_layout
+
+\begin_layout Standard
+⇒ vergelijkbaar met een iterator op een map.
+ 
+\end_layout
+
+\begin_layout Subsection
+Wrappers
+\end_layout
+
+\begin_layout Subsubsection
+Unmodifiable wrappers
+\end_layout
+
+\begin_layout Standard
+Convertie naar niet wijzigbare collections
+\end_layout
+
+\begin_layout Subsubsection
+Checked wrappers
+\end_layout
+
+\begin_layout Standard
+Checked wrappers zijn collecties waarvan at runtome gecontroleerd wordt
+ of er elementen van het juiste type worden toegevoegd.
+\end_layout
+
+\begin_layout Subsubsection
+Abstract implementations
+\end_layout
+
+\begin_layout Standard
+Er zijn abstracte implementaties van de collection interfaces die als basis
+ voor een zelf gedefiniëerde implementatie kunnen dienen.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Generics
+\end_layout
+
+\begin_layout Subsection
+Inleiding
+\end_layout
+
+\begin_layout Standard
+Generiek programmeren is het definiëren van methodes/klassen, die voor verschill
+ende types kunnen worden gebruikt.
+ Hierbij wordt er hergebruik gemaakt van de code.
+ 
+\end_layout
+
+\begin_layout Standard
+Er wordt pas at compile time een type toegevoegd waardoor er een veiligheid
+ is ingebouwd.
+\end_layout
+
+\begin_layout Standard
+Generiek programmeren is mogelijk sinds Java 1.5
+\end_layout
+
+\begin_layout Subsection
+Generieke methode
+\end_layout
+
+\begin_layout Standard
+public <E> returntype methodenaam (E par)
+\end_layout
+
+\begin_layout Itemize
+<E> is de parametersectie.
+\end_layout
+
+\begin_layout Itemize
+E mag geen primitief datatype zijn.
+\end_layout
+
+\begin_layout Subsection
+Generieke klasse
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Java"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+public class NaamKlasse <E>{
+\end_layout
+
+\begin_layout Plain Layout
+
+	private E attr
+\end_layout
+
+\begin_layout Plain Layout
+
+	public void setAttr(E nieuw)
+\end_layout
+
+\begin_layout Plain Layout
+
+	public E getAttr()
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Generiek type beperkingen opleggen
+\end_layout
+
+\begin_layout Standard
+Voor <E> is de default upperbound de klasse Object.
+\end_layout
+
+\begin_layout Standard
+<E extends Number> laat enkel klasses toe die erven van de klasse Number.
+\end_layout
+
+\begin_layout Standard
+<E extends Comparable T> laat enkel klasses toe die de interface Comparable
+ implementeren.
+\end_layout
+
+\begin_layout Standard
+Er dient opgemerkt te worden dat zowel voor klasses als interface 
+\begin_inset Quotes eld
+\end_inset
+
+extends
+\begin_inset Quotes erd
+\end_inset
+
+ gebruikt wordt.
+\end_layout
+
+\begin_layout Subsection
+Generiek programmeren met arrays
+\end_layout
+
+\begin_layout Standard
+Voor arrays moet er via een omweg gewerkt worden.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Java"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+public class Stack< E >{
+\end_layout
+
+\begin_layout Plain Layout
+
+	private final int SIZE; // aantal elementen 
+\end_layout
+
+\begin_layout Plain Layout
+
+	private int top; // locatie van de top
+\end_layout
+
+\begin_layout Plain Layout
+
+	E[] elements; // array die de elementen zal bevatten 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	// defaultconstructor
+\end_layout
+
+\begin_layout Plain Layout
+
+	// creëert een stack van 10 elementen 
+\end_layout
+
+\begin_layout Plain Layout
+
+	public Stack() {
+\end_layout
+
+\begin_layout Plain Layout
+
+		this(10); 
+\end_layout
+
+\begin_layout Plain Layout
+
+	} 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	// constructor;
+\end_layout
+
+\begin_layout Plain Layout
+
+	// creëert een stack van “s” of “10” elementen
+\end_layout
+
+\begin_layout Plain Layout
+
+	public Stack(int s) { 
+\end_layout
+
+\begin_layout Plain Layout
+
+		SIZE = s > 0 ? s : 10; // set size of Stack 
+\end_layout
+
+\begin_layout Plain Layout
+
+		top = -1; // stack is leeg 
+\end_layout
+
+\begin_layout Plain Layout
+
+		elements = (E[]) new Object[SIZE]; // creatie van de array
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Wildcards
+\end_layout
+
+\begin_layout Standard
+Wildcards is een andere manier om beperkingen op te leggen aan het generieke
+ type.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Boxed
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Plain Layout
+public static double sum(Collection<? extends Number> list) 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset space \quad{}
+\end_inset
+
+= public static <T extends Number> double sum(Collection <T> list) 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Men gebruikt wildcards voornamelijk als je T niet meer verder gebruikt in
+ de body van de methode.
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Files en streams
+\end_layout
+
+\begin_layout Subsection
+Inleiding
+\end_layout
+
+\begin_layout Itemize
+Sequentiële File
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Je doorloopt de gegevens in een sequentiële file van voor naar achter.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Random Acces File
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Je krijgt op willekeurige manier toegang tot de gegevens in een random acces
+ file.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+New Input Output
+\end_layout
+
+\begin_layout Standard
+NIO is een uitbreiding op de bestaande IO sinds Java 1.4.
+\end_layout
+
+\begin_layout Standard
+Het is een channel-based benadering voor IO.
+\end_layout
+
+\begin_layout Itemize
+Channel: een open IO connectie.
+\end_layout
+
+\begin_layout Itemize
+Buffer: bevat data.
+\end_layout
+
+\begin_layout Subsection
+Voorbeeld rekening applicatie
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "/Users/Lorenz/Copy/FBO/2e Jaar/1e Semester/Programmeren III/Begeleide Oefeningen/Les 5/OOPIIIoefNIOopgave/src/domein/Rekening.java"
+lstparams "caption={Rekening.java}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Merk op dat in de klasse rekening een static attribuut SIZE is voor zien.
+ Deze geeft de grootte terug die de buffer moet hebben om een rekening-object
+ te kunnen bevatten.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "/Users/Lorenz/Copy/FBO/2e Jaar/1e Semester/Programmeren III/Begeleide Oefeningen/Les 5/OOPIIIoefNIOopgave/src/ui/NioRekeningApplicatie.java"
+lstparams "caption={NioRekeningApplicatie}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Op lijn 27 begint de methode die het test bestand aanmaakt.
+\end_layout
+
+\begin_layout Standard
+Merk op dat de volgorde van werken als volgt is voor het schrijven:
+\end_layout
+
+\begin_layout Enumerate
+Maak een nieuw RandomAccesFile aan en geef aan dat er gelezen en geschreven
+ mag worden naar dit bestand.
+ (lijn 29)
+\end_layout
+
+\begin_layout Enumerate
+Haal de Channel van het bestand op.
+ (lijn 30)
+\end_layout
+
+\begin_layout Enumerate
+Schrijf de rekeningen naar het bestand.
+\end_layout
+
+\begin_layout Enumerate
+Maak de buffer leeg.
+ (lijn (0)
+\end_layout
+
+\begin_layout Enumerate
+Zet alle attributen op de buffer.
+ (lijn 51-59)
+\end_layout
+
+\begin_layout Enumerate
+Zet de positie juist in de Channel.
+ (lijn 61)
+\end_layout
+
+\begin_layout Enumerate
+Schrijf de buffer naar de Channel (lijn 62)
+\end_layout
+
+\begin_layout Enumerate
+Sluit het RandomAccesFile.
+ (lijn 42)
+\end_layout
+
+\begin_layout Standard
+Het lezen gaat als als volgt:
+\end_layout
+
+\begin_layout Enumerate
+Maak een nieuw RandomAccesFile aan en geef aan dat er gelezen en geschreven
+ mag worden naar dit bestand.
+ (lijn 71)
+\end_layout
+
+\begin_layout Enumerate
+Haal de Channel van het bestand op.
+ (lijn 72)
+\end_layout
+
+\begin_layout Enumerate
+Zet de positie juist in de Channel.
+ (lijn 76)
+\end_layout
+
+\begin_layout Enumerate
+Leeg de buffer (lijn77)
+\end_layout
+
+\begin_layout Enumerate
+Lees de Channel in op de buffer.
+ (lijn 78)
+\end_layout
+
+\begin_layout Enumerate
+Flip de buffer.
+ (lijn 79)
+\end_layout
+
+\begin_layout Enumerate
+Lees de buffer uit.
+ (lijn 80-86)
+\end_layout
+
+\begin_layout Enumerate
+Sluit het bestand (lijn 90)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+MVC - JavaFX
+\end_layout
+
+\begin_layout Standard
+Zie slides
+\end_layout
+
+\begin_layout Subsection
+ListView
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "/Users/Lorenz/Copy/FBO/2e Jaar/1e Semester/Programmeren III/Oefeningen/Les 8/OOPIII_MVC_Oefening_ListView_start/src/StartUp.java"
+lstparams "caption={StartUp}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "/Users/Lorenz/Copy/FBO/2e Jaar/1e Semester/Programmeren III/Oefeningen/Les 8/OOPIII_MVC_Oefening_ListView_start/src/gui/HeroesFrame.fxml"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "/Users/Lorenz/Copy/FBO/2e Jaar/1e Semester/Programmeren III/Oefeningen/Les 8/OOPIII_MVC_Oefening_ListView_start/src/gui/HeroesFrame.java"
+lstparams "caption={FrameController}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let er hier op hoe met de setItems methode de lijst opgevuld word.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "/Users/Lorenz/Copy/FBO/2e Jaar/1e Semester/Programmeren III/Oefeningen/Les 8/OOPIII_MVC_Oefening_ListView_start/src/domein/HeroWorld.java"
+lstparams "caption={HeroWorld}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De methode getCandidates geeft een ObservableList terug.
+ Dit betekent dat er vanaf nu automatisch het observer pattern wordt toegepast.
+\end_layout
+
+\begin_layout Subsection
+TableView
+\end_layout
+
+\begin_layout Standard
+Bij een TableView gebeurt bijna hetzelfde als bij de ListView.
+ Men geeft in de controller een ListView van objecten door aan de Table.
+ Daarna koppel je alle kolommen aan een gewenste property van Persoon.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+@FXML
+\end_layout
+
+\begin_layout Plain Layout
+
+private TableView<Person> tableView;
+\end_layout
+
+\begin_layout Plain Layout
+
+@FXML
+\end_layout
+
+\begin_layout Plain Layout
+
+private TableColumn<Person, String> firstNameCol;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+tableView.setItems(personenLijst);
+\end_layout
+
+\begin_layout Plain Layout
+
+firstNameCol.setCellValueFactory(
+\end_layout
+
+\begin_layout Plain Layout
+
+	cellData -> cellData.getValue().firstNameProperty());
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In de klasse Persoon dient men hiervoor ook een aantal aanpassingen te doen.
+ Zo kan men het attribuut firstName niet meer opslaan als een String.
+ Hiervoor moet nu een StringProperty gebruikt worden.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+private final SimpleStringProperty firstName = new SimpleStringProperty();
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+private void setFirstName(String fName) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	firstName.set(fName);
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+public String getFirstName() { 
+\end_layout
+
+\begin_layout Plain Layout
+
+	return firstName.get(); 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+public StringProperty firstNameProperty() { 
+\end_layout
+
+\begin_layout Plain Layout
+
+	return firstName;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Multithreading
+\end_layout
+
+\begin_layout Subsection
+Inleiding
+\end_layout
+
+\begin_layout Standard
+Threads zijn delen van het programma die in concurrentie met elkaar gelijktijdig
+ in executie gaan.
+ Een thread is een sequentiële besturingsstroom.
+ Het zijn ‘lichtgewicht’ processen.
+\end_layout
+
+\begin_layout Standard
+Java voorziet primitieven voor multithreading.
+\end_layout
+
+\begin_layout Subsection
+Toestanden van een thread
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename Thread toestanden.png
+	width 15cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+new state
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Thread is juist gecreëerd.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+runnable state
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+start method van thread geactiveerd.
+\end_layout
+
+\begin_layout Itemize
+Thread wordt beschouwd als in executie zijnde.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+waiting state
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Een deel code nog niet kan uitgevoerd worden (bepaalde vereisten moeten
+ voldaan zijn)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+De thread activeert Object’s wait methode.
+ Keert terug naar runnable state doordat een andere thread de notify methode
+ activeert.
+ 
+\end_layout
+
+\begin_layout Itemize
+De thread wordt geblokkeerd (lock), door bv io verzoek totdat die gedeblokkeerd
+ wordt (unlock).
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+timed waiting state
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Wacht op andere thread of het einde van opgegeven tijdsinterval.
+\end_layout
+
+\begin_layout Itemize
+Wacht tot opgegeven “sleep” tijdsinterval is verstreken.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+terminated state
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Thread is beëindigd (taak volbracht of exit).
+\end_layout
+
+\begin_layout Itemize
+Garbage collector kan geheugen terug vrijgeven als er geen referentie meer
+ is naar het thread object.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Blocked state
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Als een taak niet onmiddellijk kan volbracht worden (vb.
+ i/o verzoek).
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename Runnable.png
+	width 10cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+runnable state (JVM)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Ready state (OS )
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Initiële state, timeslice/quantum vervallen.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Running state (OS )
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Thread is toegekend aan een processor en in executie (dispatching).
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+Thread scheduling is functie van OS en thread priorities.
+\end_layout
+
+\begin_layout Subsection
+Creatie en executie van threads
+\end_layout
+
+\begin_layout Standard
+Een klasse die moet kunnen runnen, moet Runnable implementeren.
+\end_layout
+
+\begin_layout Standard
+In de klasse die de runnables moet laten lopen moet je gebruik maken van
+ een threadpool, nl.
+ ExecutorService.
+\end_layout
+
+\begin_layout Subsubsection
+Voorbeeld
+\end_layout
+
+\begin_layout Standard
+In dit voorbeeld is het de bedoeling dat 3 willekeurige tellers tot 10 tellen.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "/Users/Lorenz/Copy/FBO/2e Jaar/1e Semester/Programmeren III/EigenProbeersels/Multithreading/Multithreading - Not Synced/src/multithreadingtest/MultithreadingTest.java"
+lstparams "caption={main}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "/Users/Lorenz/Copy/FBO/2e Jaar/1e Semester/Programmeren III/EigenProbeersels/Multithreading/Multithreading - Not Synced/src/multithreadingtest/Counter.java"
+lstparams "caption={Counter}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Als je deze code laat runnen zie je dat de tellers door elkaar tot 10.
+\end_layout
+
+\begin_layout Standard
+Om de teller elk om de beurt een te laten bijtellen moeten we de threads
+ dus synchroniseren.
+\end_layout
+
+\begin_layout Subsection
+Thread synchronisatie
+\end_layout
+
+\begin_layout Standard
+Er zijn meerdere manieren om threads te synchroniseren.
+ Er kan gebruik gemaakt worden van het keyword synchronised voor de methode,
+ maar deze methode is verouderd.
+ Men kan gebruik maken van Lock's en ook van de ArrayBlockingQueue.
+\end_layout
+
+\begin_layout Subsubsection
+Locks
+\end_layout
+
+\begin_layout Standard
+Het principe bij locks is vrij simpel:
+\end_layout
+
+\begin_layout Enumerate
+Men locked het object.
+\end_layout
+
+\begin_layout Enumerate
+Men zorgt ervoor dat het object enkel kan uitgevoerd worden als het mag.
+ (typisch met while-lus en .await().)
+\end_layout
+
+\begin_layout Enumerate
+Het kritische stuk, de code die voor problemen zou kunnen zorgen omdat 2
+ objecten tegelijk 1 item zouden willen veranderen, komt na de while.
+\end_layout
+
+\begin_layout Enumerate
+Als de kritische stuk is uitgevoerd, voert men een .signal() uit naar de
+ voorwaardes die nu voldaan zijn.
+\end_layout
+
+\begin_layout Enumerate
+Als laatste unlocked men het object.
+\end_layout
+
+\begin_layout Standard
+Hier volgt opniew het voorbeeld met de tellers.
+ Deze keer is het de bedoeling dan elke teller om beurt een getal telt.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "/Users/Lorenz/Copy/FBO/2e Jaar/1e Semester/Programmeren III/EigenProbeersels/Multithreading/Multithreading - Synced/src/multithreading/synced/MultithreadingSynced.java"
+lstparams "caption={main}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "/Users/Lorenz/Copy/FBO/2e Jaar/1e Semester/Programmeren III/EigenProbeersels/Multithreading/Multithreading - Synced/src/multithreading/synced/Counter.java"
+lstparams "caption={Counter}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Merk op dat de Counter klasse hier de synchronisatie overlaat aan de klasse
+ Writer.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "/Users/Lorenz/Copy/FBO/2e Jaar/1e Semester/Programmeren III/EigenProbeersels/Multithreading/Multithreading - Synced/src/multithreading/synced/Writer.java"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nu is het tijd om de klasse Writer onder de loep te nemen.
+\end_layout
+
+\begin_layout Standard
+Merk op lijn 30 op dat hier het object gelocked wordt.
+\end_layout
+
+\begin_layout Standard
+Vanaf lijn 33 tot lijn 36 zorgt men ervoor dat de writer enkel kan schrijven
+ als de Counter het juiste ID heeft.
+\end_layout
+
+\begin_layout Standard
+Op lijn 37 voert men het kritische stuk uit, namelijk het printen van de
+ tekst.
+ en hierna wordt ervoor gezorgt dat het ID van de counter die mag printen
+ aangepast wordt.
+\end_layout
+
+\begin_layout Standard
+Alle objecten die wachten op het canWrite worden op lijn 40 met .signal()
+ terug gewekt.
+ en controleren in de while of ze hun kritisch stuk mogen uitvoeren.
+\end_layout
+
+\begin_layout Standard
+Tot slotte word op lijn 44 het object geunlocked.
+\end_layout
+
+\begin_layout Subsubsection
+ArrayBlockingQueue
+\end_layout
+
+\begin_layout Standard
+De interface BlockingQueue bevat de methoden put en take, welke equivalent
+ zijn met de methoden offer en poll van de interface Queue.
+ 
+\end_layout
+
+\begin_layout Itemize
+Methode “put” zal een element in de BlockingQueue plaatsen ( m.a.w.
+ het element wordt achteraan in de wachtrij geplaatst.)
+\end_layout
+
+\begin_layout Itemize
+Methode “take” zal een element in de BlockingQueue ophalen (m.a.w.
+ het eerste element in de wachtrij wordt opgehaald).
+\end_layout
+
+\begin_layout Standard
+De klasse ArrayBlockingQueue maakt gebruik van een array.
+ De array wordt hier als een statische circulaire buffer gebruikt.
+\end_layout
+
+\begin_layout Standard
+Hier volgt een voorbeeld:
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "/Users/Lorenz/Copy/FBO/2e Jaar/1e Semester/Programmeren III/EigenProbeersels/Multithreading/Multithreading - ArrayBlockingQueue/src/MAIN.java"
+lstparams "caption={main}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "/Users/Lorenz/Copy/FBO/2e Jaar/1e Semester/Programmeren III/EigenProbeersels/Multithreading/Multithreading - ArrayBlockingQueue/src/domein/Producer.java"
+lstparams "caption={Producer}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "/Users/Lorenz/Copy/FBO/2e Jaar/1e Semester/Programmeren III/EigenProbeersels/Multithreading/Multithreading - ArrayBlockingQueue/src/domein/Consumer.java"
+lstparams "caption={Consumer}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "/Users/Lorenz/Copy/FBO/2e Jaar/1e Semester/Programmeren III/EigenProbeersels/Multithreading/Multithreading - ArrayBlockingQueue/src/domein/BlockingBuffer.java"
+lstparams "caption={BlockingBuffer}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Merk op dat in de klasse BlockingBuffer de synchronisatie verzorgt wordt
+ door het attribuut buffer van het type ArrayBlockingQueue.
+\end_layout
+
+\begin_layout Subsubsection
+Interface TransferQueue<E>
+\end_layout
+
+\begin_layout Standard
+Het is een subinterface van BlockingQueue met als implementatie LinkedTransferQu
+eue<E>.
+\end_layout
+
+\begin_layout Standard
+De voornaamste extra functionaliteit wordt geboden door de transfer() methode.
+ De blokkering blijft duren todat de overdracht volledig is.
+ Je geeft effectief een item van de ene thread door aan de andere waarna
+ de ene thread weer verder loopt.
+ Dit is soms belangrijk voor de synchronisatie (“happens-before relationships”
+ in het Java Memory Model).
+\end_layout
+
+\begin_layout Subsection
+Interface Callable.
+\end_layout
+
+\begin_layout Standard
+Stel dat de Runnable een berekening dient uit te voeren.
+\end_layout
+
+\begin_layout Standard
+De methode run is een void-methode en kan dus niet het resultaat van de
+ berekening teruggeven.
+ De applicatie zal een object moeten creëren en doorgeven aan de thread,
+ zodat het resultaat in dit object kan bewaard worden.
+ Dit zorgt voor veel overhead.
+ 
+\end_layout
+
+\begin_layout Standard
+Tevens kan de methode run geen checked exception werpen.
+ Om deze tekorten weg te werken bestaat er nu, in J2SE 5.0, de interface
+ Callable (van package java.util.concurrent).
+\end_layout
+
+\begin_layout Standard
+De interface Callable bevat één methode : de methode call.
+ Deze methode is zoals de methode run van de interface Runnable, maar ze
+ kan een waarde teruggeven of een exception werpen.
+\end_layout
+
+\begin_layout Standard
+De interface ExecutorService voorziet de methode submit.
+ Hierdoor kan er een thread gekoppeld worden met een Callable.
+\end_layout
+
+\begin_layout Standard
+De methode submit geeft een object van type Future (van package java.util.concurre
+nt) terug.
+ De interface Future voorziet de methode get, zodat de waarde, die de Callable
+ teruggeeft, kan opgevraagd worden.
+\end_layout
+
+\begin_layout Subsection
+De methode join() van de klasse Thread
+\end_layout
+
+\begin_layout Standard
+join(): blijft wachten totdat deze thread afloopt.
+ Werpt een InterruptedException op als een andere thread deze thread onderbreekt.
+\end_layout
+
+\begin_layout Standard
+join(long): wacht tot deze thread afloopt.
+ Er kan een time-out in milliseconden gespecifieerd worden.
+ Een time-out van 0 milliseconden betekent: blijft wachten.
+ Werpt een InterruptedException op als een andere thread deze thread onderbreekt.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+public class Consumer extends Thread {
+\end_layout
+
+\begin_layout Plain Layout
+
+	private Buffer sharedLocation;
+\end_layout
+
+\begin_layout Plain Layout
+
+	private Thread producer;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	public Consumer( Buffer shared, Thread producer ) {
+\end_layout
+
+\begin_layout Plain Layout
+
+		super( "Consumer" );
+\end_layout
+
+\begin_layout Plain Layout
+
+		sharedLocation = shared;
+\end_layout
+
+\begin_layout Plain Layout
+
+		this.producer = producer;
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+	public void run() {
+\end_layout
+
+\begin_layout Plain Layout
+
+		try {
+\end_layout
+
+\begin_layout Plain Layout
+
+			producer.join(); // consumer blijft wachten totdat thread "producer” gestorven
+ is.
+\end_layout
+
+\begin_layout Plain Layout
+
+		} catch ( InterruptedException exception ) {
+\end_layout
+
+\begin_layout Plain Layout
+
+			exception.printStackTrace();
+\end_layout
+
+\begin_layout Plain Layout
+
+		}
+\end_layout
+
+\begin_layout Plain Layout
+
+		int getal = sharedLocation.get();
+\end_layout
+
+\begin_layout Plain Layout
+
+		System.err.println( String.format(“%s reads %d”, getName(), getal)); 
+\end_layout
+
+\begin_layout Plain Layout
+
+	} // end method run
+\end_layout
+
+\begin_layout Plain Layout
+
+} // end class Consumer
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Parallelle streams
+\end_layout
+
+\begin_layout Standard
+Nieuw sinds Java 7.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+JPA
+\end_layout
+
+\begin_layout Subsection
+JPA procedure
+\end_layout
+
+\begin_layout Enumerate
+Entiteiten vastleggen
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Lege database creëren
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Persistence unit 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Database
+\end_layout
+
+\begin_layout Enumerate
+Lijst van entiteiten
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+EntityManagerFactory maken
+\end_layout
+
+\begin_layout Enumerate
+EntityManager (CRUD)
+\end_layout
+
+\begin_layout Enumerate
+Transactie
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Begin
+\end_layout
+
+\begin_layout Enumerate
+Commit 
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Voorbeeld
+\end_layout
+
+\begin_layout Standard
+Het is de bedoeling dat deze applicatie eerst alle auto's met een onderhoudsbeur
+t zal weergeven, daarna de auto's zonder.
+ Daarna heeft de applicatie alle onderhoudsbeurten op een bepaalde datum
+ weer.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "/Users/Lorenz/Copy/FBO/2e Jaar/1e Semester/Programmeren III/Oefeningen/Les 11/OOPIII_JPA_Garage_startversie/src/main/MAINapp.java"
+lstparams "caption={Main App}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De abstracte klasse Vervoersmiddel zal later de basis vormen voor de klasses
+ Auto en LichteVracht.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "/Users/Lorenz/Copy/FBO/2e Jaar/1e Semester/Programmeren III/Oefeningen/Les 11/OOPIII_JPA_Garage_startversie/src/domein/Vervoermiddel.java"
+lstparams "caption={Vervoersmiddel}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Om te zorgen dat deze klasse persistent gemaakt kan worden, voegt men bovenaan
+ de klasse de annotatie Entity toe.
+ Hierna komen de namedQueries.
+\end_layout
+
+\begin_layout Standard
+Op lijn 29 wordt de overerving verzorgt in de databank.
+ Men opteert best voor joined in de meeste gevallen.
+ Enkel in zeer specifieke omstandigheden zijn er andere, betere opties.
+\end_layout
+
+\begin_layout Standard
+Op lijn 32 tot 34 wordt bepaald hoe het ID wordt gegeven.
+ De annotatie Id geeft aan dat het attribuut Id in de klasse Vervoersmiddel
+ het Id bevat voor het object.
+ Lijn 33 laat de databank weten dat hij verantwoordelijk is voor de unieke
+ nummering.
+\end_layout
+
+\begin_layout Standard
+Lijn 38 beschrijft de relatie tussen Vervoersmiddel en Onderhoud, nl.
+ een vervoersmiddel heeft meerdere onderhoudsbeurten (OneToMany).
+ Ook kunnen we hier zien dat deze relatie door Voertuig gemapt zal worden.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "/Users/Lorenz/Copy/FBO/2e Jaar/1e Semester/Programmeren III/Oefeningen/Les 11/OOPIII_JPA_Garage_startversie/src/domein/Auto.java"
+lstparams "caption={Auto}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "/Users/Lorenz/Copy/FBO/2e Jaar/1e Semester/Programmeren III/Oefeningen/Les 11/OOPIII_JPA_Garage_startversie/src/domein/LichteVracht.java"
+lstparams "caption={Lichte Vracht}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "/Users/Lorenz/Copy/FBO/2e Jaar/1e Semester/Programmeren III/Oefeningen/Les 11/OOPIII_JPA_Garage_startversie/src/domein/Onderhoudsbeurt.java"
+lstparams "caption={Onderhoudsbeurt}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ook bij de klasse Onderhoudsbeurt is er terug een NamedQuery.
+ Hier dient op gemerkt te worden dat deze query een parameter zal meekrijgen
+ vanuit de java code.
+ In het sql statement gebruikt men dan :x om de parameter aan te spreken.
+\end_layout
+
+\begin_layout Standard
+Ook zien we weer hoe de databank verantwoordelijk is voor het unieke id
+ van de onderhoudsbeurten.
+\end_layout
+
+\begin_layout Standard
+Op lijn 27 wordt aan de databank duidelijk gemaakt dat de attributen die
+ erop volgen van het type Date zijn.
+\end_layout
+
+\begin_layout Standard
+Verder wordt ook weer de relatie tussen Onderhoud en Vervoersmiddel duidelijk
+ gemaakt aan de databank op lijn 29 en 30.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "/Users/Lorenz/Copy/FBO/2e Jaar/1e Semester/Programmeren III/Oefeningen/Les 11/OOPIII_JPA_Garage_startversie/src/domein/GarageData.java"
+lstparams "caption={Garage Data}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Zoals duidelijk werd uit de code van GarageData, zorgt deze klasse ervoor
+ dat de databank gevuld wordt.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "/Users/Lorenz/Copy/FBO/2e Jaar/1e Semester/Programmeren III/Oefeningen/Les 11/OOPIII_JPA_Garage_startversie/src/domein/GarageBeheerder.java"
+lstparams "caption={GarageBeheerder}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De GarageBeheerder klasse is verantwoordelijk om alle data te beheren.
+ Hier worden de Persistence Unit, de EntityManager en de EntityManagerFactory
+ bijgehouden.
+\end_layout
+
+\begin_layout Standard
+Verder zien we ook een terugkerend patroon als er iets toegevoegd moet worden
+ aan de databank:
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+verander(x)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+entityManager.getTransaction().begin();
+\end_layout
+
+\begin_layout Plain Layout
+
+entityManager.persist(x)
+\end_layout
+
+\begin_layout Plain Layout
+
+entityManager.getTransaction().commit();
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Op lijn 70 start de methode om vervoersmiddelen zonder onderhoudsbeurt weer
+ te geven zonder gebruik te maken van de databank.
+ Hierbij maakt men gebruik van streams.
+\end_layout
+
+\begin_layout Standard
+Op lijn 76 start de methode om vervoersmiddelen zonder onderhoudsbeurt weer
+ te geven met behulp van de databank.
+ merk hierbij op dat de EntityManager een NamedQuery maakt met de naam van
+ een NamedQuery die in de klasse vervoersmiddel op lijn 22 gedefiniëerd
+ werd.
+\end_layout
+
+\begin_layout Standard
+Merk bij lijn 98-99 op hoe de parameters worden doorgegeven aan de NamedQuery.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "/Users/Lorenz/Copy/FBO/2e Jaar/1e Semester/Programmeren III/Oefeningen/Les 11/OOPIII_JPA_Garage_startversie/src/domein/GarageController.java"
+lstparams "caption={Garage Controller}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De klasse GarageController is verantwoordelijk voor het sturen van de garage
+ applicatie.
+\end_layout
+
+\begin_layout Standard
+Merk op dat bij de methode geefOnderhoudsbeurtenOpDatum, lijn 27-36, de
+ controller verantwoordelijk is voor de correcte weergave.
+ De controller verzorgt de weergave via een stream.
+\end_layout
+
+\begin_layout Standard
+Bij dit voorbeeld hoort ook een Persistance Unit.
+ Hierin worden alle klasses vermeld die moeten opgenomen worden in de databank.
+ Deze PU is essentieel om communicatie mogelijk te maken tussen java en
+ de databank.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Netwerkprogrammatie
+\end_layout
+
+\begin_layout Subsection
+Een eenvoudige server met Stream Sockets opzetten
+\end_layout
+
+\begin_layout Enumerate
+Creëer een serverSocket object
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+ServerSocket server = new ServerSocket(portnumber, queueLength);
+\end_layout
+
+\begin_layout Enumerate
+De contructor legt het poortnummer vast waarop de server op connecties wacht.
+ (=binding server/poort)
+\end_layout
+
+\begin_layout Enumerate
+Sockets verbergen de complexiteit van het netwerkprogrammeren.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+De server luistert onafgebroken naar een poging van een client om een connectie
+ te maken (blocks)
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Het programma roept de methode accept aan om te luisteren naar een connectie
+ van een client
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Socket connection = server.accept();
+\end_layout
+
+\begin_layout Enumerate
+Deze methode levert een Socket af wanneer een connectie met een client tot
+ stand gekomen is
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Door de Socket kan de server interageren met de client
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+De OutputStream- en InputStream-objecten worden opgehaald zodat de server
+ kan communiceren met de client door het verzenden en ontvangen van bytes.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+De server roept de methode getOutputStream aan op de Socket en krijgt een
+ referentie naar de Socket’s OutputStream.
+ Dan wordt de methode getInputStream aangeroepen op de Socket om een referentie
+ te krijgen naar de the Socket’s InputStream.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Tijdens de verwerkingsfase communiceren de server en de client via de OutputStre
+am- en InputStream-objecten
+\end_layout
+
+\begin_layout Enumerate
+Wanneer de transmissie afgehandeld is, sluit de server de connectie door
+ de methode close aan te roepen op de streams en op de Socket
+\end_layout
+
+\begin_layout Subsection
+Een eenvoudige Client met Stream Sockets opzetten
+\end_layout
+
+\begin_layout Enumerate
+de Socket constructor legt een connectie met de server
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Socket connection = new Socket (serverAddress, port);
+\end_layout
+
+\begin_layout Enumerate
+Als de connectie tot stand gebracht is, dan wordt een Socket afgeleverd
+\end_layout
+
+\begin_layout Enumerate
+Als de connectie niet tot stand kan gebracht worden, dan wordt een IOException
+ geworpen
+\end_layout
+
+\begin_layout Enumerate
+Een onjuiste servernaam heeft een UnknownHostException tot gevolg
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+De client gebruikt de methoden getInputStream en getOutputStream om referenties
+ naar InputStream and OutputStream te verkrijgen.
+\end_layout
+
+\begin_layout Enumerate
+Tijdens de verwerkingsfase communiceren de server en de client via de OutputStre
+am en InputStream objecten.
+\end_layout
+
+\begin_layout Enumerate
+Wanneer de transmissie afgehandeld is, sluit de client de connectie door
+ de methode close aan te roepen op de streams en op de Socket.
+\end_layout
+
+\begin_layout Subsection
+Voorbeeld met Stream Sockets
+\end_layout
+
+\begin_layout Subsubsection
+Server
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "/Users/Lorenz/Copy/FBO/2e Jaar/1e Semester/Programmeren III/EigenProbeersels/NewFolder/TCP/src/ServerStartUp.java"
+lstparams "caption={Server Startup}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "/Users/Lorenz/Copy/FBO/2e Jaar/1e Semester/Programmeren III/EigenProbeersels/NewFolder/TCP/src/domein/Server.java"
+lstparams "caption={Server}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Merk hierbij op dat in de methode run mooi de stappen gevolgd worden uit
+ 8.1.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Client
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "/Users/Lorenz/Copy/FBO/2e Jaar/1e Semester/Programmeren III/EigenProbeersels/NewFolder/TCP/src/ClientStartUp.java"
+lstparams "caption={Client Startup}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "/Users/Lorenz/Copy/FBO/2e Jaar/1e Semester/Programmeren III/EigenProbeersels/NewFolder/TCP/src/domein/Client.java"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Merk ook hier weer op dat in de methode rund de stappen van 8.2 gevolgd worden.
+\end_layout
+
+\begin_layout Subsection
+Voorbeeld DatagramSocket
+\end_layout
+
+\begin_layout Subsubsection
+Server
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "/Users/Lorenz/Copy/FBO/2e Jaar/1e Semester/Programmeren III/Oefeningen/Les 12/OOPIII_NET_UDPPinger_start/src/main/PingServer.java"
+lstparams "caption={Ping Server}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Client
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "/Users/Lorenz/Copy/FBO/2e Jaar/1e Semester/Programmeren III/Oefeningen/Les 12/OOPIII_NET_UDPPinger_start/src/main/PingClient.java"
+lstparams "caption={Ping Client}"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Multithreaded server
+\end_layout
+
+\begin_layout Subsection
+Multicast
+\end_layout
+
+\end_body
+\end_document

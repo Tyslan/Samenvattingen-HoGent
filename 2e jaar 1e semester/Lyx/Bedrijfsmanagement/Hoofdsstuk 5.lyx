@@ -1,0 +1,421 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage{a4wide}
+\usepackage[dutch]{babel}
+\usepackage{amsmath}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage[latin1]{inputenx}
+\usepackage{caption2}
+\usepackage{parskip}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.5cm
+\topmargin 2.5cm
+\rightmargin 2.5cm
+\bottommargin 2.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+De organisatie besturen: Management accounting
+\end_layout
+
+\begin_layout Subsection
+Management versus financial accounting
+\end_layout
+
+\begin_layout Standard
+De betrokken partijen buiten de organisatie hebben ook behoefte aan informatie,
+ die echter anders van aard is.
+ Het gaat er daarbij meer over de organisatie te beoordelen voor een eventuele
+ investering of het toekennen van scriptwaardigheid en dergelijke.
+\end_layout
+
+\begin_layout Subsection
+Kostensoorten/-categorieë,
+\end_layout
+
+\begin_layout Subsubsection
+Kosten van de grond- en hulpstoffen
+\end_layout
+
+\begin_layout Standard
+Grondstoffen vormen de basis van producten.
+\end_layout
+
+\begin_layout Standard
+Hulpstoffen zijn stoffen die gebruikt worden
+producten maken.
+\end_layout
+
+\begin_layout Paragraph
+Afvallen, uitval en verspilling
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Afval is grondstof die tijdens de productie verloren gaat, maar noodzakelijk
+ (onvermijdelijk )is om de productie uit te voeren.
+\end_layout
+
+\begin_layout Standard
+Wanneer producten niet door de controle komen, worden ze als uitval beschouwd.
+\end_layout
+
+\begin_layout Standard
+Verspilling is grondstof die je meer gebruikt dan volgens een vooraf gestelde
+ norm (standaardhoeveelheid) is vastgelegd.
+\end_layout
+
+\begin_layout Paragraph
+Voorraadkosten
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+3 kostenaspecten:
+\end_layout
+
+\begin_layout Enumerate
+Ruimte is nodig om de voorraden op te slaan.
+\end_layout
+
+\begin_layout Enumerate
+Risico slaat op het voorkomen van bederf of veroudering.
+\end_layout
+
+\begin_layout Enumerate
+Rente, dit is het geval wanneer de voorraden met vreemd vermogen zijn gefinancie
+erd.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $omloopsnelheid=\frac{afzet}{gemiddelde\, voorraad\,(stuks)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $omloopsnelheid=\frac{inkoopwaarde\, omzet}{gemiddelde\, voorraadwaarde}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $omloopsnelheid=\frac{omzet}{gemiddelde\, verkoopwaarde}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Opslagduur=\frac{360}{omzetsnelheid}=...dagen$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Kosten van arbeid
+\end_layout
+
+\begin_layout Enumerate
+tijdloon
+\end_layout
+
+\begin_layout Enumerate
+stukloon
+\end_layout
+
+\begin_layout Enumerate
+premieloon
+\end_layout
+
+\begin_layout Subsubsection
+Afschrijvingskosten
+\end_layout
+
+\begin_layout Paragraph
+Afschrijven met een vast percentage van de aanschafwaarde
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Jaarlijkse\: afschrijvingskost=\frac{Aw-Rw}{Eld}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+met:
+\end_layout
+
+\begin_layout Itemize
+Aw: Aanschafwaarde
+\end_layout
+
+\begin_layout Itemize
+Rw: Restwaarde
+\end_layout
+
+\begin_layout Itemize
+Eld: Economische levensduur
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Afschrijvingspercentage=\frac{jaarlijkse\, afschrijvingskost}{Aw}*100\%$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Afschrijven met een vast percentage van de boekwaarde
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Boekwaarde=aanschafwaarde-afschrijvingen$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Deze methoode wordt vooral gebruikt bij snel verouderende duurzame productiemidd
+elen.
+\end_layout
+
+\begin_layout Paragraph
+Afschrijven met een wisselend percentage van de aanschafwaarde
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+voorbeeld: zie boek p145
+\end_layout
+
+\begin_layout Paragraph
+Degressief afschrijven
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Het afschrijvingstarief wordt verdubbeld t.o.v.
+ het tarief van een lineaire afschrijving.
+ Dit tarief wordt elk jaar toegepast op het bedrag dat nog dient afgeschreven
+ te worden.
+\end_layout
+
+\begin_layout Standard
+Het gaat in eerste instantie om het Maximale tarief voor degressieve afschrijvin
+gen, t.t.z.
+ dat een beperking op het af te schrijven bedrag voor het eerste jaar opgelegd
+ is.
+ Standaard is het maximale tarief van 40 % van de aanschaffingswaarde (door
+ de Belgische Wetgeving opgelegde maximale tarief).
+ 
+\end_layout
+
+\begin_layout Standard
+De berekening van de af te schrijven bedragen volgens de degressieve methode
+ wordt ook beïnvloed door de optie Automatische overgang van degressief
+ naar lineair als deze laatste methode een hoger bedrag geeft.
+ 
+\end_layout
+
+\begin_layout Subsection
+Budgetteren
+\end_layout
+
+\begin_layout Subsubsection
+Functies van budgetteren
+\end_layout
+
+\begin_layout Itemize
+Planning
+\end_layout
+
+\begin_layout Itemize
+Coördinatie en communicatie
+\end_layout
+
+\begin_layout Itemize
+Taakstelling en autorisatie
+\end_layout
+
+\begin_layout Itemize
+Motivatie
+\end_layout
+
+\begin_layout Itemize
+Evaluatie
+\end_layout
+
+\begin_layout Subsubsection
+Het masterbudget
+\end_layout
+
+\begin_layout Standard
+Dit moet zorgen voor een totaaloverzicht waarin alle budgetten van een ondernemi
+ng samenkomen.
+\end_layout
+
+\begin_layout Standard
+Aan de hand van het masterbudget kunnen de gepronognosticeerde financiële
+ statements worden opgemaakt.
+\end_layout
+
+\begin_layout Subsection
+Balanced Scorecard
+\end_layout
+
+\begin_layout Standard
+Balanced Scorecard is een management dashboard die toekomst gericht is.
+\end_layout
+
+\begin_layout Standard
+4 perspectieven:
+\end_layout
+
+\begin_layout Enumerate
+financieel perspectief
+\end_layout
+
+\begin_layout Enumerate
+intern perspectief
+\end_layout
+
+\begin_layout Enumerate
+klantperspectief
+\end_layout
+
+\begin_layout Enumerate
+lerend vermogen
+\end_layout
+
+\begin_layout Standard
+Om BSC op te stellen wordt gebruik gemaakt van 2 begrippen:
+\end_layout
+
+\begin_layout Enumerate
+kritische succesfactoren
+\end_layout
+
+\begin_layout Enumerate
+prestatie-indicatoren
+\end_layout
+
+\begin_layout Standard
+Er zijn leidende/leading prestatie-indicatoren en volgende/lagging prestatie-ind
+icatoren.
+\end_layout
+
+\begin_layout Standard
+De doelstellingen moeten SMART geformuleerd zijn.
+\end_layout
+
+\begin_layout Subsection
+Spanning tussen management accounting en de aandeelhouders
+\end_layout
+
+\begin_layout Standard
+Er is een scheiding tussen het bezit en het beheersen van de bedrijfprocessen
+ bij beursgenoteerde bedrijven.
+ Deze situatie creëert een spanningsveld tussen bestuur en aandeelhouders,
+ omdat het bestuursbeleid niet altijd zal overeenkomen met de wensen van
+ de aandeelhouders.
+ Dit wordt het Agency-probleem genoemd.
+ Hier ligt informatie-asymmetrie aan de basis van het probleem.
+\end_layout
+
+\end_body
+\end_document
