@@ -16,7 +16,7 @@ Hieronder volgt een lijstje met opsommingen van de vakken waarvoor reeds een sam
 - [x] Besturingssystemen
 - [ ] Internationale communicatie II
 - [x] OO Ontwerpen II
-- [ ] OO programmeren III
+- [x] OO programmeren III
 - [ ] Webapplicaties III
 
 ###2e Jaar 2e semester
