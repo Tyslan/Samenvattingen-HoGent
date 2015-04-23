@@ -247,4 +247,85 @@ Een tweede oplossing is om de static methode getInstance synchronised te maken. 
 \label{fig:SingletonMultithreadSafe}
 \end{figure}
 
+\section{Proxy Pattern}
+Het proxy pattern wordt gebruikt om de objecttoegang te controlleren.
+
+\subsection{De rol van de remote proxy}
+De remote proxy funcgeert als een lokale vertegenwoordiger van een remote object.
+
+Het lijkt alsof een client remote-aanroepen pleegt.
+In werkelijkheid worden methoden aangeroepen van een proxy object in de local heap, die alle low-level details van de netwerkcommuncatie afhandelt.
+
+\subsection{Remote Method Invocation}
+Remote Method Invocation (RMI) laat toe om objecten te vinden in een remote JVM en hun methodes aan te roepen.
+
+\subsubsection{Werking van RMI}
+\begin{figure}[H]
+\centering
+  	\includegraphics[width=.44\linewidth]{img/Proxy/RMIWerking.png}
+  	\caption{Werking RMI}
+  	\label{fig:RMIWerking}
+\end{figure}
+\begin{enumerate}
+\item Het client object roept de methode aan van de client helper.
+\item De client helper verpakt de info over de aanroep en stuurt deze over het netwerk naar de service helper.
+\item De service helper pakt de info uit, ontdekt welke methode moet worden opgeroepen en roept de echte methode voor het echte service object aan.
+\item Het service object voert de methode uit en retourneert het resultaat naar de service helper.
+\item De service helper verpakt het resultaat en verstuurt dit over het netwerk naar de client helper.
+\item De client helper pakt het resultaat uit en lever het aan het client object.
+\end{enumerate}
+Al het bevenstaande was transparant voor het client object.
+
+\subsubsection{Java RMI}
+De client helper (proxy in de client heap) wordt hierbij de RMI stub genoemd, de service helper (proxy in de server heap) wordt het RMI skeleton genoemd.
+
+De RMI stub gaat fungeren als een proxy.
+De RMI-skeleton hoeft in de nieuwere Java versies niet meer expliciet gebruikt te worden.
+Java RMI zorgt er wel nog steeds voor dat iets het skeletongedrag afhandelt aan de serverkant.
+
+\subsubsection{De remote service maken}
+\begin{enumerate}
+\item Remote interface maken
+	\begin{itemize}
+	\item Definieert de remote methoden die de client kan aanroepen
+	\item Breidt de klasse Java.rmi.Remote uit.
+	\item Declareer dat alle methoden een RemoteException kunnen gooien
+	\item Zorg ervoor dat alle argumenten en retournwaarden primitief of serialiseerbaar zijn.
+	\item Objecten die niet geserialisser moeten worden kan men aangeven met het keyword "transient".
+	\end{itemize}
+\item Remote implementatie maken
+	\begin{itemize}
+	\item Deze klasse doet het echte werk.
+	Dit is het object waarvan de client methodes wil aanroepen.
+	\item Implementeer de remote interface.
+	\item Breid UnicastRemoteObject uit (zo kan het van buitenaf worden aangesproken.
+	\item Schrijf een constructor die een RemoteException kan gooien.
+	\end{itemize}
+\item Stub en skeleton worden dynamisch aangemaakt door JVM (sinds Java 1.5).
+Dit gebeurt automatisch en hoeft niet noodzakelijk manueel gedaan te worden.
+\item RMI registry starten (=name service voor remote objecten)
+	\begin{itemize}
+	\item Registry registry = LocateRegistry.createRegistry(1099);
+	\end{itemize}
+\item Het remote object bekend maken bij de name service
+	\begin{itemize}
+	\item Hiervoor dient men het remote object instantiëren en in het RMI registery te plaatsen (via registry.rebind()).
+	\end{itemize}
+\item Run
+\end{enumerate}
+
+\subsubsection{De remote service ophalen}
+Via de RMI Registry
+\begin{enumerate}
+\item Client zoekt RMI Registery.
+	\begin{itemize}
+	\item Registry registry = LocateRegistry.getRegistry("127.0.0.1", 1099);
+	\end{itemize}
+\item RMI Registry retourneert het stubobject.
+	\begin{itemize}
+	\item registry.lookup("ProxyName");
+	\end{itemize}
+\item Client roept methode van stub aan, alsof de stub de echte service is. 
+\end{enumerate}
+%Slide 32 starten
 \end{document}
