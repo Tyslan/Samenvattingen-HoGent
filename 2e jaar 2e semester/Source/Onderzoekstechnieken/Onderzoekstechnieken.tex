@@ -509,4 +509,86 @@ Teststatistiek & \multicolumn{3}{l}{$z=\frac{\overline{x}-\mu_0}{\frac{\sigma}{\
 \caption{Conclusies en consequenties bij toetsen van hypotheses}
 \label{tab:conseqentiesToetsenHypotheses}
 \end{table}
+
+\section{Indexcijfers}
+\subsection{Definities}
+Een indexcijfer is een getal dat de verandering van een variabele in de loop van de tijd meet in verhouding tot de waarde van de variabele tijdens een bepaalde basisperiode.
+
+$\textnormal{Indexcijfer I} = \frac{uitkomst_{datum}}{uitkomst_{basis}}\times 100\%$
+
+\subsection{Enkelvoudige indexcijfers}
+Enkelvoudige indexcijfers hebben betrekking op slechts één object of artikel.
+
+\begin{equation}
+I_p = \frac{P-v}{P_b}\times 100
+\end{equation}
+\begin{equation}
+I_q = \frac{Q_v}{Q_b} \times 100
+\end{equation}
+\begin{equation}
+I_w = \frac{P_v \times Q_v}{P_b \times Q_b} \times 100 = \frac{I_p \times I_q}{100}
+\end{equation}
+
+\subsection{Samengestelde indexcijfers}
+Een samengesteld indexcijfer is het rekenkundig gemiddelde van een aantal enkelvoudige indexcijfers.
+
+\subsubsection{Ongewogen samengestelde indexcijfers}
+Aan elk element wordt hetzelfde belang gehecht.
+\begin{equation}
+\overline{I}=\frac{\sum^n_{i=0}I_i}{n}
+\end{equation}
+\begin{itemize}
+\item $\overline{I}$: ongewogen samengestelde index
+\item $I_i$: partiële indexcijfers
+\item $n$: aantal partiële indexcijfers
+\end{itemize}
+
+\subsubsection{Gewogen samengestelde indexcijfers}
+Het belang van de onderscheiden partiële indexcijfers is ongelijk:
+men geeft aan elk partieel indexcijfer een wegingscoëfficiënt.
+
+\begin{equation}
+\overline{I}= \frac{\sum^n_{i=0}g_i \times I_i}{\sum^n_i g_i}
+\end{equation}
+\begin{itemize}
+\item $\overline{I}$: gewogen samengesteld indexcijfer
+\item $g_i$: gewicht of wegingscoëfficiënt van het i$^e$ partiële cijfer
+\item $I_i$: partiële indexcijfer
+\end{itemize}
+
+\subsubsection{Gewogen gemiddelde van Laspeyres}
+Het gewogen samengesteld indexcijfer van Laspeyres is het gewogen gemiddelde van partiële indexcijfers waarbij de
+hoeveelheden in de basisperiode constant gehouden zijn m.a.w. indexcijfer met vaste gewichten of berekening volgens basisjaarmethode.
+
+\begin{equation}
+I^L_W=\frac{\sum P_v \times Q_v}{\sum P_b \times Q_b}
+\end{equation}
+Het indexcijfer van Laspeyres geeft antwoord op de vraag: “Welke prijs betaalt men vandaag voor een zelfde hoeveelheid van dezelfde goederen?
+
+\subsubsection{Gewogen samengestelde indexcijfer van Paasche}
+Het gewogen samengesteld indexcijfer van Paasche neemt de hoeveelheden in de verslagperiode als wegingcoëfficiënt m.a.w. indexcijfer met veranderlijke gewichten
+
+\begin{equation}
+I^P_W=\frac{\sum P_v \times Q_v}{\sum P_b \times Q_b}
+\end{equation}
+
+\subsubsection{Kritiek op Laspeyres en Paasche}
+Laspeyres' index is een overschatting.
+
+Paasche's index is een onderschatting.
+
+\subsubsection{Gewogen indexcijfer van Fisher}
+Fischer’s indexcijfer wordt ook wel eens het ideale indexnummer genoemd voor de volgende redenen:
+\begin{itemize}
+\item Het is een geometrisch gemiddelde wat als een geschikte maat voor gemiddelde van ratio’s beschouwd wordt.
+\item Het neemt zowel de basisjaarhoeveelheden als de huidige hoeveelheden in rekening.
+\item Er is geen bias.
+\item Het voldoet aan zowel de time reversal als de factor reversal test.
+\end{itemize}
+
+= het meetkundig gemiddelde van Laspeyres en Paasches indexcijfer.
+
+\begin{equation}
+I^f_W = \sqrt{I^L_W \times I^P_W}
+\end{equation}
 \end{document}
