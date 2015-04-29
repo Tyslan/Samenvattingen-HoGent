@@ -1393,4 +1393,292 @@ De problemen met veel LOB's, die nu gebruikt worden in verschillende DBMS zijn:
 \item DBMS kan zelf niets aanvangen met LOB's
 \item nadelig transfer van LOB'so p server naar client over het netwerk
 \end{itemize}
+
+\section{Transactiebeheer}
+\subsection{Inleiding}
+Een DBMS ondersteunt:
+\begin{itemize}
+\item transaction support
+\item concurrency control service
+\item recovery services
+\end{itemize}
+
+De bedoeling van transacties is dat de databank in een betrouwbare en consistentie toestand gehouden wordt.
+\begin{itemize}
+\item bij software/hardware failures
+\item bij gelijktijdig gebruik door meerdere gebruikers
+\end{itemize}
+
+\subsection{Transacties}
+Een transactie is een actie, of een opeenvolging van acties op een DB die 1 logisch geheel vormen.
+\begin{itemize}
+\item Een actie: lezen of wijzigen van de inhoud van de DB. Lees operaties berokkenen anderen nooit problemen. Je kan echter wel last hebben van anderen.
+\item Een transactie wordt uitgevoerd door een gebruiker of door een programma.
+\item Het is een logische eenheid van werk
+\end{itemize}
+\subsubsection{Resultaat van een transactie}
+\begin{enumerate}
+\item commited
+	\begin{itemize}
+	\item De transactie kent een succesvolle afloop
+	\item De transactie commit en de DB heeft een consistente toestand bereikt.
+	\end{itemize}
+\item aborted
+	\begin{itemize}
+	\item De transactie is niet succesvol afgehandeld
+	\item de transactie abort en de DB moet teruggebracht worden naar de consistente toestand waarin ze zich bevond voor de transactie werd gestart.
+	
+Dit gebeurt via \textsc{rollback} of \textsc{undo}
+	\end{itemize}
+\end{enumerate}
+
+Een committed transaction kan nooit geaborted worden.
+
+Een aborted transaction kan herstart worden.
+
+\subsubsection{ACID Eigenschappen}
+\textbf{Atomicity}: de opdrachten van een transactie worden als één ondeelbaar geheel beschouwd.
+\begin{itemize}
+\item alles of niets
+\item DBMS verantwoordelijkheid: recovery subsystem
+\end{itemize}
+
+\textbf{Consistency}: een transactie brengt de DB van de een consistente toestand naar een andere consistente toestand.
+\begin{itemize}
+\item DBMS verantwoordelijkheid énprogramma verantwoordelijkheid
+\end{itemize}
+
+\textbf{Isolation}: transacties worden onafhankelijk van elkaar uitgevoerd.
+\begin{itemize}
+\item transacties mogen niet ongewenst interfereren met elkaar
+\item transacties mogen geen uitkomsten aan andere transacties presenteren vóór de commit
+\item DBMS verantwoordelijkheid: concurrency-controlsubsystem
+\end{itemize}
+
+\textbf{Durability}: na een COMMIT zijn de aangebrachte wijzigingen gegarandeerd permanent
+\begin{itemize}
+\item na een storing kunnen deze wijzigingen steeds worden gerecupereerd
+\item DBMS verantwoordelijkheid: recovery subsystem
+\end{itemize}
+
+\subsubsection{Databank architectuur - Transaction support}
+\begin{figure}[H]
+\centering
+  	\includegraphics[width=.65\linewidth]{img/databankArchitectuur.png}
+  	\caption{Databank architectuur - Transaction support}
+  	\label{fig:DatabankArchitectuur}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+  	\includegraphics[width=.35\linewidth]{img/transactionSubsysteem.png}
+  	\caption{Transactie subsysteem}
+  	\label{fig:TransactieSubsysteem}
+\end{figure}
+
+\begin{itemize}
+\item transaction manager
+	\begin{itemize}
+	\item coördineert transacties van programma's
+	\end{itemize}
+\item scheduler
+	\begin{itemize}
+	\item implementeert strategie voor concurrency control
+	\item akalock manager bij een op locking gebaseerde strategie
+	\item doel: concurrency maximaliseren zonder interferentie tussen verschillende transacties
+	\end{itemize}
+\item recovery manager
+	\begin{itemize}
+	\item bij failures brengt deze de db terug in consistente toestand (vóór de transactie gestart werd)	
+	\end{itemize}
+\item buffer manager
+	\begin{itemize}
+	\item verantwoordelijk voor efficiënte transfer van data tussen main memory en disk storage
+	\end{itemize}
+\end{itemize}
+
+\subsection{Concurrency Control}
+concurrency control is het beheer van gelijktijdige acties op de DB zonder dat ze interfereren met elkaar.
+
+\subsubsection{Waarom?}
+Concurrency Control voorkotm interferentie wanneer twee of meerdere transacties de databank gelijktijdig aanspreken, en minstens 1 transactie data wijzigt.
+
+Hoewel twee transacties op zichzelf beschouwd correct kunnen zijn, kan het verweven van hun acties leiden tot een incorrect resultaat.
+
+\subsubsection{Problemen bij concurrency control}
+\textbf{Lost update}
+
+Het lost update probleem treedt op wanneereen schijnbaar compleet succesvolle update van een transactie wordt overschreven door een andere transactie.
+
+\textbf{Uncommitted Dependency}
+
+Het uncommitted dependency (of dirty read) probleem treedt op wanneer een transactie de intermediaire resultaten van een andere, uncommitted transactie, kan zien.
+
+Uncommited Dependency staat ook bekend als Dirty Read.
+
+\textbf{Inconsistent Analysis}
+
+Het inconsistent analysis probleem treedt op wanneer een transactie verschillende waarden uit de DB leest, terwijl een andere transactie bezig is sommige van deze waarden te veranderen.
+
+Twee gerelateerde problemen aan de inconsistent analysis zijn:
+\begin{enumerate}
+\item non-repeatable read of fuzzy read
+	\begin{itemize}
+	\item Twee keer lezen van eenzelfde item levert twee verschillende waarden op.
+	\end{itemize}
+\item phantom read
+	\begin{itemize}
+	\item Een transactie leest een aantal records die voldoen aan een bepaalde voorwaarde.
+	\item De transactie herhaalt dit later maar merkt nu dat er ondertussen andere records zijn bijgekomen via een andere transactie.
+	\end{itemize}
+\end{enumerate}
+
+\subsubsection{Serializability en recovery}
+\textbf{Schedule}
+
+een schedule is een sequentie van acties van een aantal concurrente transacties die de volgorde van de acties van de individuele transacties respecteert.
+
+\textbf{Recoverability}
+
+De databank zelf schedules laten opstellen die zonder interferentie problemen concurrent kunnen worden uitgevoerd.
+\begin{itemize}
+\item ze garanderen de consistencyen isolationeigenschap van transacties
+\item dit is in de veronderstelling dat geen enkele van de transacties in de schedule faalt
+\end{itemize}
+recoverability:
+\begin{itemize}
+\item wanneer een transactie faalt moeten we de effecten ongedaan kunnen maken.
+	\begin{itemize}
+	\item atomiciteitvan transacties
+	\end{itemize}
+\item wanneer een transactie commit zijn de veranderingen permanent
+	\begin{itemize}
+	\item durability eigenschap van transacties
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{Locking}
+Locking is een methode gebruikt om concurrente toegang tot data te beheren.
+
+Wanneer een transactie toegang heeft tot de DB kan er via een lock voor gezorgd worden dat andere transacties toegang tot de DB geweigerd worden om zo incorrecte resultaten te voorkomen.
+
+Locking is de meest gebruikte manier om de consistentie te garanderen.
+
+\textbf{Basisregels voor locking}
+
+Een transactie kan een data item lezen of schrijven enkel en alleen als het een lock heeft verworven voor dat data element, en het bovendien deze lock nog niet heeft vrijgegeven.
+
+Als een transactie een lock op een data item verwerft, dan moet het later ook die lock terug vrijgeven.
+
+\textbf{Soorten locks}
+
+Shared locks (S-Locks):
+\begin{itemize}
+\item een transactie met een shared lock op een data item kan dat data item lezenmaar niet wijzigen
+\item meerdere transacties kunnen gelijktijdig een shared lock op eenzelfde data item bezitten
+\end{itemize}
+Exclusive locks (X-Locks):
+\begin{itemize}
+\item een transactie met een exclusive lock op een data item kan dat data item lezen en wijzigen
+\item op elk ogenblik kan hoogstens 1 transactie een exclusive lock op een data item hebben
+\end{itemize}
+\subsubsection{Deadlock}
+Een impasse die kan ontstaan wanneer twee of meerdere transacties elk wachten op het vrijgeven van locks die de andere transactie heeft.
+
+Het oplossen van een deadlock gaat meestal als volgt:
+abort en restart 1 of meerdere transacties.
+
+\textbf{Timeouts}
+
+Een transactie die een lock aanvraagt wacht voor een bepaalde vooraf gedefinieerde tijdop die lock.
+
+Indien lock niet toegekend tijdens dit interval
+\begin{itemize}
+\item Assumptie dat er een deadlock is.
+	\begin{itemize}
+	\item hoewel dit niet noodzakelijk zo is\dots
+	\end{itemize}
+\item Aborten restartvan de transactie.
+\end{itemize}
+
+\textbf{Deadlock Prevention}
+
+\begin{itemize}
+\item Gebruik makend van transaction time-stamps
+	\begin{itemize}
+	\item time-stampvoor deadlock detection
+	\end{itemize} 
+\item T wacht op locks die U vast heeft
+	\begin{itemize}
+	\item wait-diealgoritme
+		\begin{itemize}
+		\item als T ouder is dan U dan zal T wachten
+		\item in ander geval 'sterft' T
+			\begin{itemize}
+			\item abort/restart met dezelfde timestamp
+			\end{itemize}
+		\end{itemize}
+	\item wound-waitalgoritme
+		\begin{itemize}
+		\item als T ouder is dan U dan zal het U 'verwonden'
+			\begin{itemize}
+			\item meestal betekent dit een abort/restart van U
+			\end{itemize}
+		\item in andere geval zal T wachten
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+
+\textbf{Deadlock Detection en Recovery}
+
+Detection:
+\begin{itemize}
+\item Gebruik makend van een wait-for graph met transactie afhankelijkheden
+\item Wanneer de wait-for graph een lus bevat is er een deadlock
+\item Op regelmatige tijdstippen wordt deze graph getest op lussen
+\end{itemize}
+Recovery:
+\begin{itemize}
+\item 1 of meerdere transacties worden ge-abort
+\item Problemen:
+	\begin{itemize}
+	\item Victim Selection
+		\begin{itemize}
+		\item abort die transactie waarvoor de abort een 'minimale kost' met zich meebrengt.
+		\item enkele parameters die kunnen gebruikt worden:
+			\begin{itemize}
+			\item tijd dat de transactie al aan het runnen was
+			\item aantal data items dat reeds werd gewijzigd door de transactie
+			\item aantal data items die nog moeten worden gewijzigd door de transactie
+			\end{itemize}
+		\end{itemize}
+	\item hoe ver moet een transactie een rollback doen
+		\begin{itemize}
+		\item dit is niet noodzakelijk de volledige transactie
+		\end{itemize}
+	\item voorkomen van starvation
+		\begin{itemize}
+		\item komt voor wanneer steeds dezelfde transactie als victim wordt geselecteerd.
+			\begin{itemize}
+			\item teller bijhouden
+			\end{itemize}
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+\subsection{Transacties in SQL-server}
+Impliciete transacties:
+\begin{itemize}
+\item insert, update, delete
+\item elke transact sql-opdracht
+\end{itemize}
+
+Expliciete transacties:
+\begin{itemize}
+\item zelf aangeven waar transactie begint, wanneer de transactie kan afgesloten worden, of hoe je op je stappen terugkeert om fouten op te vangen.
+	\begin{itemize}
+	\item BEGIN TRANSACTION
+	\item COMMIT TRANSACTION
+	\item ROLLBACK TRANSACTION
+	\end{itemize}
+\end{itemize}
 \end{document}
