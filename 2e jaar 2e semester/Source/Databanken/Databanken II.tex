@@ -1334,4 +1334,63 @@ Een distinct type is gebaseerd op een basis type.
 Het laat toe om onderscheid aan te brengen tussen anders gelijke basis types.
 
 \subsubsection{Structured Types}
+\textbf{Table Types}
+
+Table types worden opgeslagen in de DB.
+Deze types zijn tabellen.
+
+Table variables bestaan slechts voor de duur van de batch.
+
+\begin{itemize}
+\item Voordelen:
+	\begin{itemize}
+	\item kortere en overzichtelijke code
+	\item table type variabelen kunnen als parameters doorgegeven worden aan stored procedures en functions
+	\end{itemize}
+\end{itemize}
+
+\textbf{Abstract Data Types}
+
+In het algemeen bevat een abstract data type:
+\begin{itemize}
+\item definitie van de attributen
+\item definitie van de routines (methodes)
+\end{itemize}
+
+Abstracte data types worden gebruikt om objecten op te slaan.
+
+\subsubsection{Overerving}
+Via \textsc{under} kunnen subtype/supertype verbanden gedefinieerd worden.
+
+Multiple inheritance is niet mogelijk.
+
+Het subtype erft de attributen en methodes van het supertype.
+Het subtype kan uitgebreidt worden via definitie van nieuwe attributen en methodes.
+
+Overloading van methodes is mogelijk.
+
+Een supertype kan altijd door zijn subtype gesubstitueerd worden.
+
+Men kan aan een \textsc{ADT} methodes toevoegen en deze implementeren in het \textsc{create type body} statement.
+
+\textbf{NOT FINAL}: er kunnen nog subtypes gemaakt worden.
+
+\textbf{FINAL}: er kunnen geen substypes gemaakt worden. (\textsc{default})
+
+\subsection{Large Objects}
+Een large object is een datatype die een grote hoeveelheid aan data kan vasthouden.
+
+Er zijn verschillende soorten large objects:
+\begin{itemize}
+\item Binary Large OBject (BLOB)
+\item Character Large OBject (CLOB)
+\item National Character Large OBject (NCLOB)
+\end{itemize}
+
+De problemen met veel LOB's, die nu gebruikt worden in verschillende DBMS zijn:
+\begin{itemize}
+\item LOB's worden gezien als bytestreams
+\item DBMS kan zelf niets aanvangen met LOB's
+\item nadelig transfer van LOB'so p server naar client over het netwerk
+\end{itemize}
 \end{document}
