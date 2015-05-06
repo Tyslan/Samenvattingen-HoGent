@@ -1681,4 +1681,278 @@ Expliciete transacties:
 	\item ROLLBACK TRANSACTION
 	\end{itemize}
 \end{itemize}
+
+\subsubsection{Isolation levels}
+Bepalen het gedrag van concurrent users die data lezen of schrijven.
+\begin{itemize}
+\item Reader: statement dat data leest, m.b.v. een shared lock
+\item Writer: statement dat data schrijft, m.b.v. een exclusive lock
+\end{itemize}
+Writers kun je niet beïnvloeden voor wat betreft de locks die ze nemen en de duur van de locks.
+
+Readers kun je wel expliciet beïnvloeden, hierdoor heb je impliciet invloed op het gedrag van de writers.
+
+Isolation level = setting op sessie-niveau of query-niveau.
+
+\subsubsection{Isolation levels in SQL-server}
+
+\begin{enumerate}
+\item read uncommitted
+\item read committed (default)
+\item repeatable read
+\item serializable
+\end{enumerate}
+
+Hoe hoger het nummer hoe minder beperkingen, hoe lager het nummer hoe meer afscherming en dus meer hinder voor andere sql statements.
+
+\textbf{Read uncommitted}
+\begin{itemize}
+\item laagste isolatieniveau
+\item reader vraagt geen shared lock
+\item reader nooit in conflict met writer, die exclusieve lock heeft
+\item reader lees incommited data (=dirty read)
+\end{itemize}
+
+\textbf{Read committed}
+\begin{itemize}
+\item default isolation level
+\item laagste niveau dat dirty reads verhindert
+\item reader leest enkel committed data
+\item reader vraagt hiervoor een shared lock
+\item als bij deze vraag een writer een exclusive lock heeft, moet de reader wachten op shared lock
+\item reader houdt shared lock tot de data verkregen is, niet tot einde van zijn transactie
+	\begin{itemize}
+	\item nogmaals lezen van de tata in dezelfde transactie kan een ander resultaat opleveren
+	
+	= non-repeatable reads of inconsistent analysis
+	\item acceptabel voor veel toepassingen
+	\end{itemize}
+\end{itemize}
+
+\textbf{Repeatable read}
+\begin{itemize}
+\item reader vraagt shared lock en houdt deze tot het einde van de transactie.
+\item andere transactie kan geen exclusive lock verkrijgen tot einde van de transactie van de reader
+\item repeatable read = consistent analysis
+\item vermijd ook \textit{lost update} door bij het begin van de transactie shared lock te nemen
+\end{itemize}
+
+\textbf{Serializable}
+\begin{itemize}
+\item repeatable read lockt enkel rijen gevonden door de eerste SELECT.
+\item zelfde SELECT in dezelfde transactie kan nieuwe rijen geven = \textit{phantoms}
+\item Serializable vermijdt deze phantoms
+\item lockt alle keys die beantwoorden aan de WHERE-clause, ook toekomstige
+\end{itemize}
+
+\subsubsection{Isolation levels: Sessie niveau}
+\begin{lstlisting}[language=sql, breaklines=true]
+SET TRANSACTION ISOLATION LEVEL [isolationlevel]
+\end{lstlisting}
+
+\subsubsection{Isolation levels: Query niveau}
+\begin{lstlisting}[language=sql, breaklines=true]
+SELECT * FROM ORDERS WITH (NOLOCK);
+of
+SELECT * FROM ORDERS WITH (READUNCOMMITTED);
+\end{lstlisting}
+Dit vermijdt dat langlopende ad-hoc query's op productie-systeem updates in andere transacties laten wachten bij READ COMMITTED en hoger.
+
+\subsection{Recovery}
+Recovery is het proces waarbij een DB wordt teruggebracht naar een correcte toestand wanneer er zich een failure voordoet.
+
+\subsubsection{Media}
+\begin{itemize}
+\item Main memory
+	\begin{itemize}
+	\item random acces
+	\item online
+	\item vluchtig
+	\item onbetrouwbaar
+	\item duur
+	\item zeer snel
+	\end{itemize}
+\item Magnetic disc
+	\begin{itemize}
+	\item random acces
+	\item online
+	\item niet vluchtig
+	\item onbetrouwbaar
+	\item minder duur
+	\item snel
+	\end{itemize}
+\item Tape (casette): voornamelijk backup's en zaken die weinig gebruikt worden
+	\begin{itemize}
+	\item sequentieel
+	\item online of offline
+	\item niet vluchtig
+	\item zeer betrouwbaar
+	\item goedkoop
+	\item traag
+	\end{itemize}
+\item Optical disc
+	\begin{itemize}
+	\item random acces
+	\item online of offline
+	\item niet vluchtig
+	\item zeer betrouwbaar
+	\item zeer goedkoop
+	\item traag
+	\end{itemize}
+\end{itemize}
+Stabiele opslag: replicatie op verschillende plaatsen
+
+Mirroring: quasi tegelijk naar meerdere locaties gegevens wegschrijven
+
+Virtuele tapedrives: gesimuleerde tapedrives op een disk en pas als er op de de virtuele tapedrive geen plaats meer is op de virtuele tape naar een reële tape wegschrijven.
+Dit zorgt voor perfomatie winst, omdat de write acties korter zijn naar de disk en omdat de tapes altijd volledig vol zijn.
+Er zijn dus nooit tapes die niet volledig gevuld zijn met data.
+
+\subsubsection{Soorten failures}
+System crash
+\begin{itemize}
+\item hardware of software errors
+\item verlies van gegevens in main memory
+\end{itemize}
+Media failure
+\begin{itemize}
+\item vb. disk head crasht
+\item verlies van gegevens in secondary storage
+\end{itemize}
+Software error in applicaties
+\begin{itemize}
+\item vb. logische fout die transacties doet falen
+\end{itemize}
+Natuurlijke rampen
+\begin{itemize}
+\item vb. brand, aardbeving
+\end{itemize}
+Slordigheid
+\begin{itemize}
+\item vb. onopzettelijk wissen van gegevens door de gebruiker of DB admin
+\end{itemize}
+Sabotage
+\begin{itemize}
+\item vb. opzettelijk wissen of corrupteren van gegevens of infrastructuur
+\end{itemize}
+
+\subsubsection{Transactions en recovery}
+De eenheid voor recovery is een transactie.
+
+De recovery manager staat voor:
+\begin{itemize}
+\item atomiciteit (\textbf{A}CID)
+\item duurzaamheid (ACI\textbf{D})
+\end{itemize}
+De moeilijkheid hierbij is dat het schrijven naar een databank niet atomaire is.
+Een transactie kan committen zonder dat alle effecten al (permanent) in de DB geregistreerd zijn.
+
+\subsubsection{Undo en Redo}
+Enkel bij een flush van de buffer is de data permanent.
+\begin{itemize}
+\item \textbf{Flushing}: data overhevelen van primary storage naar disk storage
+\end{itemize}
+Expliciete flush
+\begin{itemize}
+\item force writing
+\item dit gebeurt via een commando, vb. commit
+\end{itemize}
+Impleciete flush
+\begin{itemize}
+\item wanneer de buffers vol zijn
+\end{itemize}
+Als er een failure is tussen het schrijven naar de buffer en de flushing dan:
+\begin{itemize}
+\item Transactie was reeds gecommit
+	\begin{itemize}
+	\item durability: redo de wijzigingen
+	\item aka roll forward
+	\end{itemize}
+\item Transactie was nog niet gecommit
+	\begin{itemize}
+	\item atomicity: undo de wijzigingen
+		\begin{itemize}
+		\item partiële undo: undo van 1 transactie
+		\item globale undo: undo van alle actieve transacties
+		\end{itemize}
+	\item aka rollback
+	\end{itemize}
+\end{itemize}
+\subsubsection{Buffer management}
+buffer management omvat het beheer van transfer van buffers tussen main memory en disk.
+
+Praktisch:
+\begin{itemize}
+\item inlezen tot buffer vol
+\item replacement strategie voor force-write
+	\begin{itemize}
+	\item FIFO: first in first out
+	\item LRU: least recently used
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{Recovery faciliteiten}
+Het DBMS beidt de volgende diensten aan:
+\begin{itemize}
+\item back-up mechanisme
+	\begin{itemize}
+	\item periodische back-ups van de DB, dit gebeurt automatisch zonder dat de systemen moeten stoppen en de kopieën worden bewaard op offline storage.
+	\item compleet of incrementeel
+	\end{itemize}
+\item logging mogelijkheden
+	\begin{itemize}
+	\item op de hoogte blijven van de huidige toestand van transacties 	en db wijzigingen
+	\item de log bevat mogelijks: transaction id, type of log record, id van de gewijzigde data, before image, after-image
+	\item log wordt ook gebruikt voor performance monitoring en auditing
+	\item log is belangrijk wordt in 2 of 3 voud bijgehouden, ook offline
+	\item log moet snel toegankelijk zijn: minor failures moeten direct opgelost worden $\rightarrow$ liefst ook op online storage
+	\end{itemize}
+\item checkpoint mogelijkheden
+	\begin{itemize}
+	\item om lopende wijzigingen in de db permanent te maken
+	\end{itemize}
+\item recovery manager
+	\begin{itemize}
+	\item om de db in een consistente toestand te brengen na een failure
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{Checkpointing}
+Een checkpoint is een synchronisatiepunt tussen de databank en de log,
+op dit punt worden alle buffers ge-flushed.
+
+Checkpoints worden voorzien op vooraf ingestelde intervallen.
+
+Een checkpoint omvat:
+\begin{itemize}
+\item alle log records in main memory wegschrijven naar disk
+\item de gewijzigde delen van de buffers wegschrijven naar disk
+\item een checkpoint record in de log registreren
+	\begin{itemize}
+	\item dit record bevat id van alle transacties die actief zijn op het moment van checkpointing
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{Recovery technieken}
+Soort recovery procedure die gevolgd wordt hangt af van de ernst van het probleem.
+\begin{itemize}
+\item serieuze problemen
+	\begin{itemize}
+	\item backup restoren
+	\item wijzigingen van committed transacties (sedert de backup) die verloren gingen, herstellen adhvde log
+	\end{itemize}
+\item problemen van inconsistentie
+	\begin{itemize}
+	\item kan zonder backup
+	\item undo/redo adhvde log'sbeforeen afterimages
+	\end{itemize}
+\end{itemize}
+
+
+%% vanaf hier aanvullen
+\subsubsection{Deferred update}
+Bij een deferred recovery protocol worden wijzigingen van een transactie niet weggeschreven naar de dbzolang de transactie niet het commit-punt bereikt.
+
+\subsubsection{Immediate update}
+bij een immediateupdate recovery protocol worden wijzigingen van een transactie direct weggeschreven naar de DB.
 \end{document}
