@@ -1948,11 +1948,49 @@ Soort recovery procedure die gevolgd wordt hangt af van de ernst van het problee
 	\end{itemize}
 \end{itemize}
 
-
-%% vanaf hier aanvullen
 \subsubsection{Deferred update}
 Bij een deferred recovery protocol worden wijzigingen van een transactie niet weggeschreven naar de dbzolang de transactie niet het commit-punt bereikt.
+\begin{enumerate}
+\item start van de transactie
+	\begin{itemize}
+	\item registreert transaction start in de log
+	\end{itemize}
+\item bij een write actie
+	\begin{itemize}
+	\item registreert dit in de log: enkel after-image, geen before-image nodig
+	\item registreert dit niet in de DB
+	\end{itemize}
+\item commit van de transactie
+	\begin{itemize}
+	\item registreert transaction commit in de log
+	\item schrijf alle log records weg naar disk (flush de log vóór de volgende stap!)
+	\item commit, update de DB adhv de log records
+	\end{itemize}
+\item abort van de transactie
+	\begin{itemize}
+	\item negeer de log records, schrijf niets naar disk
+	\end{itemize}
+\end{enumerate}
 
 \subsubsection{Immediate update}
 bij een immediateupdate recovery protocol worden wijzigingen van een transactie direct weggeschreven naar de DB.
+\begin{enumerate}
+\item start van de transactie
+	\begin{itemize}
+	\item registreer transaction start record in log
+	\end{itemize}
+\item bij een write actie
+	\begin{itemize}
+	\item schrijf het log-record naar disk: het log-recordbevat before-image en after-image
+	\item bij flush van de buffers wordt de wijziging naar de DB geschreven
+	\end{itemize}
+\item commit van de transactie
+	\begin{itemize}
+	\item schrijf een transaction commit log record naar disk
+	\end{itemize}
+\item abort van de transactie
+	\begin{itemize}
+	\item gebruik before-images voor undo
+	\end{itemize}
+\end{enumerate}
 \end{document}
