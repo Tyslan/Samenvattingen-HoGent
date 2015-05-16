@@ -250,6 +250,15 @@ Een tweede oplossing is om de static methode getInstance synchronised te maken. 
 \section{Proxy Pattern}
 Het proxy pattern wordt gebruikt om de objecttoegang te controlleren.
 
+\subsection{Het proxy pattern}
+Het proxy pattern zorgt voor een surrogaat of plaatsvervanger voor een ander object om de toegang hiertoe te controleren.
+\begin{figure}[H]
+\centering
+  	\includegraphics[width=.44\linewidth]{img/Proxy/ProxyPattern.png}
+  	\caption{UML: Proxy pattern}
+  	\label{fig:Proxy}
+\end{figure}
+
 \subsection{De rol van de remote proxy}
 De remote proxy funcgeert als een lokale vertegenwoordiger van een remote object.
 
@@ -327,5 +336,55 @@ Via de RMI Registry
 	\end{itemize}
 \item Client roept methode van stub aan, alsof de stub de echte service is. 
 \end{enumerate}
-%Slide 32 starten
+
+\subsection{Protection proxy}
+Regelt de toegang tot een object o.b.v. toegangsrechten.
+\subsubsection{Stappenplan}
+\begin{enumerate}
+\item maak invocation handlers
+	\begin{itemize}
+	\item \textit{implements InvokacionHandler}
+	\item invoke methode overridden.
+	\end{itemize}
+\item Schrijf code die de dynamic proxies aanmaakt
+	\begin{itemize}
+	\item De methode \textit{newProxyInstance()} aanroepen op de proxy en hier de classloader, interfaces en invocation handler meegeven. 
+	\end{itemize}
+\item Ontwikkel iedere bean met de juiste proxy
+\end{enumerate}
+
+\subsection{Remote Proxy in .Net}
+In .Net zijn er drie stappen voor het aanmaken van een remote proxy:
+
+\begin{enumerate}
+\item Creëer een WCF Service Contract
+\item Host de service in een applicatie of in IIS (alsweb service)
+\item Consumeer een service: creëer een proxy, configureerde client applicatie en roep de service methodes aan
+\end{enumerate}
+
+\subsubsection{Creëer een WCF Service Contract}
+Een WCF Service contract definieert de functionaliteit die de service zal aanbieden.
+
+Stappen:
+\begin{enumerate}
+\item Definieer het WCF service contract
+	\begin{itemize}
+	\item Een interface aangevuld met ServiceContract annotaties
+	\item Voeg de namespaceSystem.ServiceModeltoe
+	\item Elke interface moet [ServiceContract] attribuut bevatten
+	\item Elke methode die de service beschikbaar stelt, moet het [OperationContract] attribuut bevatten.
+	\end{itemize}
+\item Definieer de data contracten
+\item Implementeer de service
+	\begin{itemize}
+	\item Voeg een ServiceBehavior attribuut toe
+	\end{itemize}
+\item Configureer de service en test in Visual Studio WCF Service Host.
+\end{enumerate}
+
+\subsection{Proxy vs Decorator}
+En proxy is structureel gelijk aan een Decorator, maar hun doelstellingen verschillen:
+\begin{itemize}
+\item Decorator voegt gedrag toe aan een object, terwijl proxy de toegang regel.
+\end{itemize}
 \end{document}
