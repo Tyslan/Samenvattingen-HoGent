@@ -10,6 +10,7 @@
 \usepackage{float}
 \usepackage{subcaption}
 \usepackage{listings}
+\usepackage{lscape}
 
 \title{Samenvatting Databanken II \\ \large TIN 2 - HoGent}
 \author{Lorenz Verschingel}
@@ -1993,4 +1994,325 @@ bij een immediateupdate recovery protocol worden wijzigingen van een transactie 
 	\item gebruik before-images voor undo
 	\end{itemize}
 \end{enumerate}
+
+\section{Datawarehousing en Business Intelligence}
+\subsection{Inleiding}
+\subsubsection{Definitie}
+Een data warehouse is een geïntegreerde, subject georiënteerde, tijd variante en niet vluchtige verzameling van data ter ondersteuning van beslissingen die genomen moeten worden op management niveau.
+\begin{itemize}
+\item subject georiënteerd
+	\begin{itemize}
+	\item opgebouwd rond de belangrijkste subjecten in een organisatie
+	\item applicatie staat niet centraal
+	\end{itemize}
+\item geïntegreerd
+	\begin{itemize}
+	\item data it afkomstig uit verschillende bronnen
+	\end{itemize}
+\item tijd
+	\begin{itemize}
+	\item data in het DW is accuraat en geldig op een bepaald punt in de tijd of over een bepaald tijdsinterval
+	\item data wordt over heel lange periodes bijgehouden
+	\item tijd kan explicitiet of inpliciet geassocieerd zijn met de data
+	\item modelijkheid om terug te gaan naar een moment opname
+	\end{itemize}
+\item niet vluchtig
+	\begin{itemize}
+	\item data wordt niet real-time geupdatet maar op regelmatige basis bijgewerkt met data uit operationele systemen
+	\item nieuwe data komt incrementeel bovenop oude data
+	\end{itemize}
+\item geaggregeerde data
+	\begin{itemize}
+	\item afkomstig van bv. GROUP BY
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{Doelstelling}
+\begin{itemize}
+\item Rapportering
+\item Analyse van events in het verleden of heden
+\item Voorspellingen op basis van trendanaluse
+\item Multidimensionele rapportering
+\item Eindgebruiker vereenvoudigde rapporteringsomgeving bieden
+\item Data mining
+\end{itemize}
+
+\subsubsection{Voordelen}
+\begin{itemize}
+\item Hoge return on investment
+\item Concurrentieel voordeel
+\item verhoogde productiviteit van beleidsmakers
+\end{itemize}
+
+\subsubsection{Vergelijking OLTP en DW}
+\begin{landscape}
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|}
+\hline
+Eigenschap&OLTP&DW\\
+\hline
+Hoofddoel & ondersteuning operationele verwerking & ondersteuning analytische verwerking\\
+\hline
+Leeftijd data & actueel & historisch\\
+\hline
+Data wachttijd & real-time & afhankelijk van frequentie bevoorrading DW\\
+\hline
+Data granulariteit & detail & detail en kleine of hoge mate samengevat\\
+\hline
+Data processing & voorspelbare opdrachten, veel transacties per tijdseenheid & laag aantal transacties per tijdseenheid\\
+\hline
+Rapportage & voorspelbaar, eendimensionaal, relatief statisch & onvoorspelbaaar, multidimensioneel, dynamisch\\
+\hline
+Gebruikers & groot aantal op operationeel niveau & kleine aantal op management niveau\\
+\hline
+\end{tabular}
+\caption{Tabel: Vergelijking OLTP en DW}
+\label{tab:VergelijkingOLTPenDW}
+\end{table}
+\end{landscape}
+
+\subsection{Architectuur}
+\begin{figure}[H]
+\centering
+  \includegraphics[width=.9\linewidth]{img/DWArchitectuur.png}
+  \caption{Data Warehouse architectuur}
+  \label{fig:DWArchitectuur}
+\end{figure}
+
+\subsubsection{Operationele data}
+Alle data van op alle mogelijke platformen.
+
+\subsubsection{Operationele data source}
+Dit kan beschouwt worden als een tussenstap en kan ook aanzien worden als een repository.
+
+\subsubsection{ETL-manager}
+ETL: Extraction, Transformation and Load
+
+Tussen operationele data en data warehouse
+
+\subsubsection{Warehouse manager}
+Beheer van data.
+
+Eventueel gebeurt hier denormalisatie.
+Dit kan men doen om bv. een vervelende join te vermijden die vaak terugkomt.
+
+\subsubsection{Query manager}
+Datawarehouse ondervragen.
+
+\subsubsection{Gedetailleerde data}
+Deze data wordt op regelmatige basis toegevoegd aan de DW.
+
+Dikwijls niet online opgeslagen.
+
+\subsubsection{Samengevatte data}
+Voorgedefinieerde data, die onderhevig is aan veranderingen.
+Dit zorgt voor verhoogde performantie.
+
+\subsubsection{Back-up data}
+Zowel voor gedetailleerde als samengevatte data.
+
+\subsubsection{Metadata}
+Nodig voor de ELT, de DW manager en de query manager.
+
+Er zijn meerdere kopieën van de metadata die elk afgestemd zijn op een bepaald proces.
+
+De metadata laat steeds toe de herkomst van de data te achterhalen.
+
+\subsection{Datamart}
+Een DB die bestaat uit een deelverzameling van bedrijfsgegevens ter ondersteuning van de behoeften van een bepaalde bedrijfsunit om analyseste kunnen uitvoeren, of, om gebruikers te ondersteunen die dezelfde behoeften hebben om bepaalde bedrijfsprocessente analyseren.
+
+\subsection{Waarom?}
+\begin{itemize}
+\item Gebruikers krijgen toegang tot de data die ze het meest gebruiken
+\item Om de response tijd te verhogen door kleinere volumes van data aan te bieden
+\item Om data aan te bieden in een vorm die past bij de tools die de eindgebruiker
+\item Reductie van de complexiteit in het ETL-proces
+\item Reductie van de kost t.o.v. het opzetten van een entreprise wide DW
+\end{itemize}
+
+\subsection{Data mining applications}
+Data mining applicaties worden gebruikt om:
+\begin{itemize}
+\item what-if analyses te doen
+\item voorspellingen te doen
+\item het beslissingsproces te faciliteren
+\end{itemize}
+
+Data mining applicaties maken gebruik van statistische en wiskundige formules.
+
+Rapporten zijn minder kritisch.
+
+\subsection{Problemen met DW}
+\begin{itemize}
+\item Kosten voor ETL worden onderschat
+	\begin{itemize}
+	\item ETL neemt een groot deel van de ontwikkeltijd in beslag
+	\item Projecten duren meestal jaren
+	\end{itemize}
+\item Verborgen problemen met de bron of ETL systemen
+	\begin{itemize}
+	\item worden pas na jaren ontdekt
+	\item oplossen gebeurt in DW en/of operationele DB
+	\end{itemize}
+\item Nodige data wordt niet bijgehouden
+	\begin{itemize}
+	\item verandering in huidig systeem of apart systeem voor deze data
+	\end{itemize}
+\item verhoogde eisen van de eindgebruikers
+	\begin{itemize}
+	\item hoe meer gebruikers zich bewust zijn van de mogelijkheden van het systeem, hoe meer ze zullen eisen
+	\end{itemize}
+\item Data homogenisatie
+	\begin{itemize}
+	\item Men poogt gelijkenissen tussen data te accentueren en dit kan het nut van de data verlagen.
+	\end{itemize}
+\item Nood aan meerdere versies naast elkaar
+	\begin{itemize}
+	\item Het behaar van diverse historische versies naast elkaar is een uitdaging
+	\item Grote DB volumes $\rightarrow$ performantie
+	\item Archivering
+	\end{itemize}
+\item Hoge vraag naar resources (diskspace)
+\item Data ownership
+	\begin{itemize}
+	\item Data die voordien voorbehouden was voor bepaalde groepen, kan nu ook aan andere gebruikers aangeboden worden.
+	\item Beheer van rechten in DW vraagt bijzondere aanpak
+	\end{itemize}
+\item Hoog onderhoud
+\item Lange duur
+	\begin{itemize}
+	\item Ontwikkeling kan jaren duren
+	\item Wordt soms opgelost via de ontwikkeling en integratie van datamarts
+	\end{itemize}
+\item DW onstaat uit verwachting om de gebruikers te empoweren
+\item Complexiteit van de integratie
+\item Complex change en versie management
+\item DW kan fungeren al input voor een management dicision systeem
+\item Nacht dikwijls te kort voor afhandelen DW ETL
+\end{itemize}
+
+\subsection{Ontwerp}
+Er zijn 2 ontwikkel methodologieën
+\begin{enumerate}
+\item Inmon
+	\begin{itemize}
+	\item Creatie van een data model gebaseerd op alle gegevens van de organisatie
+	\item Enterprise Data Warehouse (EDW)
+	\item Van hieruit worden datamarts voor elk departement gedistilleerd
+	\item Gebruik van tradionele methodieken voor beschrijving van het EDW
+	\end{itemize}
+\item Kimball
+	\begin{itemize}
+	\item Identificatie van informatie behoeften en business processen van de organisatie
+	\item Selectie en ontwikkeling van een eerste datamart voor de behoefte van een groep gebruikers
+	\item Via integratie van datamarts komen we tot het EDW
+	\item Gebruik van sterschema en varianten
+	\end{itemize}
+\end{enumerate}
+
+\subsubsection{Kimball's Business Dimensional Lifecycle}
+De focus op het voldoen aan de informatiebehoeften van de organisatie via:
+\begin{itemize}
+\item het bouwen van een enkele, geïntegreerde, makkelijk bruikbare en snelle informatie infrastructuur.
+\item wordt gebouws op incrementele, iteratieve manier.
+\end{itemize}
+
+Het doel is het opleveren van een volledige oplossing.
+
+\subsubsection{Dimensionality modeling}
+Dimensionality modeling is een techniek om een logisch ontwerp te maken.
+Deze methode street er naar om de data te presnteren in een standaard, intuïtieve vorm, die toegankelijk is met een hoge performantie.
+
+Het dimensionaal model bestaat uit een feitentabel en een dimensie tabel
+
+De feitentabel:
+\begin{itemize}
+\item bevat data over feiten
+\item bv. feitelijke data over de verkoop van een eigendom
+\item de feiten worden gegenereerd door gebeurtenissen die zich voordeden.
+\item feiten zullen hoogst waarschijnlijk nooit veranderen, ongeacht de manier waarop men ze analyseert.
+\end{itemize}
+
+De dimensie tabel:
+\begin{itemize}
+\item bevat de referentie-informatie
+\item bv. het eigendom, de koper, de verkoper\ldots
+\end{itemize}
+
+\subsubsection{De feitentabel}
+Het grote bulk van de data in DW zit in feitentabellen.
+Deze kunnen dus extreem groot zijn.
+
+De feitelijke data wordt beschouwd al read-only data, die niet verandert in de tijd.
+
+\subsubsection{De dimensietabel}
+De dimensietabellen bevatten beschrijvende, op tekst gebaseerde, informatie.
+
+De attributen uit de dimensietabellen worden gebruikt als constraints bij DW queries.
+
+Sterschema's kunnen query performantie aanzienlijk verhogen door referentie-informatie te denormaliseren en bij te houden in één enkele dimensietabel.
+
+\subsubsection{Sneewvlok schema}
+Een sneeuwvlok schema variant op het sterschema waarbij dimensies worden bijgehouden in,genormaliseerdedimensietabellen.
+
+\subsubsection{Voordelen van het dimensioneel model}
+\begin{itemize}
+\item Efficiëntie
+\item Veranderende behoeften: Het model kan zich aanpassen aan veranderende behoeften daar elke dimensie equivalent is t.o.v. de feitentabel
+\item Uitbreidbaar
+\item Mogelijkheid om standaard business situaties te modelleren
+\item Voorspelbare query processing
+\end{itemize}
+
+\subsubsection{Dimensional Modeling Stage}
+Doel:
+\begin{itemize}
+\item Creatie van een DM voor een datamart
+\item Dimensionaliseren van het relationeel model van een bestaande OLTP DB
+\end{itemize}
+
+Praktisch gebeurt dit in twee fasen:
+\begin{enumerate}
+\item Creatie van een high-level DM
+\item Toevoegen van detail aan het model
+\end{enumerate}
+
+\textbf{FASE 1}
+
+Fase 1 bestaan uit vier stappen:
+\begin{enumerate}
+\item Selecteer een business proces
+	\begin{itemize}
+	\item Het business proces refereert naar het thema voor een welbepaalde datamart
+	\item Voor een datamart kiezen we lieft één die:
+		\begin{itemize}
+		\item op tijd geleverd zal kunnen worden
+		\item binnen het budget valt
+		\item een antwoord biedt op commercieel belangrijke vrage
+		\end{itemize}
+	\end{itemize}
+\item Bepaal de granulariteit
+	\begin{itemize}
+	\item Dit bepaalt wat een feit in de feitentabel exact gaat voorstellen
+	\item Granulariteit bepaalt de dimensies en de granulariteit van de dimensies
+	\end{itemize}
+\item Kies dimensies
+	\begin{itemize}
+	\item Dit bepaalt de context binnen de welke we de feiten in de feitentabel zullen bevragen
+	\item Elke dimensie die in meer dan 1 datamart voorkomt, noemen we een conformed dimension
+	\end{itemize}
+\item Identificeer feiten
+	\begin{itemize}
+	\item De granulariteit van de feitentabel bepaald welke feiten er in de datamart kunnen gebruikt worden.
+	\item Feiten zijn numeriek en additief
+	\end{itemize}
+\end{enumerate}
+\textbf{FASE 2}
+
+Identificeer alle attributen voor de gekozen dimensies.
+
+Dit zijn tekstuele omschrijvingen.
+
+De bruikbaarheid van de datamart hangt grotendeels af van de scope en aard van de attributen die in de dimensietabellen zit.
 \end{document}
