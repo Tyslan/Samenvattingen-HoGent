@@ -75,17 +75,17 @@ ORDER BY ...
 Regels:
 \begin{itemize}
 \item De resultaten van de 2 SELECT opdrachten moeten evenveel kolommen bevatten.
-\item Overeenkomstige kolommen uit beide SELECT’smoeten van hetzelfde data type zijn en beide NOT NULL toelaten of niet.
+\item Overeenkomstige kolommen uit beide SELECT’s moeten van hetzelfde data type zijn en beide NOT NULL toelaten of niet.
 \item Kolommen komen voor in dezelfde volgorde
 \item De kolomnamen/titels van de UNION zijn deze van de eerste SELECT
 \item Het resultaat bevat echter steeds alleen unieke rijen
 \item Aan het einde van de UNION kan je een ORDER BY toevoegen.
-In deze clausule mag geen kolomnaam of uitdrukking voorkomen indien kolomnamen van beide select’sverschillen.
+In deze clausule mag geen kolomnaam of uitdrukking voorkomen indien kolomnamen van beide select’s verschillen.
 Gebruik in dat geval kolomnummers.
 \end{itemize}
 
 \subsection{Subqueries}
-Bij een subquerykomt een selectie voor als onderdeel van een andere selectie.
+Bij een subquery komt een selectie voor als onderdeel van een andere selectie.
 
 \begin{lstlisting}[language=sql]
 SELECT ...
@@ -123,7 +123,7 @@ Bij een geneste subquery kan de één waarde geretourneerd worden of een ganse l
 ANY en ALL keywords worden gebruikt in combinatie met de relationele operatoren en subqueriesdie een kolom van waarden retourneren.
 
 \begin{itemize}
-\item ALL retourneert TRUE als alle waarden geretourneerd in de subquer yvoldoenaande voorwaarde.
+\item ALL retourneert TRUE als alle waarden geretourneerd in de subquery voldoenaande voorwaarde.
 \item ANY retourneert TRUE als minstens 1 waarde geretourneerd in de subquery voldoet aan de voorwaarde.
 \end{itemize}
 
@@ -283,12 +283,6 @@ Dit is nodig wanner gedistribueerde systemen te complex worden zonder een gemeen
 
 $\Rightarrow$ Doel: verbergen van onderliggende complexiteit van gedistribueerde systemen.
 
-\subsubsection{Asynchrone Remote Procedure Call}
-Bij asynchrone RCP stuurt de client een verzoek naar de server zonder te wachten op antwoord.
-Als de connectie verbroken wordt dan moet de client opnieuw beginnen.
-
-$\Rightarrow$ Gebruiken indien integriteit niet belangrijk is.
-
 Er zijn zes types middleware:
 \begin{enumerate}
 \item Asynchrone RPC
@@ -298,6 +292,13 @@ Er zijn zes types middleware:
 \item Object Request Broker
 \item SQL-oriented data acces
 \end{enumerate}
+
+\subsubsection{Asynchrone Remote Procedure Call}
+Bij asynchrone RCP stuurt de client een verzoek naar de server zonder te wachten op antwoord.
+Als de connectie verbroken wordt dan moet de client opnieuw beginnen.
+
+$\Rightarrow$ Gebruiken indien integriteit niet belangrijk is.
+
 \subsubsection{Synchrone Remote Procedure Call}
 Bij synchrone RCP stuurt de client een verzoek naar de server wacht op antwoord.
 Zolang de server bezig is met het verzoek is de client geblokkeerd.
@@ -305,7 +306,7 @@ Zolang de server bezig is met het verzoek is de client geblokkeerd.
 $\Rightarrow$ Gebruiken indien integriteit uiterst belangrijk is.
 
 \subsubsection{Publish/Subscribe}
-Publish/Subscribe is een asynchroon messaging protocal.
+Publish/Subscribe is een asynchroon messaging protocol.
 De clients zijn abonnees en kunnen zich inschrijven om boodschappen van publishers te ontvangen.
 
 Boodschappen zijn gecatalogeerd in klassen en een abonnee kan zich inschrijven in één of meerdere klassen.
@@ -320,10 +321,10 @@ Er is een wachtrij die dient als tijdelijke opslag indien de bestemming bezet of
 \subsubsection{Object Request Broker}
 Bij ORB is er communicatie en data-uitwisseling tussen objecten.
 
-Common ORB Architecture (CORBA) is een standaard om software componenten, geschreven in verschillende talen en draaied op verschillende computers, met elkaat te laten communiceren.
+Common ORB Architecture (CORBA) is een standaard om software componenten, geschreven in verschillende talen en draaiend op verschillende computers, met elkaar te laten communiceren.
 
 \subsubsection{SQL-oriented data access}
-SQL-oriented data access verbint applicaties met een database over het net.
+SQL-oriented data access verbindt applicaties met een database over het net.
 Het vertaalt SQL requests naar de eigen SQL van de database.
 
 \subsubsection{Middleware voor transactiebeheer}
@@ -353,7 +354,7 @@ Webservices delen business logica, dataen processen m.b.v. een programmeerbare i
 
 Ontwikkelaars voegen de webservice toe aan een webpagina om specifieke functionaliteit aan te bieden aan de gebruikers.
 
-Webservices gebruiker algemeen aanvaarde technologieën en standaarden zoals: XML, SOAP, WSDL en UDDI.
+Webservices gebruiken algemeen aanvaarde technologieën en standaarden zoals: XML, SOAP, WSDL en UDDI.
 
 \subsection{Service-Oriented Architecturen}
 Business-georiënteerde software-architectuur voor het bouwen van applicaties en business processen implementeren als een set van gepubliceerde services.
@@ -391,7 +392,7 @@ De provider beheert de infrastructuur (netwerk, OS en storage).
 De klant beheert het deployment en de configuratie van applicaties.
 
 \subsubsection{Infrastructure as a Service}
-Bij SaaS levert de provider servers, storage, netwerk en OS aan de gebruikers, gebundeld al on-demand service.
+Bij IaaS levert de provider servers, storage, netwerk en OS aan de gebruikers, gebundeld al on-demand service.
 Dit model wordt typisch gebruikt voor platform-virtualisatie.
 De facturatie gebeurt volgens gebruik.
 
@@ -467,7 +468,7 @@ Vaak wordt met een middle tier zoals een mobile web service gewerkt.
 Hierbij is er geen rechtstreeks contact tussen de client en de databank.
 
 De client stuurt een HTTP request naar de webservice.
-De client kan vaak in zijn request naar de webservice kiezen hoe hij de data wil ontvangen (=content negotiation).
+De client kan vaak in zijn request naar de webservice kiezen hoe hij de data wil ontvangen (= content negotiation).
 De webservice communiceert met de databank en haalt de data binnen.
 Naar gelang wat werd gevraagd, zal de web service de resultset omzetten.
 Dit resultaat wordt dan aangeboden aan de client.
@@ -480,7 +481,7 @@ Clients kunnen kiezen in welk formaat ze de data wensen te ontvangen.
 
 Schaalbaarheid hangt niet enkel af van de databank maar ook van de webservice $\rightarrow$ wordt verdeeld.
 
-Dezelfde web service (logica) kan gebruikt worden door verschillende clients/platformen $\rightarrow$ reuse.
+Dezelfde web service (logica) kan gebruikt worden door verschillende clients/platformen $\rightarrow$ re-use.
 
 Request kan over https gebeuren $\rightarrow$ veiligheid.
 
@@ -716,7 +717,7 @@ De clustered index legt unieke waarden op.
 
 \subsubsection{Non-clustered Index}
 De non-clustered index is de default index, deze werkt trager dan de clustered index.
-Wel zijn er meerdere non clustered indexen mogelijk per tabel.
+Wel zijn er meerdere non-clustered indexen mogelijk per tabel.
 Elke leaf bevat een sleutelwaarde en een row locator, deze wijst naar de positie in de clustered index als die bestaat, anders naar de heap.
 
 \begin{figure}[H]
@@ -727,7 +728,7 @@ Elke leaf bevat een sleutelwaarde en een row locator, deze wijst naar de positie
 \end{figure}
 
 \subsubsection{Covering index}
-Als een non-clustered indec een query niet volledig covert, dan moet de databank voor elke rij een lookup doen om de data op te halen.
+Als een non-clustered index een query niet volledig covert, dan moet de databank voor elke rij een lookup doen om de data op te halen.
 Een covering index is in wezen een non-clustered index die alle kolommen bevat die nodig zijn voor een bepaalde query.
 
 \subsubsection{Operaties op een index}
@@ -746,9 +747,9 @@ DROP INDEX table_name.index_name[,...n]
 \subsection{SQL als volwaardige taal}
 Procedurele uitbreidingen op SQL zijn merkgebonden. Database systemen die gebruik maken van deze uitbreidingen zijn dus moeilijker om te zetten van één RDBMS op een andere.
 
-In het vervolg van deze samenvatting gaan we verder met t-SQL, die gebruikt wordt bij SQL Server.
+In het vervolg van deze samenvatting gaan we verder met T-SQL, die gebruikt wordt bij SQL Server.
 
-De meeste database systemen voorzien al een aantal standaard SQl functies zoals minimum, maximum, som, gemiddelde, aantal \dots
+De meeste database systemen voorzien al een aantal standaard SQL functies zoals minimum, maximum, som, gemiddelde, aantal \dots
 
 SQL Server heeft nog een aantal extra functies zoals datediff, substring, len, round \dots
 
@@ -832,7 +833,7 @@ In een programma kan je het verloop bepalen via o.a.:
 \begin{itemize}
 \item Inline commentaar
 	\begin{itemize}
-	\item --commentaar
+	\item $--$commentaar
 	\end{itemize}
 \item Block commentaar
 	\begin{itemize}
@@ -1190,15 +1191,15 @@ Dit is niet relevant bij delete trigger
 \subsubsection{Uitvoering van een trigger}
 Volgorde bij een true-condition:
 \begin{enumerate}
-\item uitvoering van beforestatement level triggersop de tabel
-\item voor elke rij geaffecteerd door de trigger
+\item uitvoering van before-statementlevel triggers op de tabel
+\item voor elke rij geaffecteerd door de trigger:
 \begin{enumerate}
-\item uitvoering van beforerowlevel triggers
+\item uitvoering van before-rowlevel triggers
 \item uitvoering van de triggering event(i.e. update/delete/insert)
 \item toepassen van referentiële constraints
-\item uitvoering van afterrowlevel triggers
+\item uitvoering van after-rowlevel triggers
 \end{enumerate}
-\item uitvoering van afterstatement level triggersop de tabel
+\item uitvoering van after-statementlevel triggers op de tabel
 \end{enumerate}
 
 \subsubsection{Voordelen}
@@ -1263,7 +1264,7 @@ De relationele DBMS is dominant, terwijl de OODBMS relatief klein is op de markt
 \end{itemize}
 
 \subsubsection{Realiteit}
-Er is geen standaard "extended" relationeel model.
+Er is geen standaard ''extended'' relationeel model.
 
 Alle modellen
 \begin{itemize}
@@ -1304,7 +1305,7 @@ Oplossing voor de grote zwaktes van het relationeel model
 \subsubsection{Nadelen van ORDBMS}
 \begin{itemize}
 \item complexiteit van het OR model: eenvoud en puurheid van het relationeel model gaat verloren
-\item verhoogdekosten
+\item verhoogde kosten
 \item enkel een klein deel van de applicaties kan gebruik maken van de object extensies
 \item het is niet puur OO
 \begin{itemize}
@@ -1446,7 +1447,7 @@ Een aborted transaction kan herstart worden.
 
 \textbf{Consistency}: een transactie brengt de DB van de een consistente toestand naar een andere consistente toestand.
 \begin{itemize}
-\item DBMS verantwoordelijkheid énprogramma verantwoordelijkheid
+\item DBMS verantwoordelijkheid én programma verantwoordelijkheid
 \end{itemize}
 
 \textbf{Isolation}: transacties worden onafhankelijk van elkaar uitgevoerd.
@@ -1485,12 +1486,12 @@ Een aborted transaction kan herstart worden.
 \item scheduler
 	\begin{itemize}
 	\item implementeert strategie voor concurrency control
-	\item akalock manager bij een op locking gebaseerde strategie
+	\item aka lock manager bij een op locking gebaseerde strategie
 	\item doel: concurrency maximaliseren zonder interferentie tussen verschillende transacties
 	\end{itemize}
 \item recovery manager
 	\begin{itemize}
-	\item bij failures brengt deze de db terug in consistente toestand (vóór de transactie gestart werd)	
+	\item bij failures brengt deze de DB terug in consistente toestand (vóór de transactie gestart werd)	
 	\end{itemize}
 \item buffer manager
 	\begin{itemize}
@@ -1502,14 +1503,14 @@ Een aborted transaction kan herstart worden.
 concurrency control is het beheer van gelijktijdige acties op de DB zonder dat ze interfereren met elkaar.
 
 \subsubsection{Waarom?}
-Concurrency Control voorkotm interferentie wanneer twee of meerdere transacties de databank gelijktijdig aanspreken, en minstens 1 transactie data wijzigt.
+Concurrency Control voorkomt interferentie wanneer twee of meerdere transacties de databank gelijktijdig aanspreken, en minstens 1 transactie data wijzigt.
 
 Hoewel twee transacties op zichzelf beschouwd correct kunnen zijn, kan het verweven van hun acties leiden tot een incorrect resultaat.
 
 \subsubsection{Problemen bij concurrency control}
 \textbf{Lost update}
 
-Het lost update probleem treedt op wanneereen schijnbaar compleet succesvolle update van een transactie wordt overschreven door een andere transactie.
+Het lost update probleem treedt op wanneere en schijnbaar compleet succesvolle update van een transactie wordt overschreven door een andere transactie.
 
 \textbf{Uncommitted Dependency}
 
@@ -1537,7 +1538,7 @@ Twee gerelateerde problemen aan de inconsistent analysis zijn:
 \subsubsection{Serializability en recovery}
 \textbf{Schedule}
 
-een schedule is een sequentie van acties van een aantal concurrente transacties die de volgorde van de acties van de individuele transacties respecteert.
+Een schedule is een sequentie van acties van een aantal concurrente transacties die de volgorde van de acties van de individuele transacties respecteert.
 
 \textbf{Recoverability}
 
@@ -1546,11 +1547,11 @@ De databank zelf schedules laten opstellen die zonder interferentie problemen co
 \item ze garanderen de consistencyen isolationeigenschap van transacties
 \item dit is in de veronderstelling dat geen enkele van de transacties in de schedule faalt
 \end{itemize}
-recoverability:
+Recoverability:
 \begin{itemize}
 \item wanneer een transactie faalt moeten we de effecten ongedaan kunnen maken.
 	\begin{itemize}
-	\item atomiciteitvan transacties
+	\item atomiciteit van transacties
 	\end{itemize}
 \item wanneer een transactie commit zijn de veranderingen permanent
 	\begin{itemize}
@@ -1575,7 +1576,7 @@ Als een transactie een lock op een data item verwerft, dan moet het later ook di
 
 Shared locks (S-Locks):
 \begin{itemize}
-\item een transactie met een shared lock op een data item kan dat data item lezenmaar niet wijzigen
+\item een transactie met een shared lock op een data item kan dat data item lezen maar niet wijzigen
 \item meerdere transacties kunnen gelijktijdig een shared lock op eenzelfde data item bezitten
 \end{itemize}
 Exclusive locks (X-Locks):
@@ -1599,7 +1600,7 @@ Indien lock niet toegekend tijdens dit interval
 	\begin{itemize}
 	\item hoewel dit niet noodzakelijk zo is\dots
 	\end{itemize}
-\item Aborten restartvan de transactie.
+\item Aborten restart van de transactie.
 \end{itemize}
 
 \textbf{Deadlock Prevention}
@@ -1607,11 +1608,11 @@ Indien lock niet toegekend tijdens dit interval
 \begin{itemize}
 \item Gebruik makend van transaction time-stamps
 	\begin{itemize}
-	\item time-stampvoor deadlock detection
+	\item time-stamp voor deadlock detection
 	\end{itemize} 
 \item T wacht op locks die U vast heeft
 	\begin{itemize}
-	\item wait-diealgoritme
+	\item wait-die algoritme
 		\begin{itemize}
 		\item als T ouder is dan U dan zal T wachten
 		\item in ander geval 'sterft' T
@@ -1619,7 +1620,7 @@ Indien lock niet toegekend tijdens dit interval
 			\item abort/restart met dezelfde timestamp
 			\end{itemize}
 		\end{itemize}
-	\item wound-waitalgoritme
+	\item wound-wait algoritme
 		\begin{itemize}
 		\item als T ouder is dan U dan zal het U 'verwonden'
 			\begin{itemize}
@@ -1723,7 +1724,7 @@ Hoe hoger het nummer hoe minder beperkingen, hoe lager het nummer hoe meer afsch
 \item als bij deze vraag een writer een exclusive lock heeft, moet de reader wachten op shared lock
 \item reader houdt shared lock tot de data verkregen is, niet tot einde van zijn transactie
 	\begin{itemize}
-	\item nogmaals lezen van de tata in dezelfde transactie kan een ander resultaat opleveren
+	\item nogmaals lezen van de data in dezelfde transactie kan een ander resultaat opleveren
 	
 	= non-repeatable reads of inconsistent analysis
 	\item acceptabel voor veel toepassingen
@@ -1945,12 +1946,12 @@ Soort recovery procedure die gevolgd wordt hangt af van de ernst van het problee
 \item problemen van inconsistentie
 	\begin{itemize}
 	\item kan zonder backup
-	\item undo/redo adhvde log'sbeforeen afterimages
+	\item undo/redo adhv de log's before- en afterimages
 	\end{itemize}
 \end{itemize}
 
 \subsubsection{Deferred update}
-Bij een deferred recovery protocol worden wijzigingen van een transactie niet weggeschreven naar de dbzolang de transactie niet het commit-punt bereikt.
+Bij een deferred recovery protocol worden wijzigingen van een transactie niet weggeschreven naar de db zolang de transactie niet het commit-punt bereikt.
 \begin{enumerate}
 \item start van de transactie
 	\begin{itemize}
@@ -1974,7 +1975,7 @@ Bij een deferred recovery protocol worden wijzigingen van een transactie niet we
 \end{enumerate}
 
 \subsubsection{Immediate update}
-bij een immediateupdate recovery protocol worden wijzigingen van een transactie direct weggeschreven naar de DB.
+bij een immediate update recovery protocol worden wijzigingen van een transactie direct weggeschreven naar de DB.
 \begin{enumerate}
 \item start van de transactie
 	\begin{itemize}
@@ -1982,7 +1983,7 @@ bij een immediateupdate recovery protocol worden wijzigingen van een transactie 
 	\end{itemize}
 \item bij een write actie
 	\begin{itemize}
-	\item schrijf het log-record naar disk: het log-recordbevat before-image en after-image
+	\item schrijf het log-record naar disk: het log-record bevat before-image en after-image
 	\item bij flush van de buffers wordt de wijziging naar de DB geschreven
 	\end{itemize}
 \item commit van de transactie
@@ -2007,7 +2008,7 @@ Een data warehouse is een geïntegreerde, subject georiënteerde, tijd variante 
 	\end{itemize}
 \item geïntegreerd
 	\begin{itemize}
-	\item data it afkomstig uit verschillende bronnen
+	\item data is afkomstig uit verschillende bronnen
 	\end{itemize}
 \item tijd
 	\begin{itemize}
@@ -2031,7 +2032,7 @@ Een data warehouse is een geïntegreerde, subject georiënteerde, tijd variante 
 \begin{itemize}
 \item Rapportering
 \item Analyse van events in het verleden of heden
-\item Voorspellingen op basis van trendanaluse
+\item Voorspellingen op basis van trendanalyse
 \item Multidimensionele rapportering
 \item Eindgebruiker vereenvoudigde rapporteringsomgeving bieden
 \item Data mining
@@ -2120,12 +2121,12 @@ Er zijn meerdere kopieën van de metadata die elk afgestemd zijn op een bepaald 
 De metadata laat steeds toe de herkomst van de data te achterhalen.
 
 \subsection{Datamart}
-Een DB die bestaat uit een deelverzameling van bedrijfsgegevens ter ondersteuning van de behoeften van een bepaalde bedrijfsunit om analyseste kunnen uitvoeren, of, om gebruikers te ondersteunen die dezelfde behoeften hebben om bepaalde bedrijfsprocessente analyseren.
+Een DB die bestaat uit een deelverzameling van bedrijfsgegevens ter ondersteuning van de behoeften van een bepaalde bedrijfsunit om analyses te kunnen uitvoeren, of, om gebruikers te ondersteunen die dezelfde behoeften hebben om bepaalde bedrijfsprocessente analyseren.
 
 \subsection{Waarom?}
 \begin{itemize}
 \item Gebruikers krijgen toegang tot de data die ze het meest gebruiken
-\item Om de response tijd te verhogen door kleinere volumes van data aan te bieden
+\item Om de respons tijd te verhogen door kleinere volumes van data aan te bieden
 \item Om data aan te bieden in een vorm die past bij de tools die de eindgebruiker
 \item Reductie van de complexiteit in het ETL-proces
 \item Reductie van de kost t.o.v. het opzetten van een entreprise wide DW
@@ -2215,14 +2216,14 @@ Er zijn 2 ontwikkel methodologieën
 De focus op het voldoen aan de informatiebehoeften van de organisatie via:
 \begin{itemize}
 \item het bouwen van een enkele, geïntegreerde, makkelijk bruikbare en snelle informatie infrastructuur.
-\item wordt gebouws op incrementele, iteratieve manier.
+\item wordt gebouwd op incrementele, iteratieve manier.
 \end{itemize}
 
 Het doel is het opleveren van een volledige oplossing.
 
 \subsubsection{Dimensionality modeling}
 Dimensionality modeling is een techniek om een logisch ontwerp te maken.
-Deze methode street er naar om de data te presnteren in een standaard, intuïtieve vorm, die toegankelijk is met een hoge performantie.
+Deze methode streeft er naar om de data te presenteren in een standaard, intuïtieve vorm, die toegankelijk is met een hoge performantie.
 
 Het dimensionaal model bestaat uit een feitentabel en een dimensie tabel
 
@@ -2254,7 +2255,7 @@ De attributen uit de dimensietabellen worden gebruikt als constraints bij DW que
 Sterschema's kunnen query performantie aanzienlijk verhogen door referentie-informatie te denormaliseren en bij te houden in één enkele dimensietabel.
 
 \subsubsection{Sneewvlok schema}
-Een sneeuwvlok schema variant op het sterschema waarbij dimensies worden bijgehouden in,genormaliseerdedimensietabellen.
+Een sneeuwvlok schema variant op het sterschema waarbij dimensies worden bijgehouden in, genormaliseerde dimensietabellen.
 
 \subsubsection{Voordelen van het dimensioneel model}
 \begin{itemize}
@@ -2285,11 +2286,11 @@ Fase 1 bestaan uit vier stappen:
 \item Selecteer een business proces
 	\begin{itemize}
 	\item Het business proces refereert naar het thema voor een welbepaalde datamart
-	\item Voor een datamart kiezen we lieft één die:
+	\item Voor een datamart kiezen we liefst één die:
 		\begin{itemize}
 		\item op tijd geleverd zal kunnen worden
 		\item binnen het budget valt
-		\item een antwoord biedt op commercieel belangrijke vrage
+		\item een antwoord biedt op commercieel belangrijke vragen
 		\end{itemize}
 	\end{itemize}
 \item Bepaal de granulariteit
