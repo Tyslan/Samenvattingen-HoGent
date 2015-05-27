@@ -510,6 +510,56 @@ Teststatistiek & \multicolumn{3}{l}{$z=\frac{\overline{x}-\mu_0}{\frac{\sigma}{\
 \label{tab:conseqentiesToetsenHypotheses}
 \end{table}
 
+\section{$\chi^2$ Toets}
+\subsection{Goodness of fit test}
+De goodness of fit test kan gebruikt worden om na te gaan in welke mate de steekproef overeenstemt met een nulhypothese over de verdeling van de variabele.
+
+De verwachte frequenties worden genoteerd met de letter $e$
+
+Er geldt: $e=n\times \pi$
+
+Als de verschillen $o-e$ relatief klein zijn kunnen ze toegerekend worden aan toevallige steekproeffouten.
+Hier bij is $o$ de geobserveerde waarde en $e$ de verwachte frequentie.
+
+Beschouw: $\chi^2=\sum^n_{i=1}\frac{(o_i-e_i)^2}{e_i}$
+
+Merk op:
+
+\begin{itemize}
+\item indien de verschillen klein zijn $\rightarrow$ verdeling komt voldoende overeen.
+\item indien de verschillen groot zijn $\rightarrow$ verdeling is niet representatief
+\end{itemize}
+
+\subsection{Toetsingsprocedure goodness of fit test}
+\begin{enumerate}
+\item Bepalen hypotheses
+	\begin{itemize}
+	\item $H_0$: steekproef is representatief naar populatie
+	\item $H_1$: steekproef is niet representatief naar populatie
+	\end{itemize}
+\item Bepalen van $\alpha$ en $n$: vaak zelf kiezen of gegeven
+\item Toetsinsgrootheid en waarde ervan in steekproef
+\item Bereken en teken kritiek gebied: De toets is altijd rechtszijdig
+\end{enumerate}
+
+\subsection{Gestandaardiseerde residuen}
+De gestandaardiseerde residuen duiden aan welke klassen de grootste bijdrage leveren aan de waarde van de grootheid.
+
+$r_i = \frac{o_i-n\pi_i}{\sqrt{n\pi_i(1-\pi_i}}$
+
+Er geldt algemeen: waarden groter dan 2 of kleinde dan -2 zijn extreem.
+
+\subsubsection{Regel van Cochran}
+
+Om de toets te mogen toepassen dient aan de volgende voorwaarden te zijn voldaan:
+\begin{enumerate}
+\item Voor alle categorieën moet gelden dat de verwachte waarde $e$ groter is dan 1
+\item In ten hoogste 20\% van de categorieën mag de verwachte waarde $e$ kleiner zijn dan 5
+\end{enumerate}
+
+\subsection{$\chi^2$ toets voor 2 variabelen}
+De Chi-kwadraattoets laat zich eenvoudig uitbreiden tot een onderzoeksontwerp met twee variabelen, met respectievelijk $r$ en $k$ niveaus.
+
 \section{Indexcijfers}
 \subsection{Definities}
 Een indexcijfer is een getal dat de verandering van een variabele in de loop van de tijd meet in verhouding tot de waarde van de variabele tijdens een bepaalde basisperiode.
@@ -591,4 +641,6 @@ Fischer’s indexcijfer wordt ook wel eens het ideale indexnummer genoemd voor d
 \begin{equation}
 I^f_W = \sqrt{I^L_W \times I^P_W}
 \end{equation}
+
+
 \end{document}
