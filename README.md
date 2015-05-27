@@ -2,9 +2,9 @@
 ##Samenvattingen cursussen HoGent TIN
 
 Bij van de meeste vakken die in TIN HoGent gegeven worden kan je hier een samenvatting in PDF-formaat vinden.
-Al deze samenvattingen zijn gebaseert op persoonlijke notities en de slides die in de les getoond zijn.
+Al deze samenvattingen zijn gebaseert op persoonlijke notities, slides die in de les getoond zijn en de cursusteksten van de desbetreffende cursus.
 
-De samenvattingen starten pas vanaf het 2e jaar in het 1e semester.
+De samenvattingen starten vanaf het 2e jaar in het 1e semester.
 
 Als de bron van de samenvatting beschikbaar is, is deze terug te gevinden in de map Source.
 
