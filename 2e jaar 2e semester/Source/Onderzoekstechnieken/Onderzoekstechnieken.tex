@@ -642,5 +642,131 @@ Fischer’s indexcijfer wordt ook wel eens het ideale indexnummer genoemd voor d
 I^f_W = \sqrt{I^L_W \times I^P_W}
 \end{equation}
 
+\section{Tijdsreeksen}
+Een tijdreeks is een opeenvolging van observaties van een variabele in functie van de tijd.
 
+Tijdreeksen zijn een belangrijk onderdeel van onderzoek omdat ze vaak de basis vormen voor beslissingsmodellen en voorspellingen.
+
+Tijdreeksen zijn een statistisch probleem: observaties variëren in functie van de tijd.
+\subsection{Tijdsreeksmodellen}
+\subsubsection{Wiskundig model}
+\begin{equation}
+X_t = b + \epsilon_t
+\label{eq:eenvoudigModelTijdsreeks}
+\end{equation}
+\begin{itemize}
+\item $X_t$ stochastische variabele voor de tijdreeks, op tijdstip $t$
+\item $x_t$ observatie op tijdstip $t$
+\item $\epsilon_t$ is de storing op een bepaald moment.
+\item $\epsilon_t$ wordt verondersteld: $\epsilon_t \approx Norm(\mu=0,\sigma)$
+\end{itemize}
+
+\begin{equation}
+X_t = b_0 + b_1 \times t + \epsilon_t
+\label{eq:lineairVerbandTijdsreeks}
+\end{equation}
+
+In vergelijking~\ref{eq:lineairVerbandTijdsreeks} wordt er van een linear verband uit gegaan.
+
+\begin{equation}
+X_t=b_0+b_1\times t + b_2 \times t^2 + ... + b_n \times t^n + \epsilon_t
+\label{eq:polynomiaalVerbandTijdsreeks}
+\end{equation}
+
+In vergelijk~\ref{eq:polynomiaalVerbandTijdsreeks} is het meest algemene verband, het polynomiaal verband. Vergelijken~\ref{eq:eenvoudigModelTijdsreeks} en ~\ref{eq:lineairVerbandTijdsreeks}
+
+\subsubsection{Algemene uitdrukking}
+\begin{equation}
+X-t = f(b_0,b_1,b_2 ... b_n,t)+\epsilon_t
+\label{eq:AlgemeneUitdrukkingTijdreeks}
+\end{equation}
+
+We gaan verder uit van deze veronderstellingen:
+\begin{itemize}
+\item we beschouwen twee componenten van variabiliteit
+	\begin{itemize}
+	\item het gemiddelde van de voorspellingen verandert in de tijd
+	\item de variaties ten opzichte van dit gemiddelde variëren willekeurig
+	\end{itemize}
+\item De variatie van de residuen van het model $(X_t - x_t)$ is constant in de tijd
+\end{itemize}
+
+\subsubsection{Schatten van de parameters}
+Voorspellingen maken aan de hand van tijdreeksmodel:
+\begin{enumerate}
+\item Selecteer het meest passende model
+\item Schatting voor parameters $b_i(i:1..n)$ a.d.h.v. observaties
+\end{enumerate}
+Deze schattingen $\hat{b_i}$ zijn dan zodanig dat ze de geobserveerde waarden zo goed mogelijk benaderen.
+
+\subsection{Vooruitschrijdend gemiddelde}
+\subsubsection{Eenvoudig vooruitschrijdend gemiddelde}
+Het eenvoudig voortschrijdend gemiddelde is een reeks gemiddelden van de laatste $m$ observaties.
+
+Het vooruitschrijden gemiddelde wordt vaak afgekort tot SMA (Simple Moving Average).
+
+$SMA(t) = \sum^t_{i=k}\frac{x_i}{m}$ met $k = t-m+1$
+
+Hierbij is m het tijdsbereik.
+
+SMA verbergt korte termijn fluctuaties en tonen lange termijn trends
+
+\subsubsection{Gewogen vooruitschrijdend gemiddelde}
+Bij gewogen vooruitschrijdend gemiddelde (WMA: Weighted Moving Average) wegen recentere observaties meer door.
+
+Een specifieke vorm hiervan is exponentiële afvlakking of het exponentieel vooruitschrijdend gemiddelde (EMA).
+
+$EMA(t) = \alpha x_{t-1} + (1-\alpha ) EMA(t-1)$
+
+met $\alpha$ de smoothing constante ($0<\alpha < 1$) en $t\geq 3$
+
+Er wordt voor exponentieel gekozen omdat oudere observaties een exponentieel kleiner gewicht krijgen.
+
+\subsubsection{Dubbele exponentiële afvlakking}
+We voeren een extra term in om de trend te modelleren.
+We noteren $s_t$ voor de afgevlakte waarde, en $b_t$ voor de schatting van de trend op tijdstip $t > 1$:
+
+$s_t = \alpha w_t + (1-\alpha ) (x_{t-1}+b_{t-1})$
+
+$b_t = \beta (s_t - s_{t-1})+(1-\beta )b_{t-1}$
+
+met $0 < \alpha < 1$ en $0 < \beta < 1$
+
+Voor $s_1$ wordt vaak $x_1$ gekozen.
+Voor $b_1$ zijn er meerdere mogelijkheden.
+
+\textbf{Voorspellen}
+
+Om een voorspelling $F(t+1)$ te maken voor tijdstip $t+1$ gebruiken we:
+
+$F(t+1) = s_t +b_t$
+
+of in het algemen voor tijdstip $t+m$:
+
+$F(t+m) = s_t + mb_t$
+
+\subsubsection{Driedubbele exponentiële afvlakking}
+Deze methode wort ook vaak \textit{de methode van Holt-Winters} genoemd.
+Deze houdt rekening met seizoenaliteit in de data.
+We noteren:
+\begin{itemize}
+\item $L$: lengte van de seizoenale cyclus (aantal tijdseenheden)
+\item $c_t$: term die de seizoenale variaties modelleert
+\item $\gamma$: smoothing factor voor de seizoenale variatie
+\end{itemize}
+
+\begin{equation}
+\begin{array}{rcl}
+s_0 & = & x_0\\
+s_t & = & \alpha\frac{x_t}{c_{t-L}}+(1-\alpha)(s_{t-1}+b_{t-1})\\
+b_t & = & \beta(s_t-s_{t-1})+(1-\beta)b_{t-1}\\
+c_t & = & \gamma\frac{x_t}{s_t}+(1-\gamma)c_{t-L}\\
+\end{array}
+\end{equation}
+
+\textbf{Voorspelling}
+
+Voorspellingen op tijdstip $t+m$:
+
+$F_{t+m}=(s_t+mb_t)c_{t-L+1+(m-1)}\:mod\:L$
 \end{document}
