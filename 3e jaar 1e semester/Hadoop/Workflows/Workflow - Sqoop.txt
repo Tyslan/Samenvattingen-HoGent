@@ -1,0 +1,50 @@
+p54-60
+
+MySql to HDFS
+  1 export data
+    $ sqoop import --connect jdbc:mysql://localhost/hadooptest --username hadoopuser --password password --table employees
+  2 examine folder
+    $ hadoop fs -ls employees
+  3 View result
+    $ hadoop fs -cat employees/part-m-00003
+
+MySql to hive
+  1 Check if hive contains a table with same name as intended export
+    $ hive -e "show tables like 'employees'"
+  2 do sqoop
+    $ sqoop import --connect jdbc:mysql://localhost/hadooptest --username hadoopuser -P --table employees --hive-import --hive-table employees
+  3 Check data in hive
+    $ hive -e "select * from employees"
+    $ hive -e "describe employees"
+
+  Selective import:
+    $ hadoopuser -P --table employees --columns first_name,salary --where "salary > 45000" --hive-import --hive-table salary
+
+Import data from raw query
+  $ sqoop import --connect jdbc:mysql://localhost/hadooptest --username
+    hadoopuser –P --target-dir employees --query 'select first_name, dept,
+    salary, start_date from employees where $CONDITIONS' --hive-import --
+    hive-table employees -m 1
+
+Import hadoop in mySql
+  1 make dir in hadoop
+    $ hadoop fs -mkdir edata
+  2 put data in hadoop dir
+    $ hadoop fs -put newemployees.tsv edata/newemployees.tsv
+  3 Confirm number of records
+    $ echo "select count(*) from employees" | mysql –u hadoopuser -p hadooptest
+  4 Sqoop export
+    $ sqoop export --connect jdbc:mysql://localhost/hadooptest --username
+      hadoopuser -P --table employees --export-dir edata --input-fields-
+      terminated-by '\t'
+
+Hive to MySql
+  1 clear table in mysql
+    $ echo "truncate employees" | mysql –u hadoopuser -p hadooptest
+  2 sqoop export
+    $ sqoop export --connect jdbc:mysql://localhost/hadooptest --username
+      hadoopuser –P --table employees --export-dir
+      /user/hive/warehouse/employees --input-fields-terminated-by '\001' --
+      input-lines-terminated-by '\n'
+  3 validate
+    $ echo "select count(*) from employees" | mysql -u hadoopuser -p hadooptest
