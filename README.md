@@ -28,3 +28,6 @@ Hieronder volgt een lijstje met opsommingen van de vakken waarvoor reeds een sam
 - [x] OO Ontwerpen III
 - [x] Probleemoplossend denken II
 - [ ] Webapplicaties IV
+
+###3e Jaar 1e semester
+- [x] Databanken III
