@@ -1,0 +1,33 @@
+p19-42
+
+Map Reduce work flow
+
+  1 ... extends Mapper
+    1.1 split de lijn op in stukken
+          String line = value.toString();
+          if(line == null)return;
+          String[] words = line.split("char");
+    1.2 kies output formaat en write in dit formaat
+          output.write(n e w 	Text(words[0]),	n e w 	IntWritable(1));
+  2 ... extends Reducer
+    2.1 voer de gewenste reduce functie uit op de input van de reducer
+    2.2 schrijf de output weg
+
+  3 Cleanup
+    Wordt uitgevoerd na de map methode
+    hier kan de output weggeschreven worden (bv als men de zaken opslaat in een
+    Hashmap in de map-methode)
+  4 Setup
+    Wordt uitgevoerd voor de map methode
+    hier kan data uit de conf file gehaald worden
+
+Running jar in hadoop:
+  hadoop jar FilterStock.jar input output
+    input:  folder met input file(s)
+    output: folder waar de resultaten naar geschrijven worden
+            deze folder mag niet bestaan in de HDFS
+
+
+Application.class
+  job.setOutputKeyClass(Text.class);		--> output mapper
+  job.setOutputValueClass(IntWritable.class);	--> output mapper
