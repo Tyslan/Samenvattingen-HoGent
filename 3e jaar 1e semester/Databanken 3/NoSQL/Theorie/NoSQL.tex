@@ -59,4 +59,67 @@ Resources toevoegen aan een bestaande logische eenheid om de capaciteit te verho
 \subsubsection{Horizontaal schalen}
 Meer machines (nodes) toevoegen aan het systeem om de capaciteit te verhogen.
 
+\section{NoSQL}
+\subsection{Wat?}
+NoSQL = Not Only SQL
+
+\begin{itemize}
+\item Geen relationeel model
+\item Draait goed op clusters
+\item Meestal open-source
+\item Schema-less
+\end{itemize}
+
+\subsection{Waarom?}
+NoSQL laat developers toe om met objecten onmiddellijk in de database te stoppen, zonder ze eerste te converteren naar het relationeel model.
+
+NoSQL databanken zijn goedkoper dan relationele databanken.
+De laatste zijn ook niet bedoeld om foto's en dergelijke in op te slaan terwijl dit nu de snelst groeiende data is.
+
+$\rightarrow$ Gebruik de juiste databank voor de juiste toepassing
+
+\subsection{CAP theorem}
+\begin{enumerate}
+\item Consistency: Alle nodes in het systeem zien dezelfde data op hetzelfde moment.
+\item Availability: Wanneer één van de nodes in het systeem uitvalt beperkt het de andere nodes niet in hun functioneren.
+\item Partition Tolerance: Het systeem blijft functioneren bij het willekeurig verliezen van berichten.
+\end{enumerate}
+
+Je kan maar 2 tegelijk garanderen:
+\begin{itemize}
+\item[CA] Single site cluster, hierdoor zijn de nodes altijd met elkaar in contact. Als een partitie bijkomt, blokkeert het systeem.
+\item[CP] Niet alle data is beschikbaar. Wat beschikbaar is, is consistent.
+\item[AP] Het syteem blijft altijd functioneren, maar de data die geretourneerd wordt is niet altijd consistent.
+\end{itemize}
+
+\subsubsection{Voorbeeld: Riak}
+Riak is een distributed key-value database.
+In essentie zijn er drie variabelen:
+\begin{enumerate}
+\item r: het aantal nodes dat moet antwoorden alvorens een read request succesvol wordt beschouwd.
+\item w: het aantal nodes dat moet antwoorden alvorens een write request succesvol wordt beschouwd.
+\item n: de replicatie factor (aantal nodes waarop de data gekopieerd wordt.
+\end{enumerate}
+
+Als een Riak cluster bijvoorbeeld vijf nodes heeft dan kan Riak zorgen voor hoge beschikbaarheid of hoge consistentie door r en w aan te passen.
+\begin{itemize}
+\item Hoge beschikbaarheid: r en w zijn beide laag
+\item Hoge consistentie: r en w zijn beide hoog
+\end{itemize}
+
+\subsection{Verschillende soorten NoSQL databases}
+Er zijn vier soorten NoSSQL databases:
+
+\begin{enumerate}
+\item Key Value: Kan alles ingestopt worden
+\item Document: Werkt makkelijk met objecten (JSON, XML)
+\item Wide Column: Aggregaties berekenen
+\item Graph: Relaties zien
+\end{enumerate}
+
+\subsubsection{Key-Value Databases}
+Dit soort databank kan beschouwd worden als een grote look-up table.
+Een key kan vrijwel van elk datatype zijn.
+Aan deze key kan dan eender welke value gekoppeld zijn.
+
 \end{document}
