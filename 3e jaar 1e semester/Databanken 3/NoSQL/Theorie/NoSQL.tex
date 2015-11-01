@@ -121,5 +121,60 @@ Er zijn vier soorten NoSSQL databases:
 Dit soort databank kan beschouwd worden als een grote look-up table.
 Een key kan vrijwel van elk datatype zijn.
 Aan deze key kan dan eender welke value gekoppeld zijn.
+Het is aan de applicatie om te weten van welk type de value is.
 
+vb: Riak, Redis
+
+\subsubsection{Document Databases}
+In dit type databank worden zelf gedefinieerde objecten opgeslagen in de vorm van JSON, XML, BSON\ldots
+Deze opgeslagen objecten zijn zelf beschrijvend en worden dan documenten genoemd.
+
+vb: MongoDB
+
+\subsubsection{Column Family Stores}
+De data wordt per kolom familie opgeslagen.
+Hierdoor kan men een stukje van een 'rij' opvragen en niet de hele 'rij'.
+Dit resulteert in grote performantie voor aggregaties.
+
+vb: HBase, Cassandra
+
+\subsubsection{Graph Databases}
+Bij dit soort databanken komt het erop neer dat de databank wordt voorgesteld door een graaf.
+Hierbij zijn de nodes de objecten met al hun properties en de bogen zijn dan de relaties tussen de objecten.
+Ook de bogen kunnen in dit soort databank properties hebben.
+De relaties zijn ook persistent gemaakt.
+Dit is veel sneller dan ze telkens te berekenen voor iedere query.
+
+\subsection{Wanneer welke databank}
+\begin{enumerate}
+\item Key-Value:
+	\begin{itemize}
+	\item Opslaan van sessie informatie, user profile, preferences\ldots
+	\item Als er geen er geen relaties zijn tussen de opgeslagen data
+	\end{itemize}
+\item Document:
+	\begin{itemize}
+	\item content management, blogging, web analytics
+	\item er zijn geen complexe transacties nodig zijn 
+	\end{itemize}
+\item Column:
+	\begin{itemize}
+	\item content management, blogging, maintaining counters, expiring usage
+	\item niet gebruiken in vroeg stadium van development of waar de queries nog veranderen
+	\end{itemize}
+\item Graph:
+	\begin{itemize}
+	\item social networks, spatial data, routing information, recommendation engines.
+	\end{itemize}
+\end{enumerate}
+
+\subsection{Schema-less ramification}
+Het belangrijkste gevolg hiervan is dat ontwikkelaars er rekening mee moeten houden dat sommige velden leeg kunnen zijn.
+
+\subsection{Conclusie}
+De opkomst van NoSQL databanken betekend niet dat relationele databanken zullen verdwijnen.
+
+Wel wordt er gehamerd op polyglot persistence.
+Dit wil zeggen dat men de juiste databank moet gebruiken voor de juiste toepassing.
+Polyglot persistence kan toegepast worden binnen een bedrijf, maar ook binnen één applicatie.
 \end{document}
