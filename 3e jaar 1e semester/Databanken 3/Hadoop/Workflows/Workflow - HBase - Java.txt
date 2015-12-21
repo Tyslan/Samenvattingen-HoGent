@@ -1,0 +1,67 @@
+p74-
+
+1 Setup conf and andmin
+    conf = HBaseConfiguration.create();
+    admin = new HBaseAdmin(conf);
+
+2 create table
+  2.1 Instantiating table descriptor class
+  2.2 Adding column families to table descriptor
+  2.3 Execute the table through admin
+
+3 Listing all tables
+  3.1 Getting all the list of tables using HBaseAdmin object
+  3.2 printing all the table names.
+
+4 Disable Table
+  4.1 Verifying weather the table is disabled
+  4.2 Disabling the table using HBaseAdmin object
+
+5 Adding Column Family
+  5.1 Instantiating columnDescriptor object
+  5.2 Disable table
+	5.3 Adding column family
+	5.4 Enable table
+
+6 Deleting Column Family
+  6.1 Use admin to delete the table
+
+7 Check if table exists
+  7.1 Use admin to check if table exists
+
+8 Drop table
+  8.1 Disable table
+  8.2 Use admin to delete table
+
+9 Shutdown HBase client
+  8.1 use admin.shutdown();
+
+10 Insert data
+  10.1 Instantiate Put class
+  10.2 Add values to Put using add(columnfamily,qualifier, value)
+  10.3 Save put instance to table
+  10.4 close table
+
+11 Update data
+  11.1 Instantiate Put class
+  11.2 Update value using add-method
+  11.3 Save put instance to table
+  11.4 close table
+
+12 Reading table
+  12.1 Instantiate get class
+  12.2 Read date to Result class -> result = table.get(Get_instance)
+  12.3 Read values from result
+  12.4 Convert Byte array to output format
+
+13 Scan table
+  13.1 Instantiate Scan class
+  13.2 Scan required columns
+  13.3 Get ResultScanner
+  13.4 Read values from scan result
+  13.5 Close scanner
+
+14 Delete data
+  14.1 Instantiate Delete class
+  14.2 Execute delete instance on table
+  14.3 Close table
