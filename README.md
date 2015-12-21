@@ -29,6 +29,6 @@ Hieronder volgt een lijstje met opsommingen van de vakken waarvoor reeds een sam
 - [ ] Webapplicaties IV
 
 ### 3e Jaar 1e semester
-- [x] Databanken III
+- [x] AI
 - [X] Analyse III
 - [X] Databanken III
