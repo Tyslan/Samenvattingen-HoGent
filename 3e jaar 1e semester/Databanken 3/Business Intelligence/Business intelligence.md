@@ -1,4 +1,4 @@
-# Business intellegence
+# Business intelligence
 
 Datawarehouse:
 - dient om historische data bij te houden.
