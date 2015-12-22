@@ -1,0 +1,126 @@
+# 2. Business Process Management
+## 2.1 Processen en requirements ontdekken
+- Opzetten van het project
+  - Samenstellen van het team
+- Informatie verzamelen
+  - Goed begrip an het proces
+  - Elicitatietechnieken
+- Modelleertaak
+  - Creëren van een procesmodel
+  - Modelleermethode
+- Kwaliteitsborging
+  - Kwaliteitscriteria
+  - Vertrouwen van alle stakeholders
+
+### 2.1.1 Uitdagingen
+1. Gefragmenteerde proceskennis
+2. Domein-experten denken op instance-niveau.
+  1. Er kan geen abstractie gemaakt worden.
+3. Kennis over procesmodellering is zeldzaam.
+  1. Niet iedereen kan de diagrammen lezen.
+
+
+<div class="page-break"></div>
+
+### 2.1.2 Expertise van de procesanalist
+Problemen begrijpen:
+- Kennis van het probleemdomein
+- Kennis van de organisatie
+
+Problemen oplossen:
+- Identificatie van procestriggers
+- Hypothese beheer
+- Uitzetten van doelstellingen
+- Top-down strategie
+
+Modelleerskills
+- Goed gestructureerd, duidelijke layout
+- Systematische labels
+- Expliciete start- en eindpunten
+- Gepaste granulariteit en decompositie
+
+## 2.2 Elicitatietechnieken
+### 2.2.1 Creatieve technieken
+- Brainstorm
+  - 5-10 deelnemers
+  - zoveel mogelijk nieuwe ideeën
+  - Ervaren moderator
+  - Sommige deelnemers zijn veel dominanter dan anderen
+  - Alternatief: Brainwriting via 6-3-5 methode
+- Invalshoek veranderen
+  - 6 Denkhouden van Bono
+- Analogie gebruiken
+  - Analogieën stimuleren creativiteit
+
+### 2.2.2 Uitvraagtechnieken
+- Interviewen
+  - (On)gestructureerd
+  - Open/Gesloten vragen
+  - LSD: Luisteren, Samenvatten, Doorvragen
+  - Neemt veel tijd in beslag
+- Enquête houden
+  - Fysiek of digitaal
+  - Open/Gesloten vragen
+  - Anoniem?
+  - Veel informatie in korte tijd
+  - Snelle verwerking bij gesloten vragen
+  - Vragen kunnen verkeerd geïnterpreteerd worden
+  - Geen lichaamstaal
+
+### 2.2.3 Observatietechnieken
+- Veldobservatie
+  - Gebruiker werkt in bijzijn van analist
+  - Gebruiker kan al dan niet uitleggen wat hij doet
+- Werkstage
+  - Analist voert het werk zelf uit
+  - Tijdrovend, maar diepgaande kennis
+
+### 2.2.4 Documentatie-georiënteerde technieken
+- Systeemarcheologie
+  - Documenten verwijzen naar rollen, activiteiten, business-objecten
+  - Formele documentatie
+- Hergebruik van subprocessen of requirements
+  - Eerder uitgevoerde analyses
+  - Tijd en kosten van analyse reduceren
+
+### 2.2.5 Ondersteunende technieken
+- Mindmaps
+- Workshops
+- CRC kaarten
+  - Class Responability Collaboration
+    - Relevante business-objecten op kaarten schrijven
+- Audio en video opname
+- Use cases
+  - Elementaire bedrijfsprocessen
+  - 1 persoon, tijdspanne en plaats
+  - Deel van een geheel
+  - Structuur aanbrengen bij het elicitatieproces
+- Prototypen
+
+## 2.3 Techniekkeuze
+- Elke techniek heeft voor- en nadelen.
+- Combinatie is dus nodig.
+- Hou rekening met:
+  - Menselijke aspecten:
+    - Communicatieve en persoonlijke vaardigheden van stakeholders
+    - Ervaring met bepaalde technieken
+    - Hoe sterk zijn de stakeholders zich bewust van de requirements
+  - Organisatorische aspecten:
+    - Beschikbaarheid belanghebbenden
+    - Beschikbaar budget en doorlooptijd
+    - Creatieve technieken minder gangbaar bij fixed price/date
+  - Vakinhoudelijke aspecten:
+    - Detailniveau beïnvloed keuze
+    - Ervaring van de analist met bepaalde technieken
+
+## 2.4 Invloed van de bedrijfcultuur
+### 2.4.1 Open cultuur
+Alle medewerkers worden aangemoedigd om hun ideeën en kritiek te uiten.
+
+--> Workshops
+
+### 2.4.2 Strict hiërarchische organisatie
+- Zorg dat iedere stakeholder in gelijke mate aan bod komt.
+- Zorg ervoor dat ideeën en kritiek niet achterwege gehouden worden.
+
+--> anonieme enquêtes
