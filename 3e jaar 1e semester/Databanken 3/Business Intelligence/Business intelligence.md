@@ -18,6 +18,8 @@ ELT:
   - Eenmaal ze in de warehouse zit verandert de data niet meer.
 - Time Variant
 
+<div class="page-break"></div>
+
 ### Sterschema
 #### Fact table
 - foreing keys
