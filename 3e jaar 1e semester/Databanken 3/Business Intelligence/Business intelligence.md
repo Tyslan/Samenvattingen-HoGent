@@ -1,4 +1,4 @@
-# Business intellegence
+# Business intelligence
 
 Datawarehouse:
 - dient om historische data bij te houden.
@@ -17,6 +17,8 @@ ELT:
 - Nonvolatile
   - Eenmaal ze in de warehouse zit verandert de data niet meer.
 - Time Variant
+
+<div class="page-break"></div>
 
 ### Sterschema
 #### Fact table
